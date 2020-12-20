@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app" style="border: 1px solid red;width: 200px;height: 200px;">Karry</div>
+    <script>
+        let div = document.createElement('div')
+        div.innerHTML = 'Alex'
+        div.classList.add('demo')
+        console.log(div);
+
+        //将此div放到body的末尾
+        document.body.appendChild(div)
+
+        let karry = document.querySelector('#app')
+        //绑定单击事件        当鼠标单击时，执行此方法
+        karry.onclick = function () {
+            // karry.remove()
+            app.style.background = 'red'
+        }
+
+
+
+        // // document.body.removeChild(karry)
+        // karry.remove()     //删除此标签
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let str = '张无忌'
+
+        //正则表达式
+        //\d  代表数字
+        //let reg= new RegExp('','')
+
+        //^张  以张开头
+        let reg = /^张/
+        console.log(reg.test(str));
+
+        //8$以8结尾
+        let reg1 = /8$/
+        console.log(reg1.test('2342342348'));
+
+        //[689]$  尾号是否是6或者8或者9
+        let reg3 = /[689]$/
+        console.log(reg3.test('454446'));
+        console.log(reg3.test('454448'));
+        console.log(reg3.test('454449'));
+        console.log(reg3.test('454445'));
+
+        //^(138|138|198) 手机号是否为138/188/198
+        let reg4 = /^(138|188|198)/
+        console.log(reg4.test('138312838128'));
+        console.log(reg4.test('188312838128'));
+        console.log(reg4.test('198312838128'));
+
+        //^\d\d$   必须是两位数字
+        let reg5 = /^\d\d$/
+        console.log(reg5.test('1'));
+        console.log(reg5.test('12'));
+        console.log(reg5.test('1232321123'));
+
+        //^\d{11}$   必须是11位数字
+        let reg6 = /^\d{11}$/
+        console.log(reg6.test('1'));
+        console.log(reg6.test('12'));
+        console.log(reg6.test('11111111111'));
+
+
+
+        //^\d{6,}$   必须是6位数字以上
+        let reg7 = /^\d{6,}$ /
+        console.log(reg6.test('1'));
+        console.log(reg6.test('12'));
+        console.log(reg6.test('11111111111'));
+
+        //^\d{16,18}$   16位~18位数字
+        let reg8 = /^\d{16,18}$ /
+        console.log(reg8.test('1'));
+        console.log(reg8.test('12'));
+        console.log(reg8.test('11111111111111111'));
+
+
+
+        console.log('alex say hi'.replace(/a/g, '$'));
+
+
+        let key = 'a'
+
+        let reg9 = new RegExp(key, 'g')
+        console.log('alex say hi'.replace(reg9, '$'));
+
+        //验证手机号
+        let reg10 = /^1(38|58|35|82|50)\d{8}$/
+        console.log(reg10.test('13838485789'));
+        console.log(reg10.test('18251815424'));
+        console.log(reg10.test('37183748499'));
+
+        //验证中文
+        let reg11 = /^[\u4e00-\u9fa5]$/
+        console.log(reg11.test('李四'));
+        console.log(reg11.test('张三'));
+        console.log(reg11.test('37183748499'));
+
+    </script>
+</body>
+
+</html>

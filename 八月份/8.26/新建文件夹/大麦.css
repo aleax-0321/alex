@@ -1,0 +1,424 @@
+header {
+    height: 72px;
+    box-shadow: 0 2px 16px 0 rgba(220, 220, 220, .5);
+}
+
+.header-top {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+
+}
+
+.top-left {
+    width: 300px;
+    height: 100%;
+    font-size: 16px;
+    color: #2D2D2D;
+}
+
+.top-middle {
+    width: 403px;
+    height: 46px;
+    position: relative;
+}
+
+.top-right {
+    width: 269px;
+    height: 100%;
+}
+
+.top-left img {
+    width: 92px;
+    height: 42px;
+    cursor: pointer;
+}
+
+.left-dingwei {
+    width: 63px;
+    height: 72px;
+    cursor: pointer;
+}
+
+.left-dingwei .one {
+    width: 12px;
+    height: 14px;
+}
+
+.left-dingwei .two {
+    width: 9px;
+    height: 5px;
+}
+
+.top-left .first {
+    width: 100px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.top-left .first h4 {
+    color: #FF1268;
+    font-weight: 400;
+}
+
+.top-middle img {
+    width: 17px;
+    height: 18px;
+    position: absolute;
+    left: 22px;
+    top: 15px;
+}
+
+.top-middle input {
+    width: 319px;
+    height: 46px;
+    padding: 0 10px 0 54px;
+    box-sizing: border-box;
+    outline: none;
+    background-color: #f8f8f8;
+    border: 1px solid #f8f8f8;
+    border-top-left-radius: 46px;
+    border-bottom-left-radius: 46px;
+}
+
+.top-middle div {
+    width: 82px;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    background: #FF1268;
+    cursor: pointer;
+    border-radius: 0 27px 27px 0;
+    color: #FFF;
+}
+
+.top-right .login,
+.top-right .download {
+    width: 62px;
+    height: 100%;
+    font-size: 14px;
+    color: #111;
+    cursor: pointer;
+}
+
+.top-right .lang {
+    width: 90px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.top-right .login img {
+    width: 26px;
+    height: 26px;
+}
+
+.top-right .download img {
+    width: 26px;
+    height: 26px;
+}
+
+.top-right .lang img {
+    width: 26px;
+    height: 26px;
+}
+
+.top-right p:hover {
+    color: #FF1268;
+}
+
+.banner-wrapper {
+    width: 1200px;
+    height: 320px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.banner-left {
+    width: 56px;
+    height: 64px;
+    position: absolute;
+    top: 125px;
+    left: 0;
+    line-height: 64px;
+    text-align: center;
+    background: rgba(0, 0, 0, .5);
+    cursor: pointer;
+    color: #fff;
+}
+
+.banner-right {
+    width: 56px;
+    height: 64px;
+    position: absolute;
+    top: 125px;
+    right: 0;
+    line-height: 64px;
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, .5);
+    cursor: pointer;
+}
+
+.banner-left:hover,
+.banner-right:hover {
+    background: rgba(255, 18, 104, .5);
+}
+
+.hang-wrapper {
+    width: 1202px;
+    height: 118px;
+    margin: 15px auto;
+    border: 1px solid #EBEBEB;
+}
+
+.hang-wrapper li {
+    width: 120px;
+    height: 70px;
+    text-align: center;
+}
+
+.hang-wrapper li div {
+    width: 48px;
+    height: 48px;
+    background-image: url('./images/背景图.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+}
+
+.hang-wrapper li p:hover {
+    color: #FF1268;
+    cursor: pointer;
+}
+
+.main-container {
+    width: 1200px;
+    height: 1873px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.main-wrapper {
+    width: 100%;
+    height: 457px;
+    border: 1px solid #EBEBEB;
+    /* padding: 20px; */
+    /* box-sizing: border-box; */
+}
+
+.main-wrapper h3 {
+    font-size: 24px;
+    color: #111;
+    margin-left: 5px;
+}
+
+.main-wrapper h3 span {
+    font-size: 14px;
+    color: #9B9B9B;
+    margin-right: 23px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.main-wrapper h3 span:hover {
+    color: #FF1268;
+}
+
+.main-box {
+    width: 1160px;
+    height: 360px;
+
+}
+
+.box-left {
+    width: 270px;
+    height: 100%;
+}
+
+.box-left img {
+    width: 270px;
+    height: 100%;
+}
+
+.box-right {
+    width: 870px;
+    height: 100%;
+}
+
+.box-right li {
+    width: 273px;
+    height: 160px;
+}
+
+.box-right li img {
+    width: 118px;
+    height: 159px;
+}
+
+.box-right li .jieshao {
+    width: 153px;
+    height: 160px;
+    padding-left: 15px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.box-right li .jieshao .title {
+    font-size: 14px;
+    color: #4A4A4A;
+    cursor: pointer;
+}
+
+.box-right li .jieshao p {
+    font-size: 12px;
+    margin-top: 14px;
+    color: #9B9B9B;
+    cursor: pointer;
+}
+
+.box-right li .jieshao .price {
+    position: absolute;
+    bottom: 0;
+    font-size: 16px;
+    color: #FF1268;
+    cursor: pointer;
+}
+
+.box-right li .jieshao .price span {
+    font-size: 12px;
+
+}
+
+.box-right li .jieshao .title:hover,
+.box-right li .jieshao p:hover {
+    color: #FF1268;
+}
+
+footer {
+    height: 350px;
+}
+
+.footer-wrapper {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.footer-top {
+    width: 100%;
+    height: 91px;
+}
+
+.footer-top ul li {
+    font-size: 14px;
+}
+
+.footer-top ul {
+    margin: 0 100px 0 100px;
+    padding: 36px 0;
+}
+
+.footer-bottom {
+    width: 100%;
+    height: 258px;
+}
+
+.bottom-left {
+    width: 340px;
+    height: 144px;
+}
+
+.bottom-right {
+    width: 780px;
+    height: 200px;
+}
+
+.bottom-left .logo {
+    margin-top: 20px;
+}
+
+.bottom-left .logo img {
+    width: 167px;
+    height: 60px;
+}
+
+.bottom-left .erweima {
+    margin-left: 30px;
+}
+
+.bottom-left .erweima img {
+    width: 87px;
+    height: 87px;
+}
+
+.bottom-left .erweima p {
+    text-align: center;
+}
+
+.bottom-right .right-top p {
+    width: 98px;
+    height: 27px;
+    background-color: #ff1268;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 20px;
+    line-height: 27px;
+    text-align: center;
+}
+.footer-words{
+    padding-bottom: 6px;
+
+}
+
+.footer-words li {
+    font-size: 13px;
+    color: #111;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+.footer-img .police img{
+    width: 126px;
+    height: 20px;
+}
+.footer-img .blank img{
+    width: 49px;
+    height: 30px;
+}
+.footer-img .belice img{
+    width: 85px;
+    height: 30px;
+}
+.right-tubiao{
+    width: 82px;
+    height: 214px;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    text-align: center;
+}
+.tubiao-kefu{
+    width: 80px;
+    height: 71px;
+    border-bottom: 1px solid #EBEBEB;
+    padding-top: 10px;
+    box-sizing: border-box;
+
+}
+.tubiao-kefu .erji{
+    width: 32px;
+    height: 29px;
+    background-image: url('./images/右图标.png');
+    background-position: 3px -30px;
+    background-size: 100%;
+    margin:0 auto;
+    position: relative;
+}
+.tubiao-kefu .erji p{
+    width: 80px;
+    height: 16px;
+    font-size:12px;
+    position: absolute;
+    top: 33px;
+    right: -24px;
+}

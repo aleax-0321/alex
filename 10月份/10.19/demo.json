@@ -1,0 +1,14 @@
+[
+    {
+        "name":"Alex",
+        "age":26,
+        "married":true,
+        "friends":["karry","jackson"]
+    },
+    {
+        "name":"Alex",
+        "age":18,
+        "married":false,
+        "friends":["karry","jackson"]
+    }
+]

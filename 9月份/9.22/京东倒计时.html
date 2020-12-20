@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../通用样式.css">
+</head>
+
+<body>
+    <script src="../js/通用.js"></script>
+
+    <div class="timer flex a-c">
+        <div class="h item flex a-c j-c">00</div>
+        <div class="code">:</div>
+        <div class="m item flex a-c j-c">00</div>
+        <div class="code">:</div>
+        <div class="s item flex a-c j-c">00</div>
+    </div>
+    <script>
+        let endtime = '2020-09-22 15:00:00'
+
+        let end = new Date(endtime)
+
+        setInterval(() => {
+            let now = new Date()
+
+            let { h, m, s } = getHMSFromMS(end - now)
+
+            let h_lable = document.querySelector('.h')
+            h_lable.innerHTML = h
+            let m_lable = document.querySelector('.m')
+            m_lable.innerHTML = m
+            let s_lable = document.querySelector('.s')
+            s_lable.innerHTML = s
+
+        }, 1000);
+
+    </script>
+</body>
+
+</html>

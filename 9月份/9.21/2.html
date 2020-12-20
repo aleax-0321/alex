@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="alex" style="width: 200px;">
+    <script>
+        let alex = document.querySelector('#alex')
+
+        //获取焦点
+        alex.onfocus = function () {
+            alex.style.width = '300px'
+        }
+
+        //失去焦点
+        alex.onblur = function () {
+            alex.style.width = '200px'
+            if (!alex.value) {
+                console.log('内容不能为空');
+                alex.style.borderColor = 'red'
+            }
+        }
+    </script>
+</body>
+
+</html>

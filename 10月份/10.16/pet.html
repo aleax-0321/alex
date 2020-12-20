@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Pet(pname, page) {
+            this.name = pname
+            this.age = page
+            this.owner = 'Alex'
+        }
+        Pet.prototype.introduce = function () {
+            console.log('大家好，我叫' + this.name + '，今年' + this.age + '岁啦~');
+        }
+
+        function PetDog() {
+            this.type = '狗'
+            Pet.apply(this, arguments)
+        }
+        PetDog.prototype.play = function () {
+            console.log(this.name + '喜欢玩飞盘哦~');
+        }
+
+        PetDog.prototype = new Pet()
+        
+        let dog1 = new PetDog('karry', '7')
+        console.log(dog1.name);
+        dog1.introduce()
+        dog1.play()
+
+
+
+        function PetFish() {
+            this.type = '鱼'
+        }
+        PetFish.prototype.play = function () {
+            console.log('吐泡泡哦~');
+        }
+
+
+        function PetCat() {
+            this.type = '猫'
+        }
+        PetCat.prototype.play = function () {
+            console.log('玩毛线球哦~');
+        }
+    </script>
+</body>
+
+</html>

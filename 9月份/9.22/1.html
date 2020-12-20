@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../通用样式.css">
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .item {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .container {
+            transform: translateY(0vh);
+            transition: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../js/通用.js"></script>
+    <div class="container">
+        <div class="item" style="background: rgb(0, 255, 200);"></div>
+        <div class="item" style="background: rgb(255, 230, 0);"></div>
+        <div class="item" style="background: rgb(21, 255, 0);"></div>
+        <div class="item" style="background: rgb(0, 4, 255);"></div>
+        <div class="item" style="background: rgb(255, 0, 212);"></div>
+
+    </div>
+    <script>
+        let container = document.querySelector('.container')
+        let i = 0
+        // let endtime = 0
+        // window.onmousewheel = function (e) {
+        //     if (new Date() - endtime < 1000) return;
+        //     if (e.wheelDeltaY < 0) {  //鼠标向下滚动
+        //         if (i === 4) return;
+        //         i++
+        //     } else {
+        //         if (i === 0) return;   //鼠标向上滚动
+        //         i--
+        //     }
+        //     container.style.transform = `translateY(-${100 * i}vh)`
+        //     endtime = new Date()
+        // }
+
+        window.onmousewheel = _.throttle(function (e) {
+            if (e.wheelDeltaY < 0) {  //鼠标向下滚动
+                if (i === 4) return;
+                i++
+            } else {
+                if (i === 0) return;   //鼠标向上滚动
+                i--
+            }
+            container.style.transform = `translateY(-${100 * i}vh)`
+        }, 1000)
+
+
+
+    </script>
+</body>
+
+</html>

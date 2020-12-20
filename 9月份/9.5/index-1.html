@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //对象  Object
+        //类    Class
+        //类是对象的抽象，对象是类的实例化
+
+        //字面量方式定义对象，格式为let obj={key:value,key1:value1}
+        let zhangsan = {
+            name: '张三',
+            age: 20,
+            gender: '男',
+            hobbies: ['唱跳', 'Rap', '篮球'],
+            eat: function () {
+                console.log('吃饭');
+            },
+            sleep: function () {
+                console.log('睡觉');
+            }
+        }
+
+        //凡是a.b   a就是对象
+        console.log(zhangsan.name);
+        zhangsan.eat()
+
+
+        let ma = {
+            name: '马',
+            color: '红',
+            positon: {
+                x: 1,
+                y: 0
+            },
+            //move:function(x,y)
+            move(x, y) {
+                //指向方法的调用者，如  a.move   this=>a 如果没人调用，this=>windows
+                console.log();
+                //更新位置
+                this.positon.x = x
+                this.positon.y = y
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 定义模板 -->
+    <script src="./js/template-web.js"></script>
+    <script id="tpl-user" type="text/html">
+
+   <h2>{{title}}</h2>
+
+   <ul>
+    {{each myclass}}
+    <li>{{$index}} - {{$value}}</li>
+{{/each}}
+   </ul>
+
+ </script>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        //定义数据
+        let obj = {
+            title: '科目',
+            myclass: ['语文', '数学', '英语']
+        }
+        let str = template('tpl-user', obj) 
+        $('body').append(str)
+    </script>
+
+</body>
+
+</html>

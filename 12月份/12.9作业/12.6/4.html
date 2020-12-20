@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .container {
+            width: 700px;
+            height: 200px;
+            background-color: #eee;
+            margin: 100px auto;
+        }
+
+        .title {
+            background-color: #ccc;
+            padding: 10px 0;
+        }
+
+        .container ul {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        #del {
+            padding-left: 2px;
+            border: 1px solid red;
+        }
+
+        #choose {
+            margin-left: 20px;
+            border: 1px solid rgb(39, 146, 207)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">你的选择是：
+            <span v-for='(item,index) in arr' id="choose">{{item}} <span id="del" @click='del(index)'>x</span></span>
+
+        </div>
+
+        <ul v-for="(item,index) in list">
+            <p>{{item.title}}</p>
+            <li v-for='(res,i) in item.list' @click='add(res)'>
+                {{res}}
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script>
+        new Vue({
+            el: '.container',
+            data: {
+                arr: [],
+                list: [
+                    {
+                        title: '品牌:',
+                        list: ["苹果", "小米", "锤子", "魅族", "华为", "三星", "OPPO", "vivo", "乐视", "360", "中兴", "索尼"]
+                    },
+                    {
+                        title: '尺寸:',
+                        list: ["3.0英寸以下", "3.0-3.9英寸", "4.0-4.5英寸", "4.6-4.9英寸", "5.0-5.5英寸", "6.0英寸以上"]
+                    },
+                    {
+                        title: '系统:',
+                        list: ["安卓", "(", "Android", ")", "苹果", "(", "IOS", ")", "微软", "(", "WindowsPhone",
+                            ")", "无", "其他"
+                        ]
+                    },
+                    {
+                        title: '网络:',
+                        list: ["联通3G", "双卡单4G", "双卡双4G", "联通4G", "电信4G", "移动4G"]
+                    }
+                ]
+            },
+            methods: {
+                add(res) {
+                    this.arr.push(res);
+                },
+                del(index){
+                    this.arr.splice(index, 1)
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

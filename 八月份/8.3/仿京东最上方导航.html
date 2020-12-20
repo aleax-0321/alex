@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .box {
+            height: 30px;
+            background-color: #f1f1f1;
+            padding-left: 20px;
+
+        }
+
+        ul li {
+            display: inline-block;
+            line-height: 30px;
+            font-size: 12px;
+        }
+
+        /* ul li:not(:last-of-type)::after{  */
+        ul li:not(:first-of-type)::before {
+            content: "丨";
+            padding: 0 20px;
+            color: #ccc;
+
+        }
+
+        span {
+            color: red;
+        }
+
+        .a {
+            background-image: url("./images/tel.png");
+            background-repeat: no-repeat;
+            background-position: 34px 6px;
+        }
+
+        .a:hover {
+            background-image: url("./images/tel.png");
+            background-repeat: no-repeat;
+            background-position: 34px -18px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="box">
+        <li>你好，请登录 <span>免费注册</span></li>
+        <li>我的订单</li>
+        <li>我的京东</li>
+        <li>京东会员</li>
+        <li>企业采购</li>
+        <li class="a">手机京东</li>
+        <li>关注京东</li>
+        <li>客户服务</li>
+        <li>客户服务</li>
+
+
+
+    </ul>
+</body>
+
+</html>

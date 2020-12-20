@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let t = new Date()
+        let ymr = [t.getFullYear(), t.getMonth() + 1, t.getDate()].join('/')
+        console.log(ymr);
+        let hms = [t.getHours(), t.getMinutes(), t.getSeconds()].join(':')
+        console.log(hms);
+
+        let str = '星期' + '日一二三四五六'[t.getDay()]
+        console.log(str);
+        console.log(ymr + '' + hms + str);
+    </script>
+</body>
+
+</html>

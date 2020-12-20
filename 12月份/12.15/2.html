@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+
+    <style>
+        .btn-blue {
+            background-color: rgb(10, 174, 244);
+            outline: none;
+            border: none;
+            width: 50px;
+            height: 30px;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .btn-worm{
+            background-color: rgb(240, 233, 9);
+            outline: none;
+            border: none;
+            width: 50px;
+            height: 30px;
+            border-radius: 5px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <my-btn title="登录" type='btn-blue'></my-btn>
+        <my-btn title="注册" type='btn-worm'></my-btn>
+    </div>
+
+    <template id="temp1">
+        <div>
+            <button :class="type">{{title}}</button>
+        </div>
+    </template>
+    <script>
+        Vue.component('my-btn', {
+            props: ['title', 'type'],
+            template: '#temp1'
+        })
+        let vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

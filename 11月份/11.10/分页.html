@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <style>
+        .box {
+            width: 700px;
+            min-height: 400px;
+            border: 1px solid skyblue;
+            margin: 50px auto;
+            padding-left: 30px;
+        }
+
+        .box ul li {
+            height: 35px;
+        }
+
+        #fy {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3>新闻中心</h3>
+        <div class="li">
+
+        </div>
+        <div id="fy"></div>
+    </div>
+</body>
+
+<script id="tpl-news" type="text/html">
+    <ul>
+     {{each listData}}
+     <li><a href="#">{{$value.title}}</a></li>
+     {{/each}}
+    </ul>
+ 
+  </script>
+
+<script src="./js/template-web.js"></script>
+<script src="./layui/layui.all.js"></script>
+<script>
+    let $ = layui.jquery
+    let laypage = layui.laypage
+
+
+    laypage.render({
+        elem: 'fy'
+        , count: 49 //数据总数，从服务端得到
+        , jump: function (obj, first) {
+            //obj包含了当前分页的所有参数，比如：
+            console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
+            console.log(obj.limit); //得到每页显示的条数
+
+
+
+            $.ajax({
+
+                type: "get",
+                url: "http://47.114.95.159:3001/getnews",
+                data: { curr: obj.curr, limit: obj.limit },
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                    let str = template('tpl-news', result)
+                    $('.li').html(str)
+                }
+            });
+        }
+    });
+
+</script>
+
+</html>

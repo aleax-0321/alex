@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <dl v-for="(item, index) in list" :key="index">
+            <dt>
+                {{item.category_name}}
+            </dt>
+            <dd v-for="(i, j) in item.list" :key="j">
+                {{i.good_name}} {{i.good_price}}
+            </dd>
+        </dl>
+
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script>
+
+    <script>
+        new Vue({
+            el: '.container',
+            data: {
+                list: []
+            },
+            mounted() {
+                axios.get("https://www.fastmock.site/mock/4f60d566644d6646e94d679ea86f9287/aixue8/test1104")
+                    .then(res => {
+                        console.log(res.data.userlist)
+
+                        this.list = res.data.userlist
+                    })
+            },
+        })
+    </script>
+</body>
+
+</html>

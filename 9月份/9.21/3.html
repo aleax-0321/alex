@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+        }
+
+        #container .menu {
+            width: 100px;
+            height: 200px;
+            background: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+    <script>
+        let container = document.querySelector('#container')
+        container.oncontextmenu = function (e) {
+            e.preventDefault();
+
+            //找目前的菜单
+            let menu = document.querySelector('#container .menu')
+            //如果不存在则新建一个
+            if (!menu) {
+                menu = document.createElement('ul')
+                menu.classList.add('menu')
+                container.appendChild(menu)
+            }
+            menu.style.left = e.pageX + 'px'
+            menu.style.top = e.pageY + 'px'
+        }
+
+        window.onclick = function (e) {
+            //触发本次事件的DOM元素
+            let menu = document.querySelector('#container .menu')
+            if (menu) {
+                //如果e.target是menu内部的元素，则不关闭
+                if (!menu.contains(e.target))
+                    menu.remove()
+            }
+        }
+
+    </script>
+</body>
+
+</html>

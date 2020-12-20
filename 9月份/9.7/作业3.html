@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let gameName = prompt('欢迎来到宠物游戏，请选择操作： 1.登录   2.注册   3.退出')
+        while (true) {
+            if (gameName == 1) {
+                gameName = prompt('登录界面 ')
+                break
+            }
+            else if (gameName == 2) {
+                gameName = prompt('注册界面')
+                break
+            }
+            else if (gameName == 3) {
+                console.log('欢迎下次使用');
+                break
+            }
+            else {
+                console.log('输入错误，请重新输入');
+                // alert('输入错误，请重新输入')
+                gameName = prompt('欢迎来到宠物游戏，请选择操作： 1.登录   2.注册   3.退出')
+            }
+        }
+        
+
+    </script>
+</body>
+
+</html>

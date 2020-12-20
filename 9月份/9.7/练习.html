@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function wangzhe(uname, type, blood, attack) {
+            this.name = uname
+            this.type = type
+            this.blood = blood
+            this.attack = attack
+        }
+        let lp = new wangzhe('廉颇', '力量型', '500血量', '攻击：近战')
+        console.log(lp.name, lp.type, lp.blood, lp.attack);
+        let hy = new wangzhe('后裔', '射手型', '100血量', '攻击：远程')
+        console.log(hy.name, hy.type, hy.blood, hy.attack);
+
+        let obj = {
+            name: '司凤',
+            age: 1500,
+            sex: '男'
+        }
+        for (let k in obj) {
+            console.log(k, obj[k]);
+        }
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        let random = getRandom(1, 50)
+        console.log(random);
+        // while (true) {
+        //     let num = prompt('你来猜？ 输入1~50之间的数字')
+        //     if (num > random) {
+        //         alert('你猜大了')
+        //     }
+        //     else if (num < random) {
+        //         alert('你猜小了')
+        //     } else {
+        //         alert('你猜对啦')
+        //         break
+        //     }
+        // }
+        // for (let i = 1; i <= 10; i++) {
+        //     let num = prompt('你来猜？ 输入1~50之间的数字')
+        //     if (num > random) {
+        //         alert('你猜大了')
+        //     }
+        //     else if (num < random) {
+        //         alert('你猜小了')
+        //     } else {
+        //         alert('你猜对啦')
+        //         break
+        //     }
+        // }
+        // alert('只有十次机会哦')
+        function getTime() {
+            let time = new Date()
+            let h = time.getHours()
+            h = h < 10 ? '0' + h : h
+            let m = time.getMinutes()
+            m = m < 10 ? '0' + m : m
+            let s = time.getSeconds()
+            s = s < 10 ? '0' + s : s
+            return h + ':' + m + ':' + s
+        }
+        console.log(getTime());
+
+        function conutDown(time) {
+            let nowTime = +new Date()     //返回当前的时间的总秒数
+            let inputTime = +new Date(time)  //返回输入时间的总秒数
+            let times = (inputTime - nowTime) / 1000     //剩余时间的总和
+            let d = parseInt(times / 60 / 60 / 24)    //天
+            d = d < 10 ? '0' + d : d
+            let h = parseInt(times / 60 / 60 % 24)     //小时
+            h = h < 10 ? '0' + h : h
+            let m = parseInt(times / 60 % 60)     //分
+            m = m < 10 ? '0' + m : m
+            let s = parseInt(times % 60)        //秒
+            s = s < 10 ? '0' + s : s
+            return d + '天' + h + '时' + m + '分' + s + '秒'
+        }
+        console.log(conutDown('2020-9-7 14:00:00'));
+    </script>
+</body>
+
+</html>

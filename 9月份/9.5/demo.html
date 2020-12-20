@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [22, 5555, 444, 666, 66, 33]
+        function filter(back) {
+            let res = []
+            for (let i = 0; i < arr.length; i++) {
+                let isok = back(arr[i])
+                if (isok) res.push(arr[i])
+            }
+            return res
+        }
+        console.log(filter(function (item) {
+            return item > 200
+        }));
+
+
+
+        function find(back) {
+            let res = []
+            for (let i = 0; i < arr.length; i++) {
+                let isok = back(arr[i])
+                if (isok) return arr[i]
+            }
+            return res
+        }
+        console.log(find(function (item) {
+            return item > 200
+        }));
+
+
+
+        function some(back) {
+            for (let i = 0; i < arr.length; i++) {
+                //如果满足条件，则直接返回true
+                let isok = back(arr[i])
+                if (isok) return true
+            }
+            return false
+        }
+        console.log(some(function (item) {
+            return item > 200
+        }));
+
+
+        function every(back) {
+            for (let i = 0; i < arr.length; i++) {
+                //如果有一个不满足条件，则直接返回false
+                let isok = back(arr[i])
+                if (!isok) return false
+            }
+            return true
+        }
+        console.log(every(function (item) {
+            return item > 200
+        }));
+    </script>
+</body>
+
+</html>

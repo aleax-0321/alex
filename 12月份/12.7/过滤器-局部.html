@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <p>{{list|fn}}</p>
+        <p>{{num|fn1}}</p>
+        <p>{{time|fn2}}</p>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script>
+        let t = new Date()
+
+        new Vue({
+            el: '.container',
+            data: {
+                list: 'hello',
+                num: 292.6955,
+                time: t
+
+            },
+            filters: {
+                //首字母大写
+                fn(a) {
+                    return a.charAt(0).toUpperCase() + a.slice(1)
+                },
+
+                //四舍五入
+                fn1(b) {
+                    return b.toFixed(3)
+                },
+
+                //日期格式化
+                fn2(c) {
+                    return c.toLocaleString()
+                }
+
+            }
+        })
+
+    </script>
+</body>
+
+</html>

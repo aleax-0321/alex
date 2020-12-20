@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        function CreateCookie(key, value, num) {
+            let timer = new Date()
+            timer.setDate(timer.getDate() + num)
+            document.cookie = `${key}=${value};expires=${timer}`
+        }
+        CreateCookie('class', '30', 7)
+        CreateCookie('Alex', '18', 7)
+
+        function getCookie(key) {
+            let arr = document.cookie.split('; ')
+            for (let i = 0; i < arr.length; i++) {
+                let arr2 = arr[i].split('=')
+                if (arr2[0] === key) {
+                    return arr2[1]
+                }
+            }
+        }
+        console.log(getCookie('class'));
+        console.log(getCookie('Alex'));
+
+        function removeCookie(key) {
+            let timer = new Date()
+            timer.setDate(timer.getDate() - 1)
+            document.cookie = `${key}=;expires=${timer}`
+        }
+
+        removeCookie('class')
+
+    </script>
+</body>
+
+</html>

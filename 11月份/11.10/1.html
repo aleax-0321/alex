@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+</head>
+
+<body>
+    <button type="button" class="layui-btn layui-btn-warm" id="btn">按我</button>
+
+    <script src="./layui/layui.all.js"></script>
+    <script>
+
+        let $ = layui.jquery
+        let layer = layui.layer
+
+        $('#btn').click(function (e) {
+            e.preventDefault();
+            layer.confirm('点我干嘛呢？', {
+                title: '别看我哦！',
+                // area:['500px','500px']        //宽高
+                // offset: 'l',                     //坐标
+                icon: 6,
+                shade: ['0.5', 'pink'],
+            }, function (index) {
+                console.log('你确认了！');
+                layer.close(index)
+            },function(index){
+                console.log('你取消了！');
+                layer.close(index)
+            }
+
+
+            )
+        });
+    </script>
+</body>
+
+</html>

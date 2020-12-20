@@ -1,0 +1,2824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            padding-top: 30px;
+        }
+
+        .head {
+            width: 1080px;
+            height: 34px;
+            margin: 0 auto 25px;
+        }
+
+        .head .head-douban {
+            width: 160px;
+            height: 34px;
+            background-image: url("./images/logo_db@2x.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            float: left;
+            margin-right: 20px;
+        }
+
+        .head .head-middle {
+            width: 270px;
+            height: 30px;
+            float: left;
+            padding-left: 5px;
+            border: 1px solid #c3c3c3;
+
+        }
+
+        .head .head-middle input {
+            width: 230px;
+            height: 30px;
+            border: none;
+            outline: none;
+            font-size: 13px;
+        }
+
+        .head .head-middle span {
+            width: 30px;
+            height: 30px;
+            background-image: url("./images/bn_srh_1.png");
+            float: right;
+            background-repeat: no-repeat;
+            background-position: 8px 8px;
+        }
+
+        .head-nav {
+            width: 515px;
+            height: 21px;
+            float: right;
+            margin-top: 6px;
+        }
+
+        .head-nav ul li {
+            width: 40px;
+            height: 20px;
+            float: left;
+            margin-right: 14px;
+            background-image: url("./images/anony_nav_logo.png");
+            background-size: cover;
+        }
+
+        .middle-container {
+            width: auto;
+            height: 306px;
+            background-image: url("./images/16ad990ec23uwn790d4.jpg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 100px 0px;
+            margin-bottom: 25px;
+            background-color: #edf4ed;
+        }
+
+        .middle-wrapper {
+            width: 950px;
+            height: 100%;
+            margin: 0 auto;
+            /* border: 1px solid red; */
+        }
+
+        .middle-wrapper .middle-input {
+            width: 300px;
+            height: 300px;
+            /* border: 1px solid rebeccapurple; */
+            float: right;
+            padding: 30px 10px 10px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .middle-wrapper .middle-lianjie {
+            width: 150px;
+            height: 120px;
+            /* border: 1px solid rebeccapurple; */
+            float: right;
+            margin-right: 20px;
+            margin-top: calc((306px - 120px)/2);
+        }
+
+        .login-nav {
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .login-nav li {
+            border-bottom: 1px solid rebeccapurple;
+            float: left;
+            width: 50%;
+            height: 28px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 13px;
+            line-height: 28px;
+            cursor: pointer;
+        }
+
+        .login-nav li:first-of-type {
+            color: #333;
+            font-weight: 600;
+            border-bottom: 1px solid #494949;
+        }
+
+        .login-nav li:last-of-type {
+            color: #9b9b9b;
+            border-bottom: 1px solid #ececec;
+        }
+
+        .xieyi {
+            margin-bottom: 10px;
+            font-size: 12px;
+            color: #9b9b9b;
+            margin-bottom: 10px;
+        }
+
+        .xieyi a {
+            color: #41ac52;
+        }
+
+        .login-tel {
+            height: 34px;
+            border: 1px solid #e4e6e5;
+            margin-bottom: 10px;
+            background-color: #fff;
+            border-radius: 3px;
+        }
+
+        .tel86 {
+            width: 50px;
+            line-height: 36px;
+            font-size: 15px;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            float: left;
+        }
+
+        .tel86::after {
+            content: "";
+            width: 0;
+            border-right: 1px solid rgba(0, 0, 0, .12);
+            position: absolute;
+            height: 80%;
+            top: 10%;
+            right: 0;
+        }
+
+        .tel-input {
+            float: left;
+        }
+
+        .tel-input input {
+            border: none;
+            outline: none;
+            padding-left: 10px;
+            height: 32px;
+            margin-top: 1px;
+        }
+
+        .get-code {
+            color: #41ac52;
+            line-height: 35px;
+            font-size: 13px;
+            float: right;
+            padding: 0 10px;
+        }
+
+        .login-btn {
+            height: 34px;
+            background-color: rgba(66, 189, 86, .5);
+            line-height: 34px;
+            text-align: center;
+            color: #fff;
+            border-radius: 3px;
+        }
+
+        .check-auto label,
+        .no-code {
+            user-select: none;
+            font-size: 13px;
+        }
+
+        .check-auto {
+            float: left;
+
+        }
+
+        .no-code {
+            float: right;
+            color: #41ac52;
+        }
+
+        .login-check {
+            height: 40px;
+            padding-top: 10px;
+            box-sizing: border-box;
+        }
+
+        .other {
+            width: 250px;
+            height: 34px;
+            border-top: 1px solid #ddd;
+            padding-top: 6px;
+            box-sizing: border-box;
+
+        }
+
+        .other p {
+            color: #9b9b9b;
+            font-size: 11px;
+            line-height: 22px;
+        }
+
+        .other div {
+            width: 22px;
+            height: 22px;
+            margin-left: 12px;
+        }
+
+        .wx {
+            background-image: url('./images/下载.svg');
+            background-size: contain;
+        }
+
+        .wb {
+            background-image: url('./images/下载\ \(1\).svg');
+            background-size: contain;
+
+        }
+
+        .other p,
+        .other div {
+            float: left;
+        }
+
+        .erweima {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-image: url('./images/erweima.png');
+            background-size: contain;
+
+        }
+
+        .douban-banben {
+            margin: 7px 0;
+            font-size: 25px;
+            color: #111;
+            line-height: 24px;
+        }
+
+        .bottom-download {
+            margin-top: 18px;
+
+        }
+
+        .download-app {
+            width: 115px;
+            height: 30px;
+            background-color: #00B51D;
+            color: #ffff;
+            line-height: 30px;
+            text-align: center;
+            font-size: 12px;
+            border-radius: 2px;
+            float: left;
+        }
+
+        .download-erweima {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #48aa0d;
+            float: right;
+            box-sizing: border-box;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .download-erweima:hover .erweima-hover {
+            display: block;
+        }
+
+        .download-erweima>img {
+            width: 28px;
+            height: 28px;
+
+        }
+
+        .erweima-hover {
+            width: 200px;
+            height: 226px;
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            border-radius: 2px;
+            padding: 20px 20px 5px;
+            box-sizing: border-box;
+            background-color: #fff;
+            display: none;
+        }
+
+        .erweima-hover img {
+            width: 160px;
+            height: 160px;
+        }
+
+        .erweima-hover p {
+            font-size: 12px;
+            color: #666;
+            margin: 13px 0;
+        }
+
+        a:link {
+            color: #333333;
+            font-size: 13px;
+        }
+
+        a:visited {
+            color: #669;
+        }
+
+        a:hover {
+            color: #fff;
+            background: #37a;
+        }
+
+        a:active {
+            background: #f93;
+            color: #fff;
+        }
+
+        .anony-erdian {
+            height: 525px;
+            /* border: 1px solid red; */
+            padding: 10px 0;
+            margin-bottom: 30px;
+        }
+
+        .anony-wrapper {
+            width: 950px;
+            height: 526px;
+            margin: 0 auto;
+            /* border: 1px solid red; */
+        }
+
+        .mod h2 {
+            font: 15px;
+            color: #072;
+            margin: 0 0 12px 0;
+        }
+
+        .neirong ul {
+            width: 360px;
+            height: 398px;
+            float: left;
+            /* border: 1px solid red; */
+        }
+
+        .neirong ul li img {
+            width: 170px;
+        }
+
+        .neirong ul li {
+            float: left;
+            width: 170px;
+            margin: 10px 0 0 10px;
+            box-sizing: border-box;
+        }
+
+        .neirong ul li p span {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .anony-wrapper .jieshi {
+            width: 275px;
+            height: 393px;
+            /* border: 1px solid red; */
+            float: left;
+            margin-left: 20px;
+        }
+
+        .anony-wrapper .jieshi ul p span {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .anony-wrapper .jieshi ul li:not(:first-of-type) {
+            margin-top: 12px;
+        }
+
+        .anony-wrapper .huati {
+            width: 265px;
+            height: 508px;
+            /* border: 1px solid red; */
+            float: right;
+            box-sizing: border-box;
+        }
+
+        .anony-wrapper .huati img {
+            width: 250px;
+            height: 125px;
+        }
+
+        .anony-wrapper .huati .huati-wenzi h2 {
+            font: 15px Arial, Helvetica, sans-serif;
+            color: #072;
+            margin: 0 0 12px 0;
+
+        }
+
+        .anony-wrapper .huati .huati-wenzi p {
+            margin-bottom: 15px;
+            font-size: 13px;
+            line-height: 1;
+            color: #aaaaaa;
+        }
+
+        .head-shijian {
+            width: 950px;
+            height: 555px;
+            margin: 0 auto;
+            /* border: 1px solid red; */
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            font: 15px Arial, Helvetica, sans-serif;
+            color: #072;
+            margin: 0 0 12px 0;
+        }
+
+        .head-shijian ul {
+            width: 830px;
+        }
+
+        .head-shijian ul li {
+            width: 100px;
+            float: left;
+            margin: 0 60px 30px 0;
+        }
+
+
+        .head-shijian ul li .erji a img {
+            position: absolute;
+            left: 78px;
+            top: 150px;
+            width: 14px;
+            height: 14px;
+        }
+
+        .head-shijian img {
+            width: 100px;
+            margin-bottom: 10px;
+        }
+
+        .head-shijian ul li p {
+            text-align: center;
+        }
+
+        .head-shijian .shijian {
+            color: #494949;
+            font-size: 24px;
+            margin-right: 20px;
+        }
+
+        .film-container {
+            height: 610px;
+            /* border: 1px solid red; */
+            padding: 10px 0;
+            margin-bottom: 30px;
+        }
+
+        .film-wrapper {
+            width: 950px;
+            height: 570px;
+            /* border: 1px solid rebeccapurple; */
+            margin: 0 auto;
+        }
+
+        .film-left {
+            width: 100px;
+            height: 277px;
+            /* border: 1px solid rebeccapurple; */
+            float: left;
+
+        }
+
+        .film-middle {
+            width: 535px;
+            height: 522px;
+            /* border: 1px solid rebeccapurple; */
+            float: left;
+
+        }
+
+        .film-right {
+            width: 265px;
+            height: 570px;
+            /* border: 1px solid rebeccapurple; */
+            float: right;
+
+        }
+
+        a.biaoti:link {
+            font-size: 24px;
+            color: #27a;
+        }
+
+        a.biaoti:visited {
+            font-size: 24px;
+        }
+
+        a.biaoti:hover {
+            font-size: 24px;
+            background: #37a;
+        }
+
+        a.biaoti:active {
+            font-size: 24px;
+            color: #fff;
+            background: #f93;
+        }
+
+        .film-left {
+            margin-bottom: 12px;
+        }
+
+        a.a27:link {
+            font-size: 14px;
+            color: #27a;
+        }
+
+        a.a27:visited {
+            color: #669;
+        }
+
+        a.a27:hover {
+            background: #37a;
+        }
+
+        a.a27:active {
+            color: #fff;
+            background: #f93;
+        }
+
+        .film-left ul li {
+            margin-top: 5px
+        }
+
+        .film-ing h3 {
+            margin-bottom: 12px;
+        }
+
+        .film-list {
+            width: 580px;
+            height: 488px;
+            /* border: 1px solid red;   */
+        }
+
+        .film-list ul li {
+            width: 133px;
+            height: 224px;
+            /* border: 1px solid red; */
+            float: left;
+
+        }
+
+        .film-list ul li img {
+            width: 100px;
+            height: 140px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            /* box-sizing: border-box; */
+        }
+
+        .film-list ul li .year {
+            width: 133px;
+            height: 18px;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+
+        .film-list .mark {
+            width: 133px;
+            height: 19px;
+            margin: 0 auto;
+            font-size: 12px;
+            padding-left: 25px;
+            box-sizing: border-box;
+        }
+
+        .mark .mark-xingji {
+            width: 55px;
+            height: 11px;
+            background-image: url("./images/电影images/2.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 0px -12px;
+            float: left;
+        }
+
+        .mark span {
+            float: left;
+            margin-left: 4px;
+            color: #e09015;
+            margin-bottom: 2px;
+            box-sizing: border-box;
+
+        }
+
+        .film-list .buy {
+            width: 68px;
+            height: 23px;
+            background: #1c8bd0;
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 2px;
+            font-size: 12px;
+            text-align: center;
+            box-sizing: border-box;
+            margin-left: 30px;
+        }
+
+        .film-fenlei {
+            width: 265px;
+            height: 170px;
+            /* border: 1px solid red; */
+        }
+
+        .filme-recelt {
+            width: 265px;
+            height: 340px;
+            /* border: 1px solid red; */
+        }
+
+        .film-fenlei ul li {
+            float: left;
+            width: 48px;
+            height: 19px;
+            /* border: 1px solid red;    */
+
+        }
+
+        .film-fenlei ul li a {
+            font-size: 12px;
+        }
+
+        .filme-recelt ol {
+            width: 265px;
+            height: 306px;
+            /* border: 1px solid red; */
+
+        }
+
+        .filme-recelt ol li {
+            width: 265px;
+            height: 25px;
+            list-style-type: decimal;
+            list-style-position: inside;
+            margin-bottom: 6px;
+            padding-bottom: 5px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #eaeaea;
+            font-size: 12px;
+        }
+
+        .filme-recelt ol li a {
+            margin-left: 5px;
+        }
+
+        .club-container {
+            /* width: 1519px; */
+            height: 620px;
+            /* border: 1px solid red; */
+            padding: 40px 0 20px;
+            margin-bottom: 20px;
+            background: #f7f7f7;
+        }
+
+        .club-wrapper {
+            width: 950px;
+            height: 560px;
+            margin: 0 auto;
+            /* border: 1px solid red; */
+            /* box-sizing: border-box; */
+        }
+
+        .club-left {
+            width: 100px;
+            height: 250px;
+            /* border: 1px solid rebeccapurple; */
+            float: left;
+            box-sizing: border-box;
+        }
+
+        .club-middle {
+            width: 535px;
+            height: 474px;
+            /* border: 1px solid rebeccapurple; */
+            float: left;
+            box-sizing: border-box;
+        }
+
+        .club-right {
+            width: 265px;
+            height: 560px;
+            /* border: 1px solid rebeccapurple; */
+            float: right;
+            box-sizing: border-box;
+
+        }
+
+        .club-left h3 {
+            margin-bottom: 12px;
+        }
+
+        .club-left h3 a:link {
+            font-size: 24px;
+            color: #007982;
+        }
+
+        .club-left h3 a:visited {
+            color: #017a85;
+            font-size: 24px;
+        }
+
+        .club-left h3 a:hover {
+            color: #fff;
+            background: #37a;
+        }
+
+        .club-left h3 a:active {
+            color: #fff;
+            background: #f93;
+        }
+
+        .club-left ul {
+            width: 100px;
+            height: 187px;
+            /* border: 1px solid rebeccapurple; */
+        }
+
+        a.green:link {
+            color: #007982;
+            font-size: 14px;
+        }
+
+        a.green:visited {
+            color: #017a85;
+        }
+
+        a.green:hover {
+            color: #fff;
+            background: #37a;
+        }
+
+        a.green:active {
+            color: #fff;
+            background: #f93;
+        }
+
+        .club-left ul li {
+            margin-top: 5px;
+        }
+
+        .club-middle h3 {
+            margin-left: 30px;
+        }
+
+        .club-list {
+            width: 535px;
+            height: 440px;
+            /* border: 1px solid rebeccapurple; */
+        }
+
+        .club-list ul {
+            width: 565px;
+            height: 440px;
+            /* border: 1px solid rebeccapurple; */
+        }
+
+        .club-list ul li {
+            width: 248px;
+            height: 58px;
+            /* border: 1px solid red; */
+            box-sizing: border-box;
+            float: left;
+            margin-left: 30px;
+            margin-top: 30px;
+        }
+
+        .club-list .club-pic {
+            width: 48px;
+            height: 48px;
+            float: left;
+            margin-right: 10px;
+            box-sizing: border-box;
+        }
+
+        .club-list .club-pic img {
+            width: 48px;
+            height: 48px;
+
+        }
+
+        .club-list .club-in {
+            width: 185px;
+            height: 43px;
+            /* border: 1px solid red; */
+            float: left;
+            box-sizing: border-box;
+
+        }
+
+        .club-list .club-in div {
+            color: #999;
+            font-size: 12px;
+            padding-top: 4px;
+            box-sizing: border-box;
+        }
+
+        .club-right h3 {
+            margin-bottom: 12px;
+            margin-left: 10px;
+        }
+
+        a.grey:link {
+            color: #37a;
+            font-size: 14px;
+        }
+
+        a.grey:visited {
+            color: #333;
+        }
+
+        a.grey:hover {
+            color: #fff;
+            background: #37a;
+        }
+
+        a.grey:active {
+            color: #fff;
+            background: #f93;
+        }
+
+        a.green1:link {
+            color: #37a;
+            font: 12px Helvetica, Arial, sans-serif;
+        }
+
+        a.green1:visited {
+            color: #017a85;
+        }
+
+        a.green1:hover {
+            color: #fff;
+            background: #37a;
+        }
+
+        a.green1:active {
+            color: #fff;
+            background: #f93;
+        }
+
+        .right-one .one {
+            width: 265px;
+            height: 63px;
+            box-sizing: border-box;
+            /* border: 1px solid red; */
+        }
+
+        .right-one .one1 {
+            width: 265px;
+            box-sizing: border-box;
+            /* border: 1px solid red; */
+            height: 44px;
+        }
+
+        .right-one .title1 {
+            /* width: 265px; */
+            height: 22px;
+            margin-bottom: 2px;
+            margin-left: 10px;
+            /* border: 1px solid rebeccapurple; */
+            box-sizing: border-box;
+        }
+
+        .right-one li:not(:first-of-type) {
+            /* width: 24px; */
+            height: 19px;
+            float: left;
+            margin-left: 10px;
+        }
+
+        .right-one div {
+            /* width: 265px; */
+            /* height: 63px; */
+            margin-bottom: 10px;
+        }
+
+        .read-container {
+            /* width: 1519px; */
+            height: 598px;
+            /* border: 1px solid red; */
+            padding: 10px 0;
+            margin-bottom: 30px;
+        }
+
+        .read-wrapper {
+            width: 950px;
+            height: 578px;
+            /* border: 1px solid red; */
+            margin: 0 auto;
+        }
+
+        .read-left {
+            width: 100px;
+            height: 269px;
+            /* border: 1px solid rebeccapurple; */
+            float: left;
+        }
+
+        .read-middle {
+            width: 535px;
+            height: 578px;
+            /* border: 1px solid rebeccapurple; */
+            float: left;
+        }
+
+        .read-right {
+            width: 265px;
+            height: 417px;
+            /* border: 1px solid rebeccapurple; */
+            float: right;
+            box-sizing: border-box;
+        }
+
+        .left-top {
+            width: 100px;
+            height: 170px;
+            /* border: 1px solid red; */
+        }
+
+        .letf-pic {
+            width: 100px;
+            height: 75px;
+            /* border: 1px solid red; */
+            margin-top: 15px;
+
+        }
+
+        .read-left h3 a:link {
+            font-size: 24px;
+            color: #4a2f14;
+        }
+
+        .read-left h3 a:visited {
+            color: #4a2f14;
+            font-size: 24px;
+        }
+
+        .read-left h3 a:hover {
+            color: #fff;
+            background: #37a;
+        }
+
+        .read-left h3 a:active {
+            color: #fff;
+            background: #f93;
+        }
+
+        a.black:link {
+            color: #614e3c;
+            font-size: 14px;
+        }
+
+        a.black:visited {
+            color: #614e3c;
+            font-size: 14px;
+        }
+
+        a.black:hover {
+            color: #fff;
+            background: #37a;
+        }
+
+        a.black:active {
+            color: #fff;
+            background: #f93;
+        }
+
+        .left-top ul li {
+            margin-bottom: 5px;
+        }
+
+        .letf-pic .bird {
+            width: 50px;
+            height: 50px;
+            background-image: url("./images/读书images/app_icons_50_10.jpg");
+            border-radius: 10px;
+            box-shadow: 1px 1px 2px #999;
+        }
+
+        .top-new {
+            width: 535px;
+            height: 223px;
+            /* border: 1px solid red; */
+        }
+
+        .top-new div {
+            width: 133px;
+            height: 223px;
+            float: left;
+        }
+
+        .top-new ul li img {
+            width: 100px;
+            height: 145px;
+        }
+
+        .top-new ul li {
+            text-align: center;
+        }
+
+        .top-new ul .free {
+            width: 68px;
+            height: 23px;
+            padding: 2px 10px;
+            border-radius: 2px;
+            background: #999a95;
+            color: #fff;
+            text-align: center;
+            line-height: 23px;
+            margin-left: 20px;
+        }
+
+        a.freea:link {
+            color: #fff;
+        }
+
+        a.freea:visited {
+            color: #fff;
+
+        }
+
+        a.freea:hover {
+            color: #fff;
+            background: #999a95;
+        }
+
+        a.freea:active {
+            color: #fff;
+            background: #878882;
+        }
+
+        a.black2:link {
+            color: #614e3c;
+            font-size: 12px;
+        }
+
+        a.black2:visited {
+            color: #614e3c;
+            font-size: 12px;
+        }
+
+        a.black2:hover {
+            color: #fff;
+            background: #37a;
+        }
+
+        a.black2:active {
+            color: #fff;
+            background: #f93;
+        }
+
+        .right-more {
+            width: 265px;
+            height: 362px;
+            /* border: 1px solid red; */
+        }
+
+        .right-more .right-li {
+            width: 265px;
+            height: 51px;
+            /* border: 1px solid red; */
+            border-top: 1px solid #eaeaea;
+            /* margin: -1px 0 10px 0; */
+            /* box-sizing: border-box; */
+            padding-top: 10px;
+        }
+
+        .right-more ul li {
+            height: 19px;
+            float: left;
+            margin-right: 15px;
+            line-height: 19px;
+
+        }
+
+        .music-container {
+
+            height: 746px;
+            /* border: 1px solid red; */
+            background: #f7f7f7;
+        }
+
+        .music-wrapper {
+            width: 950px;
+            height: 666px;
+            /* border: 1px solid rebeccapurple; */
+            margin: 0 auto;
+        }
+
+        .music-left {
+            width: 100px;
+            height: 496px;
+            /* border: 1px solid rebeccapurple; */
+            float: left;
+            margin-right: 20px;
+        }
+
+        .music-middle {
+            width: 535px;
+            height: 666px;
+            /* border: 1px solid rebeccapurple; */
+            float: left;
+        }
+
+        .music-right {
+            width: 265px;
+            height: 452px;
+            /* border: 1px solid rebeccapurple; */
+            float: right;
+        }
+
+        a.orange:link {
+            color: #f38c00;
+            font-size: 24px;
+        }
+
+        a.orange:visited {
+            color: #f38c00;
+            font-size: 24px;
+        }
+
+        a.orange:hover {
+            color: #fff;
+            background: #37a;
+        }
+
+        a.orange:active {
+            color: #fff;
+            background: #f93;
+        }
+
+        .left-music {
+            width: 100px;
+            height: 269px;
+            /* border: 1px solid rebeccapurple; */
+        }
+
+        a.music:link {
+            color: #555d53;
+            font-size: 14px;
+        }
+
+        a.music:visited {
+            color: #555d53;
+            font-size: 14px;
+        }
+
+        a.music:hover {
+            color: #fff;
+            background: #37a;
+        }
+
+        a.music:active {
+            color: #fff;
+            background: #f93;
+        }
+
+        .left-music ul li {
+            margin-top: 5px;
+        }
+
+        .music-left .music-list {
+            width: 100px;
+            height: 165px;
+            /* border: 1px solid red; */
+        }
+
+        .music-left .music-list ul li {
+            width: 100px;
+            height: 75px;
+            margin-top: 15px;
+
+
+        }
+
+        .music-left .music-list ul li div {
+            width: 50px;
+            height: 50px;
+            background-image: url("./images/读书images/app_icons_50_10.jpg");
+            background-repeat: no-repeat;
+
+        }
+
+        .douban-bang {
+            width: 535px;
+            height: 323px;
+            /* border: 1px solid rebeccapurple; */
+        }
+
+        .music-song {
+            width: 535px;
+            height: 273px;
+            /* border: 1px solid rebeccapurple; */
+
+        }
+
+        .douban-bang ul li {
+            width: 133px;
+            height: 153px;
+            /* border: 1px solid rebeccapurple; */
+            text-align: center;
+            float: left;
+            box-sizing: border-box;
+
+        }
+
+        .douban-bang ul li img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .douban-bang ul li .douban-level {
+            width: 55px;
+            height: 11px;
+            background-image: url("./images/电影images/2.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 0 -44px;
+            position: relative;
+            margin-left: 30px;
+
+        }
+
+        .douban-bang ul li .douban-level span {
+            position: absolute;
+            right: -30px;
+            top: -2px;
+            color: #e09015;
+            font-size: 12px;
+
+        }
+
+        .music-song ul li {
+            width: 133px;
+            height: 118px;
+            /* border: 1px solid red; */
+            float: left;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+
+        }
+
+        .music-song ul li div:first-of-type {
+            width: 133px;
+            height: 86px;
+            background-image: url("./images/音乐images/9.jpg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 15px 0;
+            margin-bottom: 10px;
+            margin-left: 10px;
+
+        }
+
+        .music-song ul li div:last-of-type {
+            font-size: 13px;
+            margin-bottom: 4px;
+            text-align: center;
+        }
+
+        .right-man {
+            width: 265px;
+            height: 380px;
+            /* border: 1px solid red; */
+        }
+
+        .right-man ul li {
+            width: 265px;
+            height: 70px;
+            /* border: 1px solid red; */
+
+        }
+
+        .right-man ul li span {
+            float: left;
+            margin-right: 10px;
+            color: #111;
+            font: 12px Helvetica, Arial, sans-serif;
+        }
+
+        .right-man ul li .singer {
+            width: 48px;
+            height: 48px;
+            background-image: url(./images/音乐images/14.jpg);
+            float: left;
+            margin-right: 10px;
+        }
+
+        .right-man ul li .content {
+            margin-top: 4px;
+            color: #999;
+            font: 12px Helvetica, Arial, sans-serif;
+        }
+
+        .dou-container {
+            height: 618px;
+            /* border: 1px solid red; */
+            padding: 10px 0;
+            margin-bottom: 30px;
+        }
+
+        .dou-wrapper {
+            width: 950px;
+            height: 598px;
+            /* border: 1px solid red; */
+            margin: 0 auto;
+        }
+
+        a.douping:link,
+        a.douping:visited {
+            color: #1f9432;
+            font-size: 24px;
+        }
+
+        a.douping:hover {
+            background: #37a;
+            color: #fff;
+        }
+
+        a.douping:active {
+            background: #f93;
+        }
+
+        .dou-left {
+            width: 100px;
+            height: 38px;
+            float: left;
+            margin-right: 20px;
+        }
+
+        .dou-middle {
+            width: 550px;
+            height: 598px;
+            /* border: 1px solid rebeccapurple; */
+            float: left;
+        }
+
+        .dou-right {
+            width: 265px;
+            height: 239px;
+            /* border: 1px solid rebeccapurple; */
+            float: right;
+        }
+
+        a.more:link,
+        a.more:visited {
+            color: #3377A9;
+            font-size: 16px;
+        }
+
+        a.more:hover {
+            background: #37a;
+            color: #fff;
+        }
+
+        a.more:active {
+            background: #f93;
+            color: #fff;
+        }
+
+        .market-bottom {
+            width: 240px;
+            height: 22px;
+            margin-top: 10px;
+        }
+
+        .market ul li div:first-of-type {
+            width: 240px;
+            height: 220px;
+            background-image: url("./images/豆品images/1.jpg");
+            background-size: cover;
+        }
+
+        .market ul li {
+            width: 240px;
+            height: 252px;
+            float: left;
+            margin-bottom: 30px;
+            margin-right: 20px;
+        }
+
+        .market ul li span {
+            float: right;
+            color: #E55457;
+            line-height: 22px;
+            font-size: 16px;
+        }
+
+        .dou-mod {
+            width: 265px;
+            height: 157px;
+            margin-bottom: 30px;
+        }
+
+        .dou-mod div {
+            width: 100%;
+            height: 95px;
+            background-image: url('./images/豆品images/5.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .city-container {
+            height: 402px;
+            padding: 40px 0 20px;
+            background: #f7f7f7;
+        }
+
+        .city-wrapper {
+            width: 950px;
+            height: 342px;
+            /* border: 1px solid rebeccapurple; */
+            margin: 0 auto;
+        }
+
+        .city-left {
+            width: 100px;
+            height: 140px;
+            /* border: 1px solid rebeccapurple; */
+            margin-bottom: 40px;
+            float: left;
+        }
+
+        a.red:link,
+        a.red:visited {
+            color: #ec5303;
+            font-size: 24px;
+        }
+
+        a.red:hover {
+            color: #fff;
+            background: #37a;
+        }
+
+        a.red:active {
+            color: #fff;
+            background: #f93;
+        }
+
+        .city-three {
+            width: 100px;
+            height: 77px;
+        }
+
+        a.black643:link,
+        a.black643:visited {
+            color: #643;
+            font-size: 14px;
+        }
+
+        a.black643:hover {
+            color: #fff;
+            background: #37a;
+        }
+
+        a.black643:active {
+            color: #fff;
+            background: #f93;
+        }
+
+        .city-three ul li {
+            margin-top: 5px;
+        }
+
+        .city-middle {
+            width: 535px;
+            height: 247px;
+            /* border: 1px solid rebeccapurple; */
+            float: left;
+        }
+
+        .middle-four {
+            height: 240px;
+            /* border: 1px solid rebeccapurple; */
+
+        }
+
+        .middle-four ul li {
+            width: 248px;
+            height: 100px;
+            /* border: 1px solid rebeccapurple; */
+            box-sizing: border-box;
+            float: left;
+
+        }
+
+        .middle-four ul {
+            overflow: hidden;
+        }
+
+        .middle-four ul li img {
+            width: 70px;
+            height: 90px;
+            float: left;
+        }
+
+        .middle-four ul li span {
+            width: 168px;
+            height: 32px;
+            float: left;
+            padding-left: 8px;
+            box-sizing: border-box;
+            margin-bottom: 4px;
+        }
+
+        .middle-four ul li div {
+            color: #666;
+            font-size: 12px;
+            float: left;
+            margin-top: 5px;
+            padding-left: 8px;
+        }
+
+        .city-right {
+            width: 265px;
+            height: 312px;
+            /* border: 1px solid rebeccapurple; */
+            float: right;
+        }
+
+        .city-p {
+            height: 44px;
+            margin-bottom: 10px;
+            /* border: 1px solid rebeccapurple; */
+        }
+
+        .city-p ul li {
+            height: 22px;
+            margin-left: 10px;
+            margin-bottom: 2px;
+
+        }
+
+        .city-p ul li:not(:first-of-type) {
+            float: left;
+            height: 14px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="head">
+        <div class="head-douban">
+
+        </div>
+        <div class="head-middle">
+            <input type="text" placeholder="书籍、电影、音乐、小组、小站、成员">
+            <span>
+
+            </span>
+
+        </div>
+        <div class="head-nav">
+            <ul>
+                <li style="background-position:0px 0px;"></li>
+                <li style="background-position:-60px 0px;"></li>
+                <li style="background-position:-120px 0px;"></li>
+                <li style="background-position:-300px 0px;"></li>
+                <li style="background-position:-180px 0px;"></li>
+                <li style="background-image: url('./images/ic_read_home_nav.png');"></li>
+                <li style="background-position:-240px 0px;"></li>
+                <li style="background-image: url('./images/ic_shijian_home_nav.png');"></li>
+                <li style="background-position:-423px 0px;"></li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="middle-container">
+        <div class="middle-wrapper">
+            <div class="middle-input">
+                <ul class="login-nav">
+                    <li>短信登录/注册</li>
+                    <li>密码登录</li>
+                </ul>
+                <p class="xieyi">
+                    请仔细阅读<a href="#">豆瓣使用协议、隐私政策</a>
+                </p>
+                <div class="login-tel">
+                    <div class="tel86">
+                        +86
+                    </div>
+                    <div class="tel-input">
+                        <input type="text" placeholder="手机号">
+                    </div>
+                </div>
+                <div class="login-tel">
+                    <div class="tel-input">
+                        <input type="text" placeholder="验证码">
+                    </div>
+                    <div class="get-code">
+                        获取验证码
+                    </div>
+                </div>
+
+                <div class="login-btn">
+                    登录豆瓣
+                </div>
+                <div class="login-check">
+                    <div class="check-auto">
+                        <input type="checkbox" id="check">
+                        <label for="check">下次自动登录</label>
+                    </div>
+                    <div class="no-code">
+                        收不到验证码
+                    </div>
+                </div>
+                <div class="other">
+                    <p>第三方登录:</p>
+                    <div class="wx"></div>
+                    <div class="wb"></div>
+                </div>
+
+
+            </div>
+            <div class="middle-lianjie">
+                <p class="douban-banben">
+                    豆瓣&nbsp;6.0
+                </p>
+                <div class="bottom-download">
+                    <div class="download-app">
+                        下载豆瓣 App
+                    </div>
+                    <div class="download-erweima">
+                        <img src="./images/icon_qrcode_green.png" alt="">
+                        <div class="erweima-hover">
+                            <img src="./images/doubanapp_qrcode.png" alt="">
+                            <p>iOS / Android 扫码直接下载</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="anony-erdian">
+        <div class="anony-wrapper">
+            <div class="mod">
+                <h2>热点内容……<a href="#">更多</a></h2>
+            </div>
+            <div class="neirong">
+                <ul>
+                    <li>
+                        <img src="./images/p2556332874.webp" alt="">
+                        <p><a href="#">天真有邪</a><span>12张照片</span></p>
+                    </li>
+                    <li>
+                        <img src="./images/p2609224140.webp" alt="">
+                        <p><a href="#">《今天的菜很新鲜哦》</a><span>9张照片</span></p>
+                    </li>
+                    <li>
+                        <img src="./images/p2457804990.webp" alt="">
+                        <p><a href="#">[玩儿]</a><span>60张照片</span></p>
+                    </li>
+                    <li>
+                        <img src="./images/p2564960234.webp" alt="">
+                        <p><a href="#"> 加尔各答</a><span>48张照片</span></p>
+                    </li>
+                </ul>
+            </div>
+            <div class="jieshi">
+                <ul>
+                    <li><a href="#">记春蚕｜食桑-吐丝-作茧-化蛾</a></li>
+                    <p><span>曾小亘的日记</span></p>
+                    <p><span>四月中旬的一个春日早上，老妈在去菜市场的路上，看到有老人家提着篮子卖蚕宝宝。...</span></p>
+                    <li><a href="#">合江：关于逝去的与留下的</a></li>
+                    <li><a href="#">一年支教回顾总结（2019.8-2020.7）</a></li>
+                    <li><a href="#">19万还完了，开始新一轮的存钱之旅</a></li>
+                    <li><a href="#">在老渔港边，住了间有态度的小酒店，竟然还周休一日</a></li>
+                    <li><a href="#">大格洛克纳山（大钟山）区奇妙之旅</a></li>
+                    <li><a href="#">我奶奶</a></li>
+                    <li><a href="#">重塑是谁</a></li>
+                    <li><a href="#">逃离家乡，那些遗失在县城的青春</a></li>
+                    <li><a href="#">日常丨捡了一架老钢琴</a></li>
+                </ul>
+
+            </div>
+            <div class="huati">
+                <img src="./images/73f8a0ce8cb246d.jpg" alt="">
+                <div class="huati-wenzi">
+                    <h2>热门话题 · · · · · · <a href="#">( 去话题广场 )</a></h2>
+                    <ul>
+                        <li> <a href="#">2020豆瓣夏季摄影大赛</a>
+                            <p> 926.1万次浏览</p>
+                        </li>
+                        <li> <a href="#">我买的那些“无用”之书</a>
+                            <p> 106.6万次浏览</p>
+                        </li>
+                        <li> <a href="#">看展记</a>
+                            <p> 2331.1万次浏览</p>
+                        </li>
+                        <li> <a href="#">人生落寞时的艺术创作</a>
+                            <p> 64.3万次浏览</p>
+                        </li>
+                        <li> <a href="#">生活中的无限递归现象</a>
+                            <p> 137.1万次浏览</p>
+                        </li>
+                        <li> <a href="#">那些包装简陋但极好吃的小零食</a>
+                            <p> 1.5万次浏览</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="head-shijian">
+
+
+        <div>
+            <h3> <a class="biaoti" href="#">豆瓣时间</a> 热门专栏……<a href="#">（更多）</a></h3>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <img src="./images/豆瓣时间images/图片1.jpg" alt="">
+                    <p class="erji"><a href="#"><img src="./images/豆瓣时间images/erji.jpg" alt=""></a></p>
+                    <p><a href="#">一步到位的收纳法——20堂课打造不凌乱的家</a></p>
+                    <p style="color:#999999; margin-top: 10px; font-size:12px;">音频专栏</p>
+                </li>
+                <li>
+                    <img src="./images/豆瓣时间images/图片2.jpg" alt="">
+                    <p><a href="#"><img style="width: 14px; height: 14px; position: absolute; left: 238px; top: 148px;"
+                                src="./images/豆瓣时间images/erji.jpg" alt=""></a></p>
+                    <p><a href="#">如何读透一本书——12堂阅读写作训练课</a></p>
+                    <p style="color:#999999; margin-top: 10px; font-size:12px;">音频专栏</p>
+                </li>
+                <li>
+                    <img src="./images/豆瓣时间images/图片3.jpg" alt="">
+                    <p><a href="#"><img style="width: 14px; height: 14px; position: absolute; left: 398px; top: 150px;"
+                                src="./images/豆瓣时间images/erji.jpg" alt=""></a></p>
+                    <p><a href="#">复旦沈奕斐的社会学爱情思维课</a></p>
+                    <p style="color:#999999; margin-top: 10px; font-size:12px;">音频专栏</p>
+                </li>
+                <li>
+                    <img src="./images/豆瓣时间images/图片4.jpg" alt="">
+                    <p><a href="#">你好呀！日本——58个关键词凝视日本古今</a></p>
+                    <p><a href="#"><img style="width: 12px; height: 12px; position: absolute; left: 560px; top: 148px;"
+                                src="./images/豆瓣时间images/erji.jpg" alt=""></a></p>
+                    <p style="color:#999999; margin-top: 10px; font-size:12px;">音频专栏</p>
+                </li>
+                <li>
+                    <img src="./images/豆瓣时间images/图片5.jpg" alt="">
+                    <p><a href="#">怦然心动的瞬间----14堂餐桌美学课</a></p>
+                    <p><a href="#"><img style="width: 14px; height: 14px; position: absolute; left: 718px; top: 148px;"
+                                src="./images/豆瓣时间images/shiping.jpg" alt=""></a></p>
+                    <p style="color:#999999; margin-top: 10px; font-size:12px;">视频专栏</p>
+                </li>
+                <li>
+                    <img src="./images/豆瓣时间images/图片6.jpg" alt="">
+                    <p><a href="#">一切美好的事物都与你有关——21天走出低自尊</a></p>
+                    <p><a href="#"><img style="width: 14px; height: 14px; position: absolute; left: 238px; top: 420px;"
+                                src="./images/豆瓣时间images/erji.jpg" alt=""></a></p>
+                    <p style="color:#999999; margin-top: 10px; font-size:12px;">音频专栏</p>
+                </li>
+                <li>
+                    <img src="./images/豆瓣时间images/图片7.jpg" alt="">
+                    <p><a href="#">童话交响梦——古典音乐这样听</a></p>
+                    <p><a href="#"><img style="width: 14px; height: 14px; position: absolute; left: 78px; top: 420px;"
+                                src="./images/豆瓣时间images/erji.jpg" alt=""></a></p>
+                    <p style="color:#999999; margin-top: 10px; font-size:12px;">音频专栏</p>
+                </li>
+                <li>
+                    <img src="./images/豆瓣时间images/图片8.jpg" alt="">
+                    <p><a href="#">食知味——20道全生素食料理课</a></p>
+                    <p><a href="#"><img style="width: 14px; height: 14px; position: absolute; left: 398px; top: 420px;"
+                                src="./images/豆瓣时间images/shiping.jpg" alt=""></a></p>
+                    <p style="color:#999999; margin-top: 10px; font-size:12px;">视频专栏</p>
+                </li>
+                <li>
+                    <img src="./images/豆瓣时间images/图片9.jpg" alt="">
+                    <p><a href="#">人心可测——姜振宇的微表情读心术</a></p>
+                    <p><a href="#"><img style="width: 14px; height: 14px; position: absolute; left: 560px; top: 420px;"
+                                src="./images/豆瓣时间images/erji.jpg" alt=""></a></p>
+                    <p style="color:#999999; margin-top: 10px; font-size:12px;">音频专栏</p>
+                </li>
+                <li>
+                    <img src="./images/豆瓣时间images/图片10.jpg" alt="">
+                    <p><a href="#">生死之间：10堂课学会如何与疾病共处</a></p>
+                    <p><a href="#"><img style="width: 14px; height: 14px; position: absolute; left: 718px; top: 420px;"
+                                src="./images/豆瓣时间images/erji.jpg" alt=""></a></p>
+                    <p style="color:#999999; margin-top: 10px; font-size:12px;">音频专栏</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="film-container">
+        <div class="film-wrapper">
+            <div class="film-left">
+                <h3> <a class="biaoti" href="#">电影</a></h3>
+                <ul>
+                    <li> <a class="a27" href="#">影讯&购票</a> </li>
+                    <li> <a class="a27" href="#">选电影</a>
+                        <img style="position:relative; top: -5px;" src="./images/电影images/new_menu.gif" alt="">
+                    </li>
+                    <li> <a class="a27" href="#">电视剧</a> </li>
+                    <li> <a class="a27" href="#">排行榜</a> </li>
+                    <li> <a class="a27" href="#">分类</a> </li>
+                    <li> <a class="a27" href="#">影评</a> </li>
+                    <li> <a class="a27" href="#">预告片</a> </li>
+                    <li> <a class="a27" href="#">问答</a> </li>
+                </ul>
+
+            </div>
+            <div class="film-middle">
+                <div class="film-ing">
+                    <h3>正在热映…… <a href="#">（更多）</a> </h3>
+                </div>
+                <div class="film-list">
+                    <ul>
+                        <li>
+                            <img src="./images/电影images/1.webp" alt="">
+                            <div class="year"><a href=""> 1917</a></div>
+                            <div class="mark">
+                                <div class="mark-xingji">
+
+                                </div>
+                                <span>8.5</span>
+                            </div>
+                            <div class="buy">选座购票</div>
+                        </li>
+                        <li>
+                            <img src="./images/电影images/3.webp" alt="">
+                            <div class="year"><a href="">极速车王</a></div>
+                            <div class="mark">
+                                <div class="mark-xingji">
+
+                                </div>
+                                <span>8.6</span>
+                            </div>
+                            <div class="buy">选座购票</div>
+                        </li>
+                        <li>
+                            <img src="./images/电影images/4.webp" alt="">
+                            <div class="year"><a href="">乔乔的异想世界...</a></div>
+                            <div class="mark">
+                                <div class="mark-xingji">
+
+                                </div>
+                                <span>8.4</span>
+                            </div>
+                            <div class="buy">选座购票</div>
+                        </li>
+                        <li>
+                            <img src="./images/电影images/5.webp" alt="">
+                            <div class="year"><a href="">初恋这首情歌</a></div>
+                            <div class="mark">
+                                <div class="mark-xingji">
+
+                                </div>
+                                <span>8.2</span>
+                            </div>
+                            <div class="buy">选座购票</div>
+                        </li>
+                        <li>
+                            <img src="./images/电影images/6.webp" alt="">
+                            <div class="year"><a href="">多力特的奇幻冒...</a></div>
+                            <div class="mark">
+                                <div class="mark-xingji" style=" background-image: url('./images/电影images/2.png');
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                        background-position: 0px -44px;">
+
+                                </div>
+                                <span>5.8</span>
+                            </div>
+                            <div class="buy">选座购票</div>
+                        </li>
+                        <li>
+                            <img src="./images/电影images/7.webp" alt="">
+                            <div class="year"><a href="">抵达之谜</a></div>
+                            <div class="mark">
+                                <div class="mark-xingji" style=" background-image: url('./images/电影images/2.png');
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                        background-position: 0px -54px;">
+
+                                </div>
+                                <span>5.1</span>
+                            </div>
+                            <div class="buy">选座购票</div>
+                        </li>
+                        <li>
+                            <img src="./images/电影images/8.webp" alt="">
+                            <div class="year"><a href="">星际穿越</a></div>
+                            <div class="mark">
+                                <div class="mark-xingji">
+
+                                </div>
+                                <span>9.3</span>
+                            </div>
+                            <div class="buy">选座购票</div>
+                        </li>
+                        <li>
+                            <img src="./images/电影images/9.webp" alt="">
+                            <div class="year"><a href="">刺猬索尼克</a></div>
+                            <div class="mark">
+                                <div class="mark-xingji" style=" background-image: url('./images/电影images/2.png');
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                        background-position: 0px -44px;">
+
+                                </div>
+                                <span>6.1</span>
+                            </div>
+                            <div class="buy">选座购票</div>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="film-right">
+                <div class="film-fenlei">
+                    <h3>影片分类…… <a href="#">（更多）</a> </h3>
+                    <ul>
+                        <li> <a href="">爱情</a> </li>
+                        <li> <a href="">剧情</a> </li>
+                        <li> <a href="">喜剧</a> </li>
+                        <li> <a href="">经典</a> </li>
+                        <li> <a href="">动画</a> </li>
+                        <li> <a href="">科幻</a> </li>
+                        <li> <a href="">悬疑</a> </li>
+                        <li> <a href="">动作</a> </li>
+                        <li> <a href="">犯罪</a> </li>
+                        <li> <a href="">青春</a> </li>
+                        <li> <a href="">搞笑</a> </li>
+                        <li> <a href="">文艺</a> </li>
+                        <li> <a href="">惊悚</a> </li>
+                        <li> <a href="">励志</a> </li>
+                        <li> <a href="">纪录片</a> </li>
+                        <li> <a href="">黑色幽默</a> </li>
+                        <li> <a href="">战争</a> </li>
+                        <li> <a href="">恐怖</a> </li>
+                        <li> <a href="">美国</a> </li>
+                        <li> <a href="">日本</a> </li>
+                        <li> <a href="">香港</a> </li>
+                        <li> <a href="">韩国</a> </li>
+                        <li> <a href="">中国大陆</a> </li>
+                        <li> <a href="">中国</a> </li>
+                        <li> <a href="">英国</a> </li>
+                        <li> <a href="">法国</a> </li>
+                        <li> <a href="">台湾</a> </li>
+                        <li> <a href="">印度</a> </li>
+                    </ul>
+
+                </div>
+                <div class="filme-recelt">
+                    <h3>近期热门…… <a href="#">（更多）</a> </h3>
+                    <ol>
+                        <li> <a href="">#活着</a> </li>
+                        <li> <a href="">釜山行2：半岛</a> </li>
+                        <li> <a href="">灰猎犬号</a> </li>
+                        <li> <a href="">战争幽灵</a> </li>
+                        <li> <a href="">剧场</a> </li>
+                        <li> <a href="">叔·叔</a> </li>
+                        <li> <a href="">征途</a> </li>
+                        <li> <a href="">前哨</a> </li>
+                        <li> <a href="">翻译疑云</a> </li>
+                        <li> <a href="">逃走的女人</a> </li>
+
+                    </ol>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="club-container">
+        <div class="club-wrapper">
+            <div class="club-left">
+                <h3> <a href="">小组 </a> </h3>
+                <ul>
+                    <li> <a class="green" href="">精选</a> </li>
+                    <li> <a class="green" href="">文化</a> </li>
+                    <li> <a class="green" href="">行摄</a> </li>
+                    <li> <a class="green" href="">娱乐</a> </li>
+                    <li> <a class="green" href="">时尚</a> </li>
+                    <li> <a class="green" href="">生活</a> </li>
+                    <li> <a class="green" href="">科技</a> </li>
+                </ul>
+            </div>
+            <div class="club-middle">
+                <h3>热门小组…… <a class="green" href="">（更多）</a> </h3>
+                <div class="club-list">
+                    <ul>
+                        <li>
+                            <div class="club-pic"> <a href=""><img src="./images/小组images/1.webp" alt=""></a></div>
+                            <div class="club-in">
+                                <div> <a class="green" href="">我爱三毛</a> </div>
+                                <div>47454个成员</div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="club-pic"> <a href=""><img src="./images/小组images/2.webp" alt=""></a></div>
+                            <div class="club-in">
+                                <div> <a class="green" href="">沙发客</a> </div>
+                                <div>23390个成员</div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="club-pic"> <a href=""><img src="./images/小组images/68b08f0f3595407.webp"
+                                        alt=""></a></div>
+                            <div class="club-in">
+                                <div> <a class="green" href="">刘慈欣</a> </div>
+                                <div>30764个成员</div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="club-pic"> <a href=""><img src="./images/小组images/4.webp" alt=""></a></div>
+                            <div class="club-in">
+                                <div> <a class="green" href="">西双版纳</a> </div>
+                                <div>11783个成员</div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="club-pic"> <a href=""><img src="./images/小组images/5.webp" alt=""></a></div>
+                            <div class="club-in">
+                                <div> <a class="green" href="">记事本圆梦小组</a> </div>
+                                <div>117451个成员</div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="club-pic"> <a href=""><img src="./images/小组images/g33120-3.jpg" alt=""></a>
+                            </div>
+                            <div class="club-in">
+                                <div> <a class="green" href="">搭讪学</a> </div>
+                                <div>94039个成员</div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="club-pic"> <a href=""><img src="./images/小组images/7.webp" alt=""></a></div>
+                            <div class="club-in">
+                                <div> <a class="green" href="">这辈子一定要做几件疯狂的事</a> </div>
+                                <div>92622个成员</div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="club-pic"> <a href=""><img src="./images/小组images/8.jpg" alt=""></a></div>
+                            <div class="club-in">
+                                <div> <a class="green" href="">自己给自己剪头发</a> </div>
+                                <div>35110个成员</div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="club-pic"> <a href=""><img src="./images/小组images/9.jpg" alt=""></a></div>
+                            <div class="club-in">
+                                <div> <a class="green" href="">我们就是要做衣服给自己穿</a> </div>
+                                <div>3705个成员</div>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="club-right">
+                <h3>小组分类……</h3>
+                <div class="right-one">
+                    <div>
+                        <ul class="one">
+                            <li class="title1"><a class="grey" href="">兴趣》</a></li>
+                            <li> <a class="green1" href="">旅行 </a> </li>
+                            <li> <a class="green1" href="">摄影</a> </li>
+                            <li> <a class="green1" href="">影视</a> </li>
+                            <li> <a class="green1" href="">音乐</a> </li>
+                            <li> <a class="green1" href="">文学</a> </li>
+                            <li> <a class="green1" href="">游戏</a> </li>
+                            <li> <a class="green1" href="">动漫</a> </li>
+                            <li> <a class="green1" href="">运动</a> </li>
+                            <li> <a class="green1" href="">戏曲</a> </li>
+                            <li> <a class="green1" href="">桌游</a> </li>
+                            <li> <a class="green1" href="">怪癖 </a> </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="one">
+                            <li class="title1"><a class="grey" href="">生活》</a></li>
+                            <li> <a class="green1" href="">健康</a> </li>
+                            <li> <a class="green1" href="">美食</a> </li>
+                            <li> <a class="green1" href="">宠物</a> </li>
+                            <li> <a class="green1" href="">美容</a> </li>
+                            <li> <a class="green1" href="">化妆</a> </li>
+                            <li> <a class="green1" href="">护肤</a> </li>
+                            <li> <a class="green1" href="">服饰</a> </li>
+                            <li> <a class="green1" href="">公益</a> </li>
+                            <li> <a class="green1" href="">家庭</a> </li>
+                            <li> <a class="green1" href="">育儿</a> </li>
+                            <li> <a class="green1" href="">汽车</a> </li>
+                        </ul>
+
+                    </div>
+                    <div>
+                        <ul class="one1">
+                            <li class="title1"><a class="grey" href="">购物》</a></li>
+                            <li> <a class="green1" href="">淘宝</a> </li>
+                            <li> <a class="green1" href="">二手</a> </li>
+                            <li> <a class="green1" href="">团购</a> </li>
+                            <li> <a class="green1" href="">数码</a> </li>
+                            <li> <a class="green1" href="">品牌</a> </li>
+                            <li> <a class="green1" href="">文具</a> </li>
+                        </ul>
+
+                    </div>
+                    <div>
+                        <ul class="one">
+                            <li class="title1"><a class="grey" href="">社会》</a></li>
+                            <li> <a class="green1" href="">求职</a> </li>
+                            <li> <a class="green1" href="">租房</a> </li>
+                            <li> <a class="green1" href="">励志</a> </li>
+                            <li> <a class="green1" href="">留学</a> </li>
+                            <li> <a class="green1" href="">出国</a> </li>
+                            <li> <a class="green1" href="">理财</a> </li>
+                            <li> <a class="green1" href="">传媒</a> </li>
+                            <li> <a class="green1" href="">创业</a> </li>
+                            <li> <a class="green1" href="">考试</a> </li>
+                        </ul>
+
+                    </div>
+                    <div>
+                        <ul class="one1">
+                            <li class="title1"><a class="grey" href="">艺术》</a></li>
+                            <li> <a class="green1" href="">设计</a> </li>
+                            <li> <a class="green1" href="">手工</a> </li>
+                            <li> <a class="green1" href="">展览</a> </li>
+                            <li> <a class="green1" href="">曲艺</a> </li>
+                            <li> <a class="green1" href="">舞蹈</a> </li>
+                            <li> <a class="green1" href="">雕塑</a> </li>
+                            <li> <a class="green1" href="">纹身</a> </li>
+
+                        </ul>
+
+                    </div>
+                    <div>
+                        <ul class="one">
+                            <li class="title1"><a class="grey" href="">学术》</a></li>
+                            <li> <a class="green1" href="">人文</a> </li>
+                            <li> <a class="green1" href="">社科</a> </li>
+                            <li> <a class="green1" href="">自然</a> </li>
+                            <li> <a class="green1" href="">建筑</a> </li>
+                            <li> <a class="green1" href="">国学</a> </li>
+                            <li> <a class="green1" href="">语言</a> </li>
+                            <li> <a class="green1" href="">宗教</a> </li>
+                            <li> <a class="green1" href="">哲学</a> </li>
+                            <li> <a class="green1" href="">软件</a> </li>
+                            <li> <a class="green1" href="">硬件</a> </li>
+                            <li> <a class="green1" href="">互联网</a> </li>
+
+                        </ul>
+
+                    </div>
+                    <div>
+                        <ul class="one1">
+                            <li class="title1"><a class="grey" href="">情感》</a></li>
+                            <li> <a class="green1" href="">恋爱</a> </li>
+                            <li> <a class="green1" href="">心情</a> </li>
+                            <li> <a class="green1" href="">心理学</a> </li>
+                            <li> <a class="green1" href="">星座</a> </li>
+                            <li> <a class="green1" href="">塔罗</a> </li>
+                            <li> <a class="green1" href="">LES</a> </li>
+                            <li> <a class="green1" href="">GAY</a> </li>
+
+                        </ul>
+
+                    </div>
+                    <div>
+                        <ul class="one1">
+                            <li class="title1"><a class="grey" href="">闲聊》</a></li>
+                            <li> <a class="green1" href="">吐槽</a> </li>
+                            <li> <a class="green1" href="">笑话</a> </li>
+                            <li> <a class="green1" href="">直播</a> </li>
+                            <li> <a class="green1" href="">八卦</a> </li>
+                            <li> <a class="green1" href="">发泄</a> </li>
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="read-container">
+        <div class="read-wrapper">
+            <div class="read-left">
+                <div class="left-top">
+                    <h3> <a href="">读书 </a> </h3>
+                    <ul>
+                        <li> <a class="black" href="">分类浏览</a> </li>
+                        <li> <a class="black" href="">阅读</a>
+                            <img style="position:relative; top: -5px;" src="./images/电影images/new_menu.gif" alt="">
+                        </li>
+                        <li> <a class="black" href="">作者</a> </li>
+                        <li> <a class="black" href="">书评</a> </li>
+                        <li> <a class="black" href="">购书单</a> </li>
+                    </ul>
+
+                </div>
+                <div class="letf-pic">
+                    <div class="bird">
+                    </div>
+                    <p><a style="font-size: 12px;" class="black" href="">豆瓣阅读</a></p>
+
+
+
+                </div>
+
+            </div>
+            <div class="read-middle">
+                <div class="middle-top">
+                    <h3>新书速递…… <a style="font-size: 12px;" class="black" href="">（更多）</a> </h3>
+                    <div class="top-new">
+                        <div>
+                            <ul>
+                                <li><img src="./images/读书images/1.jpg" alt=""> </li>
+                                <li> <a style="font-size: 13px;" class="black" href="">满是空虚之物</a> </li>
+                                <li> <a style="font-size: 12px;" class="black" href="">〔日〕阿伏伽德...</a> </li>
+                                <li class="free"> <a style="font-size: 12px;" class="freea" href="">免费试读</a> </li>
+                            </ul>
+
+
+                        </div>
+
+
+                        <div>
+                            <ul>
+                                <li><img src="./images/读书images/2.jpg" alt=""> </li>
+                                <li> <a style="font-size: 13px;" class="black" href="">马查多·德·阿...</a> </li>
+                                <li> <a style="font-size: 12px;" class="black" href="">〔巴西〕马查多...</a> </li>
+                                <li class="free"> <a style="font-size: 12px;" class="freea" href="">免费试读</a> </li>
+
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><img src="./images/读书images/3.jpg" alt=""> </li>
+                                <li> <a style="font-size: 13px;" class="black" href="">枉死城事件</a> </li>
+                                <li> <a style="font-size: 12px;" class="black" href="">时晨</a> </li>
+                                <li class="free"> <a style="font-size: 12px;" class="freea" href="">免费试读</a> </li>
+
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><img src="./images/读书images/4.jpg" alt=""> </li>
+                                <li> <a style="font-size: 13px;" class="black" href="">证言</a> </li>
+                                <li> <a style="font-size: 12px;" class="black" href="">〔加〕玛格丽特...</a> </li>
+                                <li class="free"> <a style="font-size: 12px;" class="freea" href="">免费试读</a> </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="middle-bottom">
+                    <h3>原创数字作品…… <a style="font-size: 12px;" class="black" href="">（更多）</a> </h3>
+                    <div class="top-new">
+                        <div>
+                            <ul>
+                                <li><img src="./images/读书images/5.jpg" alt=""> </li>
+                                <li> <a style="font-size: 13px;" class="black" href="">野风</a> </li>
+                                <li> <a style="font-size: 12px;" class="black" href="">免费</a> </li>
+                                <li class="free"> <a style="font-size: 12px;" class="freea" href="">免费试读</a> </li>
+                            </ul>
+
+
+                        </div>
+
+
+                        <div>
+                            <ul>
+                                <li><img src="./images/读书images/6.jpg" alt=""> </li>
+                                <li> <a style="font-size: 13px;" class="black" href="">我的大猪蹄子女...</a> </li>
+                                <li> <a style="font-size: 12px;" class="black" href="">免费</a> </li>
+                                <li class="free"> <a style="font-size: 12px;" class="freea" href="">免费试读</a> </li>
+
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><img src="./images/读书images/7.jpg" alt=""> </li>
+                                <li> <a style="font-size: 13px;" class="black" href="">幻觉的未来</a> </li>
+                                <li> <a style="font-size: 12px;" class="black" href="">免费</a> </li>
+                                <li class="free"> <a style="font-size: 12px;" class="freea" href="">免费试读</a> </li>
+
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><img src="./images/读书images/8.jpg" alt=""> </li>
+                                <li> <a style="font-size: 13px;" class="black" href="">南华曲（二）</a> </li>
+                                <li> <a style="font-size: 12px;" class="black" href="">免费</a> </li>
+                                <li class="free"> <a style="font-size: 12px;" class="freea" href="">免费试读</a> </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="read-right">
+                <h3>热门标签…… <a class="black2" href="">（更多）</a> </h3>
+                <div class="right-more">
+                    <div class="right-li">
+                        <ul>
+                            <li style="font-size: 12px; color: #999;">[文学]</li>
+                            <li> <a class="black2" href="">随笔</a></li>
+                            <li> <a class="black2" href="">日本文学</a></li>
+                            <li> <a class="black2" href="">散文</a></li>
+                            <li> <a class="black2" href="">诗歌</a></li>
+                            <li> <a class="black2" href="">童话</a></li>
+                            <li> <a class="black2" href="">名著</a></li>
+                            <li> <a class="black2" href="">港台</a></li>
+                            <li> <a class="black2" href="">更多</a></li>
+                        </ul>
+                    </div>
+                    <div class="right-li">
+                        <ul>
+                            <li style="font-size: 12px; color: #999;">[文化]</li>
+                            <li> <a class="black2" href="">历史</a></li>
+                            <li> <a class="black2" href="">哲学</a></li>
+                            <li> <a class="black2" href="">传记</a></li>
+                            <li> <a class="black2" href="">设计</a></li>
+                            <li> <a class="black2" href="">建筑</a></li>
+                            <li> <a class="black2" href="">电影</a></li>
+                            <li> <a class="black2" href="">回忆录</a></li>
+                            <li> <a class="black2" href="">音乐</a></li>
+                            <li> <a class="black2" href="">更多</a></li>
+                        </ul>
+                    </div>
+                    <div class="right-li">
+                        <ul>
+                            <li style="font-size: 12px; color: #999;">[生活]</li>
+                            <li> <a class="black2" href="">旅行</a></li>
+                            <li> <a class="black2" href="">励志</a></li>
+                            <li> <a class="black2" href="">教育</a></li>
+                            <li> <a class="black2" href="">职场</a></li>
+                            <li> <a class="black2" href="">美食</a></li>
+                            <li> <a class="black2" href="">灵修</a></li>
+                            <li> <a class="black2" href="">健康</a></li>
+                            <li> <a class="black2" href="">家居</a></li>
+                            <li> <a class="black2" href="">更多</a></li>
+                        </ul>
+                    </div>
+                    <div class="right-li">
+                        <ul>
+                            <li style="font-size: 12px; color: #999;">[经管]</li>
+                            <li> <a class="black2" href="">经济学</a></li>
+                            <li> <a class="black2" href="">管理</a></li>
+                            <li> <a class="black2" href="">商业</a></li>
+                            <li> <a class="black2" href="">金融</a></li>
+                            <li> <a class="black2" href="">营销</a></li>
+                            <li> <a class="black2" href="">理财</a></li>
+                            <li> <a class="black2" href="">股票</a></li>
+                            <li> <a class="black2" href="">企业史</a></li>
+                            <li> <a class="black2" href="">更多</a></li>
+                        </ul>
+                    </div>
+                    <div class="right-li">
+                        <ul>
+                            <li style="font-size: 12px; color: #999;">[科技]</li>
+                            <li> <a class="black2" href="">科普</a></li>
+                            <li> <a class="black2" href="">互联网</a></li>
+                            <li> <a class="black2" href="">编程</a></li>
+                            <li> <a class="black2" href="">交互设计</a></li>
+                            <li> <a class="black2" href="">算法</a></li>
+                            <li> <a class="black2" href="">通信</a></li>
+                            <li> <a class="black2" href="">神经网络</a></li>
+                            <li> <a class="black2" href="">更多</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="music-container">
+        <div class="music-wrapper">
+            <div class="music-left">
+                <h3> <a class="orange" href="">音乐 </a> </h3>
+                <div class="left-music">
+                    <ul>
+                        <li> <a class="music" href="">音乐人</a> </li>
+                        <li> <a class="music" href="">潮潮豆瓣音乐周</a> </li>
+                        <li> <a class="music" href="">金羊毛计划</a> </li>
+                        <li> <a class="music" href="">专题</a> </li>
+                        <li> <a class="music" href="">排行榜</a> </li>
+                        <li> <a class="music" href="">分类浏览</a> </li>
+                        <li> <a class="music" href="">乐评</a> </li>
+                        <li> <a class="music" href="">豆瓣FM</a> </li>
+                        <li> <a class="music" href="">歌单</a> </li>
+                        <li> <a class="music" href="">阿比鹿音乐奖</a> </li>
+                    </ul>
+
+                </div>
+                <div class="music-list">
+                    <ul>
+                        <li>
+                            <div style=" background-position: -250px 0px;"></div>
+                            <a class="music" style="font-size: 12px;" href="">豆瓣FM</a>
+                        </li>
+                        <li>
+                            <div style=" background-position: -50px 0px; border-radius: 10px;"> </div>
+                            <a class="music" style="font-size: 12px;" href="">豆瓣音乐人</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="music-middle">
+                <div class="music-douban">
+                    <h3>豆瓣新碟榜…… <a style="font-size: 12px;" class="music" href="">（更多）</a> </h3>
+                    <div class="douban-bang">
+                        <ul>
+                            <li>
+                                <img src="./images/音乐images/1.jpg" alt="">
+                                <div style="font-size: 12px;margin-bottom: 5px;">1. <a style="font-size: 12px;"
+                                        class="music" href="">斯芬克斯X谜</a> </div>
+                                <div style="margin-bottom: 5px;"><a style="font-size: 12px;" class="music"
+                                        href="">THE9</a> </div>
+                                <div class="douban-level"><span>5.3</span></div>
+                            </li>
+                            <li>
+                                <img src="./images/音乐images/2.jpg" alt="">
+                                <div style="font-size: 12px;margin-bottom: 5px;">2. <a style="font-size: 12px;"
+                                        class="music" href="">硬糖定律</a> </div>
+                                <div style="margin-bottom: 5px;"><a style="font-size: 12px;" class="music"
+                                        href="">硬糖少女303</a> </div>
+                                <div style="  background-position: 0 -22px;" class="douban-level"><span>7.3</span></div>
+                            </li>
+                            <li>
+                                <img src="./images/音乐images/3.jpg" alt="">
+                                <div style="font-size: 12px;margin-bottom: 5px;">3. <a style="font-size: 12px;"
+                                        class="music" href="">麻雀</a> </div>
+                                <div style="margin-bottom: 5px;"><a style="font-size: 12px;" class="music" href="">李荣浩
+                                        Ronghao Li</a> </div>
+                                <div style="  background-position: 0 -56px;" class="douban-level"><span>4.7</span></div>
+                            </li>
+                            <li>
+                                <img src="./images/音乐images/4.jpg" alt="">
+                                <div style="font-size: 12px;margin-bottom: 5px;">4. <a style="font-size: 12px;"
+                                        class="music" href="">4肆百击</a> </div>
+                                <div style="margin-bottom: 5px;"><a style="font-size: 12px;" class="music" href="">王源
+                                        Roy Wang</a> </div>
+                                <div style="  background-position: 0 -12px;" class="douban-level"><span>8.4</span></div>
+                            </li>
+                            <li>
+                                <img src="./images/音乐images/5.jpg" alt="">
+                                <div style="font-size: 12px;margin-bottom: 5px;">5. <a style="font-size: 12px;"
+                                        class="music" href="">folklore</a> </div>
+                                <div style="margin-bottom: 5px;"><a style="font-size: 12px;" class="music"
+                                        href="">Taylor Swift</a> </div>
+                                <div style="  background-position: 0 -22px;" class="douban-level"><span>8.0</span></div>
+                            </li>
+                            <li>
+                                <img src="./images/音乐images/6.jpg" alt="">
+                                <div style="font-size: 12px;margin-bottom: 5px;">6. <a style="font-size: 12px;"
+                                        class="music" href="">Dreamland</a> </div>
+                                <div style="margin-bottom: 5px;"><a style="font-size: 12px;" class="music" href="">Glass
+                                        Animals</a> </div>
+                                <div style="  background-position: 0 -22px;" class="douban-level"><span>7.6</span></div>
+                            </li>
+                            <li>
+                                <img src="./images/音乐images/7.jpg" alt="">
+                                <div style="font-size: 12px;margin-bottom: 5px;">7. <a style="font-size: 12px;"
+                                        class="music" href=""> STRAY SHEEP [通常盤]</a> </div>
+                                <div style="margin-bottom: 5px;"><a style="font-size: 12px;" class="music"
+                                        href="">米津玄師</a> </div>
+                                <div style="  background-position: 0 -22px;" class="douban-level"><span>7.8</span></div>
+                            </li>
+                            <li>
+                                <img src="./images/音乐images/8.jpg" alt="">
+                                <div style="font-size: 12px;margin-bottom: 5px;">8. <a style="font-size: 12px;"
+                                        class="music" href=""> María</a> </div>
+                                <div style="margin-bottom: 5px;"><a style="font-size: 12px;" class="music" href="">화사
+                                        华莎</a> </div>
+                                <div style="  background-position: 0 -12px;" class="douban-level"><span>8.4</span></div>
+                            </li>
+                        </ul>
+
+
+                    </div>
+                </div>
+                <div class="music-song">
+                    <h3>热门歌单…… <a style="font-size: 12px;" class="music" href="">（更多）</a> </h3>
+                    <ul>
+                        <li>
+                            <div></div>
+                            <div>难得一个关淑怡</div>
+                        </li>
+                        <li>
+                            <div style="background-image: url('./images/音乐images/10.jpg');"></div>
+                            <div>华语流行｜这些歌曲你忘不了</div>
+                        </li>
+                        <li>
+                            <div style="background-image: url('./images/音乐images/11.jpg');"></div>
+                            <div>每日私享歌单里的好音乐</div>
+                        </li>
+                        <li>
+                            <div style="background-image: url('./images/音乐images/12.jpg');"></div>
+                            <div>So many Beats (streets)</div>
+                        </li>
+                        <li>
+                            <div style="background-image: url('./images/音乐images/13.jpg');"></div>
+                            <div>他不是汤川学，他是福山雅治</div>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+            <div class="music-right">
+                <h3>本周流行音乐人…… <a style="font-size: 12px;" class="music" href="">（更多）</a> </h3>
+                <div class="right-man">
+                    <ul>
+                        <li>
+                            <span>1.</span>
+                            <div class="singer"></div>
+                            <div> <a style="font-size: 12px;" class="music" href="">王敖（音乐人）</a> </div>
+                            <div class="content">流派: 世界音乐 World <br> 497人关注
+                            </div>
+
+                        </li>
+                        <li>
+                            <span>2.</span>
+                            <div style=" background-image: url(./images/音乐images/15.jpg);" class="singer"></div>
+                            <div> <a style="font-size: 12px;" class="music" href="">我爱陈绮贞</a> </div>
+                            <div class="content">流派: 流行 Pop<br> 7475人关注
+                            </div>
+
+                        </li>
+                        <li>
+                            <span>3.</span>
+                            <div style=" background-image: url(./images/音乐images/16.jpg);" class="singer"></div>
+                            <div> <a style="font-size: 12px;" class="music" href="">赤褐色乐队(auburn)</a> </div>
+                            <div class="content">流派: 摇滚 Rock <br> 1454人关注
+                            </div>
+
+                        </li>
+                        <li>
+                            <span>4.</span>
+                            <div style=" background-image: url(./images/音乐images/17.jpg);" class="singer"></div>
+                            <div> <a style="font-size: 12px;" class="music" href="">Alternative for Baroque</a> </div>
+                            <div class="content">流派: 轻音乐 Easy Listening<br> 485人关注
+                            </div>
+
+                        </li>
+                        <li>
+                            <span>5.</span>
+                            <div style=" background-image: url(./images/音乐images/18.jpg);" class="singer"></div>
+                            <div> <a style="font-size: 12px;" class="music" href="">JiMi Project</a> </div>
+                            <div class="content">流派: 摇滚 Rock<br> 92人关注
+                            </div>
+
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="dou-container">
+        <div class="dou-wrapper">
+            <div class="dou-left">
+                <h3> <a class="douping" href="">豆品</a> </h3>
+
+            </div>
+            <div class="dou-middle">
+                <h3>热卖商品…… (<a style="font-size: 12px;" class="more" href="">更多</a>) </h3>
+                <div class="market">
+                    <ul>
+                        <li>
+                            <div></div>
+                            <div class="market-bottom"> <a class="more" href="">豆猫冰箱贴</a> <span>￥35</span> </div>
+                        </li>
+
+                        <li>
+                            <div style="background-image: url('./images/豆品images/2.jfif');"></div>
+                            <div class="market-bottom"> <a class="more" href="">电影徽章</a> <span>￥35</span> </div>
+                        </li>
+
+                        <li>
+                            <div style="background-image: url('./images/豆品images/3.jpg');"></div>
+                            <div class="market-bottom"> <a class="more" href="">豆瓣逆向手表</a> <span>￥329</span> </div>
+                        </li>
+
+                        <li>
+                            <div style="background-image: url('./images/豆品images/4.jpg');"></div>
+                            <div class="market-bottom"> <a class="more" href="">豆瓣 晴雨伞下的印象派</a> <span>￥138</span> </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dou-right">
+                <div class="dou-mod">
+                    <h3>热门活动…… </h3>
+                    <div></div>
+                    <span> <a class="more" href="">我的豆瓣收藏夹里有什么</a> </span>
+
+
+                </div>
+                <h3>官方小组…… (<a style="font-size: 12px;" class="more" href="">更多</a>) </h3>
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="city-container">
+        <div class="city-wrapper">
+
+
+            <div class="city-left">
+                <h3> <a class="red" href="">同城 </a> </h3>
+                <div class="city-three">
+                    <ul>
+                        <li> <a class="black643" href="">近期活动</a> </li>
+                        <li> <a class="black643" href="">主办方</a> </li>
+                        <li> <a class="black643" href="">舞台剧</a> </li>
+                    </ul>
+
+
+                </div>
+
+            </div>
+            <div class="city-middle">
+                <h3>南京 · 本周热门活动 · · · · · · <a style="font-size: 12px;" class="black643" href="">（更多）</a> </h3>
+                <div class="middle-four">
+                    <ul>
+                        <li>
+                            <img src="./images/同城images/1.jpg" alt="">
+                            <span> <a style="font-size: 13px;" class="black643" href="">2020“一生中最爱”七夕演唱会 南京站</a> </span>
+                            <div>8月25日 周二 19:30 - 21:30</div>
+                            <div>稻香音乐空间 南京市江东...</div>
+                            <div>5人关注</div>
+                        </li>
+                        <li>
+                            <img src="./images/同城images/2.jpg" alt="">
+                            <span> <a style="font-size: 13px;" class="black643" href="">北归--杭盖乐队2020中国巡演·南京站</a> </span>
+                            <div>9月3日 周四 19:30 - 20:30</div>
+                            <div>南京保利大剧院 南京市建邺...</div>
+                            <div>5人关注</div>
+                        </li>
+                        <li>
+                            <img src="./images/同城images/3.jpg" alt="">
+                            <span> <a style="font-size: 13px;" class="black643" href="">NONG Archive TOUR南京站</a> </span>
+                            <div>9月5日 周六 20:30 - 22:00</div>
+                            <div>稻香音乐空间 江苏省南京市...</div>
+                            <div>1人关注</div>
+                        </li>
+                        <li>
+                            <img src="./images/同城images/4.jpg" alt="">
+                            <span> <a style="font-size: 13px;" class="black643" href="">【定金预定】张韶涵演唱会常州站</a> </span>
+                            <div>7月1日 周三 - 12月31日 周四</div>
+                            <div>票牛商城 南京市&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                            <div>9人关注</div>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="city-right">
+                <h3>活动标签 · · · · · ·</h3>
+                <div class="city-p">
+                    <ul>
+                        <li> <a class="black643" href="">音乐»</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">小型现场</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">音乐会</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">演唱会</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">音乐节</a> </li>
+                    </ul>
+
+                </div>
+                <div class="city-p">
+                    <ul>
+                        <li> <a class="black643" href="">戏剧»</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">话剧</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">音乐剧</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">舞剧</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">歌剧</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">戏曲</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">其他</a> </li>
+                    </ul>
+
+                </div>
+                <div style="height: 63px;" class="city-p">
+                    <ul>
+                        <li> <a class="black643" href="">聚会»</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">生活</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">集市</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">摄影</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">外语</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">桌游</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">夜店</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">交友</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">美食</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">派对</a> </li>
+                    </ul>
+
+                </div>
+                <div class="city-p">
+                    <ul>
+                        <li> <a class="black643" href="">电影»</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">主题放映</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">音乐会影展</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">影院活动</a> </li>
+
+                    </ul>
+
+                </div>
+                <div class="city-p">
+                    <ul>
+                        <li> <a class="black643" href="">其他»</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">讲座</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">展览</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">运动</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">旅行</a> </li>
+                        <li><a style="font-size: 12px;" class="black643" href="">公益</a> </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>

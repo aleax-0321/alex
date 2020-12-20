@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="zs">周深</button>
+    <button id="lrh">李荣浩</button> <br>
+    <img src="https://bkimg.cdn.bcebos.com/pic/d833c895d143ad4bd113f14bd34b4dafa40f4afba8ad?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UyNzI=,g_7,xp_5,yp_5"
+        alt="">
+    <script>
+        let zs = document.getElementById('zs')
+        let lrh = document.getElementById('lrh')
+        let img = document.querySelector('img')
+        lrh.onclick = function () {
+            img.src = 'https://bkimg.cdn.bcebos.com/pic/4ec2d5628535e5dd97c6998879c6a7efcf1b62fa?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UxMTY=,g_7,xp_5,yp_5'
+        }
+        zs.onclick = function () {
+            img.src = "https://bkimg.cdn.bcebos.com/pic/d833c895d143ad4bd113f14bd34b4dafa40f4afba8ad?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UyNzI=,g_7,xp_5,yp_5"
+        }
+
+    </script>
+</body>
+
+</html>

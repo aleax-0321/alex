@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //将  xxx.html?a=1&b=2&c=3  变成{a:1,b:2,c:3}的对象
+        let str = 'a=12&b=57&c=65'
+        let obj = {}
+        let args = str.split('&')
+        console.log(args);
+        args.forEach(function (item) {
+            let kv = item.split('=')
+            console.log(kv);       //['a','12']  ['b','57']
+            let key = kv[0]
+            let val = kv[1]
+            obj[key] = val
+        })
+        console.log(obj);
+
+        //将{a:1,b:2,c:3}    变成'a=1&b=2&c=3'
+        let zz = {
+            a: 1,
+            b: 2,
+            c: 3
+        }
+        function stringify(obj) {
+            let arr = []
+            for (let key in obj) {
+                let val = obj[key]
+                let str = key + '=' + val
+                arr.push(str);
+            }
+            return arr.join('&')
+        }
+        console.log(stringify(zz));
+        console.log(stringify({ aa: 1, age: 2 }));
+    </script>
+</body>
+
+</html>

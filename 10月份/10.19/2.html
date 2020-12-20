@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 300px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td,
+        th {
+            border: 1px solid pink;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>婚姻状况</td>
+            </tr>
+        </thead>
+        <tbody>
+         
+        </tbody>
+    </table>
+    <script>
+        let mytbody = document.querySelector('tbody')
+        let xhr = new XMLHttpRequest()
+
+        xhr.open('get', 'https://www.fastmock.site/mock/3e42c666403b10404e78ecfab5176187/text/text', true)
+
+        xhr.send()
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    console.log(JSON.parse(xhr.responseText));
+                    let txt = JSON.parse(xhr.responseText)
+                    for (let i = 0; i < txt.length; i++) {
+                        let mytr = document.createElement('tr')
+
+                        let myth1 = document.createElement('th')
+                        myth1.innerHTML = txt[i].name
+
+                        let myth2 = document.createElement('th')
+                        myth2.innerHTML = txt[i].age
+
+                        let myth3 = document.createElement('th')
+                        myth3.innerHTML = txt[i].married
+
+                        mytr.appendChild(myth1)
+                        mytr.appendChild(myth2)
+                        mytr.appendChild(myth3)
+
+                        mytbody.appendChild(mytr)
+
+                    }
+
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

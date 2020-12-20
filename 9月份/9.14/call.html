@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            age: 20,
+            showAge(name) {
+                console.log(name + ',' + this.age);
+            }
+        }
+
+        let zzz = {
+            age: 30
+        }
+        let xx = {
+            age: 20
+        }
+        let vv = {
+            age: 40
+        }
+
+        let showAge = obj.showAge
+        showAge.call(zzz, 'alex')  
+        showAge.apply(xx, ['alex'])
+        showAge.bind(vv)('alex')
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            list-style: none;
+            user-select: none;
+        }
+
+        .container {
+            width: 200px;
+            min-height: 100px;
+            background-color: #eee;
+            margin: 100px auto;
+        }
+
+        .container ul {
+            background-color: aqua;
+            cursor: pointer;
+        }
+
+        .container ul li {
+            padding-top: 20px;
+            vertical-align: center;
+        }
+
+        .container ul li div {
+            border-bottom: 2px dotted rgb(231, 213, 213);
+            padding-left: 20px;
+        }
+
+        .container ul li div:hover {
+            background-color: #ccc;
+        }
+
+        .yellow {
+            background-color: rgb(231, 247, 7);
+        }
+
+        .on {
+            background-color: #fff;
+        }
+
+        .jt {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border: 8px solid;
+            border-color: transparent transparent transparent #ccc;
+        }
+
+        .jt2 {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border: 8px solid;
+            border-color: #ccc transparent transparent transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul>
+            <li v-for='(item,index) in list' @click=fn(index) :class="{yellow:item.isshow}">
+                <span class="jt" :class='{jt2:item.isshow}'></span>{{item.title}}
+                <div v-for='na in item.name' v-show='item.isshow' :class="{on:item.isshow}">
+                    {{na}}
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script>
+        new Vue({
+            el: '.container',
+            data: {
+                list: [
+                    {
+                        title: '我的好友',
+                        name: ['张三', '李四', '王五'],
+                        isshow: false,
+                    },
+                    {
+                        title: '我的同学',
+                        name: ['alex', 'jackson', 'karry'],
+                        isshow: false,
+                    },
+                    {
+                        title: '黑名单',
+                        name: ['特朗普', '安培'],
+                        isshow: false,
+                    },
+                ]
+            },
+            methods: {
+                fn(index) {
+                    this.list[index].isshow = !this.list[index].isshow
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        用户: <input type="text" placeholder="用户名" id="user">
+    </div>
+
+    <div>
+        密码: <input type="password" placeholder="密码" id="paw">
+    </div>
+
+    <button type="button">登录</button>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        // //get请求
+        // $('button').click(function (e) {
+        //     e.preventDefault();
+        //     $.ajax({
+        //         type: "get",
+        //         url: "http://127.0.0.1:3000/fff",
+        //         data: { name: $('#user').val(), password: $('#paw').val() },
+        //         dataType: "json",
+        //         success: function (response) {
+        //             console.log(response);
+        //         }
+        //     });
+        // });
+
+        
+        //post请求
+        $('button').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: "post",
+                url: "http://127.0.0.1:3000/ttt",
+                data: { name: $('#user').val(), password: $('#paw').val() },
+                dataType: "json",
+                success: function (response) {
+                    console.log(response);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

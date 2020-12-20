@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //闭包函数   两个函数嵌套，内部的函数引用了外部的变量，则内部函数成为外部的闭包函数
+        let calc = function () {
+            let num = 0
+            return {
+                jia: function () {
+                    num++
+                    return num
+                },
+                jian: function () {
+                    num--
+                    return num
+                },
+                get: function () {
+                    // return num
+                }
+            }
+        }
+        let c = calc()
+        console.log(c);
+        // c.jia()
+        console.log(c.jia());
+        // c.jian()
+        // console.log(c.jian());
+    </script>
+
+</body>
+
+</html>

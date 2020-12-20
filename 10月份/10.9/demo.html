@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="start">设置定时炸弹</button>
+    <button id="stop">在炸弹爆炸前停止</button>
+
+    <script>
+        let start = document.querySelector('#start')
+        let stop = document.querySelector('#stop')
+
+        let timer = null
+        start.onclick = function () {
+            clearTimeout(timer)
+            console.log('定时炸弹已设置，3秒后爆炸');
+            timer = setTimeout(() => {
+                alert('炸弹已经爆炸了')  
+            }, 3000);
+        }
+
+        stop.onclick = function () {
+            clearTimeout(timer)
+            alert('炸弹已经拆除了')
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+{
+  "id": "2029136",
+  "name": "8.26",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3550768",
+      "name": "左箭头",
+      "font_class": "ico_leftarrow",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "12736667",
+      "name": "右箭头",
+      "font_class": "youjiantou",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    }
+  ]
+}

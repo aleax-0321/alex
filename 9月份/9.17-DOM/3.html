@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">Alex</div>
+    <script>
+        let app = document.querySelector('#app')
+
+        // let str = '一二三四五六七八九十'
+        // let i = 0
+        // setInterval(() => {
+        //     //防止溢出
+        //     if (i < str.length) {
+        //         //依次拼接每个字符
+        //         app.innerHTML += str[i]
+        //         i++
+        //     }
+
+        // }, 1000);
+
+        //获取标签的内容,连同HTML标签一起
+        // console.log(app.innerHTML);   // <h1>Alex</h1>
+        //设置标签的内容
+        // app.innerHTML = '<button>登录</button>'   //渲染标签
+        // app.innerHTML = 'Karry'
+
+        //获取标签的纯文本
+        // console.log(app.innerText);   //Alex
+
+        // app.innerText = '<button>登录</button>'    //纯文本
+        // console.log(app.innerHTML);
+        // console.log(app.outerHTML);    //包含标签本身
+
+        app.style.color = 'red'       //设置行内样式  color=red
+        app.style.fontSize = '30px'
+        app.style.background = 'blue'
+
+        app.classList.add('active')
+        app.classList.add('item')
+        app.classList.remove('item')
+
+        //标签属性
+        app.id = 'zzzzz'
+        app.setAttribute('age', 20)     //添加自定义属性
+        console.log(app.getAttribute('age'));     //获取属性
+
+    </script>
+</body>
+
+</html>

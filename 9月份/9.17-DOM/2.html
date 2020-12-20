@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>Alex
+        <div class="demo">ace</div>
+        <div class="demo">ace</div>
+        <div class="demo">ace</div>
+    </div>
+    <div class="demo" name='a'>ace</div>
+    <script>
+        let app = document.querySelector('#app')    //单个  find
+        console.log(app);
+
+        let demo = document.querySelector('.demo')
+        console.log(demo);
+
+        let demos = document.querySelectorAll('.demo')   //多个   filter
+        console.log(demos);
+
+        //id=app的元素里面的class名为demo的元素
+        let demos1 = document.querySelectorAll('#app .demo')
+        console.log(demos1);
+
+
+
+        // document.body.style.background = 'red'
+        //  document.title = 'Hello' 
+
+
+        // //id选择器
+        // let app = document.getElementById('app')
+        // console.log(app);
+
+        // //class
+        // let demos = document.getElementsByClassName('demo')
+        // for (let i = 0; i < demos.length; i++) {
+        //     console.log(demos[i]);
+        // }
+
+        // //标签选择器
+        // let divs = document.getElementsByTagName('div')
+        // for (let i = 0; i < divs.length; i++) {
+        //     console.log(divs[i]);
+        // }
+
+        // //name选择器
+        // let as = document.getElementsByName('a')
+        // for (let i = 0; i < as.length; i++) {
+        //     console.log(as[i]);
+        // }
+    </script>
+</body>
+
+</html>

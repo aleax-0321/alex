@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let obj = {
+            name: 'Alex',
+            0: 'student',
+            a: 20
+        }
+
+        //如果对象中包含此属性，则赋值，如果不包含此属性，则新增属性
+        obj.c = 20
+        obj.a = 15
+        console.log(obj);
+        //ffghfrtyhgdddvhjkmbghjljhghjjj   得到每个字符出现的次数，及出现最多的字符
+
+
+        let str = 'ffghfrtyhgdddvhjkmbghjljhghjjj'
+
+        let max = {
+            name: '',
+            count: 0
+        }
+
+        let obj1 = {}
+        for (let i = 0; i < str.length; i++) {
+            let k = str[i]
+            //如果为undefined代表此字符不存在，初始化为1次
+            if (obj1[k] === undefined) {
+                obj1[k] = 1
+            } else {
+                //如果存在，数量+1
+                obj1[k]++
+            }
+            if (obj1[k] > max.count) {
+                max.name = k
+                max.count = obj1[k]
+            }
+        }
+        console.log(obj1);
+        console.log(max.name, max.count);
+
+    </script>
+</body>
+
+</html>

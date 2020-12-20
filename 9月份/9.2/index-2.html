@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/通用.js"></script>
+    <script>
+        setInterval(function () {
+            let now = new Date()
+            let six = new Date('2020-09-02 12:00:00')
+
+            let sec = (six - now) / 1000
+
+            let h = repairZero(Math.floor(sec / 3600));
+            let m = repairZero(Math.floor(sec % 3600 / 60));
+            let s = repairZero(Math.floor(sec % 3600 % 60));
+
+            console.log([h, m, s].join(':'));
+        }, 1000);
+
+        function chu(a, b) {
+            //手动报错，抛出异常
+            // if (!b) throw '除数不能为空'
+            if (!b) b = 1
+            return a / b
+        }
+        console.log(chu(10));
+    </script>
+</body>
+
+</html>

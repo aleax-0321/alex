@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //限制函数的触发频率
+        function throttle(callback, wait) {
+            let endTime = 0
+            return function () {
+                if (new Date() - endTime < wait) return console.log('不能太频繁哦~');
+
+                callback.apply(this, arguments)
+
+                endTime = new Date()
+            }
+        }
+
+        let obj = {
+            nickname: 'alex',
+            pay: throttle(function (money) {
+                console.log(this.nickname + '付钱' + money);
+            }, 6000),
+            eat: throttle(function (a, b, c, d) {
+                console.log(this.nickname + '吃饭' + a, b, c, d);
+            }, 6000),
+            play: throttle(function (a, b) {
+                console.log(this.nickname + '玩' + a, b);
+            }, 6000)
+        }
+
+        obj.pay(50)
+        obj.eat(20, 20, 40, 80)
+        obj.play(60, 100)
+
+        // function sayHi() {
+        //     console.log('hi');
+        // }
+        // fu = throttle(sayHi, 2000)
+
+
+        // setInterval(() => {
+        //     fu()
+        // }, 1000)
+
+    </script>
+</body>
+
+</html>

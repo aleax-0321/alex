@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{famoney}}
+        <test @fn='getMoney'></test>
+    </div>
+    <script>
+        Vue.component('test', {
+            data() {
+                return {
+                    sonmoney: '100万'
+                }
+            },
+            template: '<div><button @click="zq">转钱</button></div>',
+            methods: {
+                zq() {
+                    this.$emit('fn', this.sonmoney)
+                }
+            }
+
+        })
+
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                famoney: 0
+            },
+            methods: {
+                getMoney(val) {
+                    this.famoney = val
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

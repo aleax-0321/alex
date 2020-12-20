@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #left {
+            width: 300px;
+            height: 300px;
+            border: 1px solid pink;
+            margin: 20px;
+            position: relative;
+        }
+
+        #left img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #right {
+            height: 500px;
+            width: 500px;
+            display: none;
+            /* border: 1px solid red; */
+            position: absolute;
+            background: url(https://img14.360buyimg.com/n0/jfs/t1/121127/39/12389/118299/5f59c486Ee4679ca7/0d2d6881192b43a4.jpg) center;
+            ;
+        }
+
+        .shadow {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            display: none;
+            cursor: move;
+            background: rgba(255, 255, 0, .349);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="left">
+        <div class="shadow"></div>
+        <img src="https://img11.360buyimg.com/n1/s450x450_jfs/t1/145055/21/7876/104346/5f582ec5E1d0ed667/a270728f90ab8608.jpg"
+            alt="">
+    </div>
+    <div id="right"></div>
+    <script>
+        let left = document.querySelector('#left')
+        let right = document.querySelector('#right')
+        let shadow = document.querySelector('.shadow')
+
+
+        right.style.top = left.offsetTop + 'px'
+        right.style.left = left.offsetLeft + left.offsetWidth + 'px'
+
+        left.onmousemove = function (e) {
+            let offsetX = e.pageX - left.offsetLeft
+            let offsetY = e.pageY - left.offsetTop
+            let percentX = (offsetX / left.offsetWidth) * 100 + '%'
+            let percentY = (offsetY / left.offsetHeight) * 100 + '%'
+            right.style.backgroundPosition = `${percentX} ${percentY}`
+
+
+            //shadow
+            let x = offsetX - shadow.offsetWidth / 2
+            let y = offsetY - shadow.offsetHeight / 2
+            if (x < 0) x = 0
+            if (y < 0) y = 0
+            let maxLeft = left.offsetWidth - shadow.offsetWidth
+            let maxTop = left.offsetHeight - shadow.offsetHeight
+            if (x > maxLeft) x = maxLeft
+            if (y > maxTop) y = maxTop
+
+            shadow.style.left = x + 'px'
+            shadow.style.top = y + 'px'
+        }
+
+        left.onmouseenter = function () {
+            right.style.display = 'block'
+            shadow.style.display = 'block'
+        }
+
+        left.onmouseleave = function () {
+            right.style.display = 'none'
+            shadow.style.display = 'none'
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            padding: 100px;
+        }
+
+        #txt {
+            font-size: 20px;
+        }
+
+        .yellow {
+            color: red;
+            background-color: yellow;
+        }
+
+        .red {
+            color: yellow;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button>大</button>
+    <button>小</button>
+    <button>红</button>
+    <button>黄</button>
+    <p id="txt">
+        这与世卫组织此前的报告一致。世卫组织官员此前预测称，到2021年中期才能获得广泛可用的新冠病毒疫苗。世卫组织表示，理想的候选疫苗将能够保护至少70%的已经接种疫苗的人群，尽管最低标准只有50%。这与世卫组织此前的报告一致。世卫组织官员此前预测称，到2021年中期才能获得广泛可用的新冠病毒疫苗。世卫组织表示，理想的候选疫苗将能够保护至少70%的已经接种疫苗的人群，尽管最低标准只有50%。这与世卫组织此前的报告一致。世卫组织官员此前预测称，到2021年中期才能获得广泛可用的新冠病毒疫苗。世卫组织表示，理想的候选疫苗将能够保护至少70%的已经接种疫苗的人群，尽管最低标准只有50%。
+    </p>
+
+    <script>
+        let btn = document.querySelectorAll('button')
+        let txt = document.querySelector('#txt')
+        let num = 20
+
+        btn[0].onclick = function () {
+            if (num >= 30) {
+                alert('别点了，够大啦')
+            } else {
+                num++
+                txt.style.fontSize = num + 'px'
+            }
+        }
+
+        btn[1].onclick = function () {
+            if (num <= 14) {
+                alert('别点了，再点看不清了')
+            } else {
+                num--
+                txt.style.fontSize = num + 'px'
+            }
+        }
+
+        btn[2].onclick = function () {
+            txt.className = 'yellow'
+        }
+        
+        btn[3].onclick = function () {
+            txt.className = 'red'
+        }
+    </script>
+</body>
+
+</html>

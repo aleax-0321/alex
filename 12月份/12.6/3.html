@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" v-model='val'> <button @click='fn(val)'>提交</button>
+        <ul>
+            <li v-for='item in list'>{{item}}</li>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script>
+        new Vue({
+            el: '.container',
+            data: {
+                val: '',
+                list: ['警方通报男子机场用人命币砸保安', '国行一航班突降千米 乘务员受伤', '乐山五通桥居民因异味撤离']
+            },
+            methods: {
+                fn(val) {
+                    this.list.push(this.val)
+                    this.val = ''
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

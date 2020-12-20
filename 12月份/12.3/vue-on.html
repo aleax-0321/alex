@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <button v-on:click='fn'>点一下试试呢</button>
+        <button @click='fn'>点一下试试呢1</button>
+
+
+        <button v-on:click='num++'>点一下试试呢2</button>
+        <button @click='num++'>点一下试试呢2</button>
+
+        <p>{{num}}</p>
+
+
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '.box',
+            data: {
+                num: 1
+            },
+            methods: {
+                fn() {
+                    alert(1)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="list">
+
+    </ul>
+    <script>
+        //客户端 Client=>服务器Server 请求 Request
+        //                            响应 Response
+
+        //创建对象
+
+
+        let ajax1 = new XMLHttpRequest()
+        //打开通道，进行请求设置
+        ajax1.open('GET', 'http://service.envicloud.cn:8082/v2/citycode/YWXLEDIXNJAXMDIWNTQYODK0/杭州',
+            true)
+        //发送请求
+        ajax1.send()
+        //监听状态，获取响应
+        ajax1.onreadystatechange = function () {
+            if (ajax1.readyState === 4 && ajax1.status === 200) {
+                // console.log(JSON.parse(ajax.response)); //json=>js
+                let data = JSON.parse(ajax1.response)
+                console.log(data.citycode);
+
+
+
+                let ajax = new XMLHttpRequest()
+                //打开通道，进行请求设置
+                ajax.open('GET',
+                    'http://service.envicloud.cn:8082/v2/weatherforecast/YWXLEDIXNJAXMDIWNTQYODK0/'+data.citycode,
+                    true)
+                //发送请求
+                ajax.send()
+                //监听状态，获取响应
+                ajax.onreadystatechange = function () {
+                    if (ajax.readyState === 4 && ajax.status === 200) {
+                        // console.log(JSON.parse(ajax.response)); //json=>js
+                        let data = JSON.parse(ajax.response)
+                        console.log(data);
+                        data.forecast.forEach(r => {
+                            let li = document.createElement('li')
+                            li.innerHTML = `${r.date}--温度：${r.tmp.min}~${r.tmp.max}`
+                            list.appendChild(li)
+                        })
+                    }
+                }
+
+            }
+        }
+
+
+        // let ace = {
+        //     age: 10,
+        //     name: 'zz'
+        // }
+        // console.log(ace);
+        // console.log(JSON.stringify(ace));
+
+        // console.log('-'.repeat(30));
+
+        // let str2 = '{"age":10,"name":"zz"}'
+        // console.log(str2);
+        // console.log(JSON.parse(str2));
+
+        // // let str2=
+
+        // http://service.envicloud.cn:68082/v2/weatherforecast/BG9UZ2VYCZE2MDEWMJAYODEWMTA=/101190101
+        // BG9UZ2VYCZE2MDEWMJAYODEWMTA=
+
+
+
+        // http://service.envicloud.cn:8082/v2/weatherforecast/BG9UZ2VYCZE2MDEWMJAYODEWMTA=/101260708
+    </script>
+</body>
+
+</html>

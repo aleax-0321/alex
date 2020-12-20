@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [{ a: "周天上班", b: "2" }, { a: "周六上班不", b: "4" }]//请求回来的res数据格式
+        let data = []//把后台返回的res存入在前台
+        let a = []//每个值存进去
+        let b = []
+        for (let i in arr) {
+            console.log("i,arr[i]每个对象", i, arr[i])
+            data.push(arr[i])
+            console.log(data)
+        }
+        for (let j in data) {
+            console.log("j,data[j].a每个a", data[j].a)
+            a.push(data[j].a)
+            b.push(data[j].b)
+
+        }
+        console.log("所有子表的a,b值 ", a, b)
+    </script>
+</body>
+
+</html>

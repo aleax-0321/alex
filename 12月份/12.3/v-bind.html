@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pink {
+            color: pink;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .font30 {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p><a :href="href" :title="title">淘宝</a></p>
+        <img :src="src" :width='width'>
+
+        <!-- 绑定class的方法 -->
+        <h1 :class="myclass">艾欧尼亚昂扬不灭~</h1>
+        <h1 :class="{red:isRed,font30:isFont30}">艾欧尼亚昂扬不灭~</h1>
+        <h1 :class="[a,b]">艾欧尼亚昂扬不灭~</h1>
+
+        <!-- 绑定style的方法 -->
+
+        <h1 :style="{color:skyblue}">艾欧尼亚昂扬不灭~</h1>
+        <h1 :style="obj">艾欧尼亚昂扬不灭~</h1>
+
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script>
+        new Vue({
+            el: '.box',
+            data: {
+                href: 'http://taobao.com',
+                title: '就是不给你发货',
+                src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1606977389900&di=89829f2493447f3338257eb6e8381b4f&imgtype=0&src=http%3A%2F%2Fd.yymoban.com%2Fuploadsxin%2Fallimg%2F1802%2F1-1P22Q91950511.gif',
+                width: '200',
+                myclass: 'pink',
+                red: 'red',
+                font30: 'font30',
+                isRed: false,
+                isFont30: false,
+                a: 'pink',
+                b: 'font30',
+                skyblue: 'skyblue',
+                obj: {
+                    color: 'blue',
+                    'font-style': 'italic'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

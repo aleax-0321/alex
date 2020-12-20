@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //["<123>", "<33>"]
+        let str = 'abc<123>fdfd<33>fff34fdf<>'
+        let reg = /<\d+>/g
+        console.log(str.match(reg));
+    </script>
+</body>
+
+</html>

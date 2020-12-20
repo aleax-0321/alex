@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            myname: 'Alex',
+            introduce() {
+                console.log(`你好，我叫${this.myname}`);
+                return function () {
+                    console.log(`早上好，我叫${this.myname}`);
+                }
+            }
+        }
+
+       let res= obj.introduce()
+       
+       res()
+    </script>
+</body>
+
+</html>

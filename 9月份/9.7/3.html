@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            age: 20,
+            name: 'Alex',
+            sex: '男'
+        }
+        //返回此对象的key数组
+        console.log(Object.keys(obj));
+        //返回此对象的值得数组
+        console.log(Object.values(obj));
+
+        let arr = [11, 22, 33]
+        let res = arr.map(function (item) {
+            return item * 2
+        })
+        console.log(res);
+
+        let arr1 = [
+            { name: 'alex', age: 20 },
+            { name: 'boeing', age: 18 },
+            { name: 'lanxs', age: 19 }
+        ]
+
+        console.log(arr1.map(function (item) {
+            return item.name
+        }));
+
+
+        let arr2 = [11, 22, 33, 44]
+
+        let sum = arr2.reduce(function (total, item) {
+            return total + item
+        }, 0)
+        console.log(sum);
+
+
+        let goods = [
+            { name: '薯片', price: 8, count: 2 },
+            { name: '冰红茶', price: 3, count: 1 },
+            { name: '可乐', price: 3, count: 3 }
+        ]
+        // let sum1 = 0
+        // goods.forEach(function (item) {
+        //     sum1 += item.price * item.count
+        // })
+        // console.log(sum1);
+
+        console.log(goods.reduce(function (total, item) {
+            return total + item.price * item.count
+        }));
+
+
+
+    </script>
+</body>
+
+</html>

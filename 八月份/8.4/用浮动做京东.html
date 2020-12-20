@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            background-color: #999;
+            height: 40px;
+        }
+        li{
+          padding:0 20px;
+          float: left;
+          line-height: 40px;
+          font-size: 12px;
+        }
+        span{
+            color: red;
+        }
+        li:not(:last-of-type):after{
+            content: "丨";
+            padding: 20px;
+        
+      }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>你好，请登录<span>免费注册</span></li>
+        <li>我的订单</li>
+        <li>我的京东</li>
+        <li>京东会员</li>
+        <li>企业采购</li>
+        <li>手机会员</li>
+        <li>关注京东</li>
+    </ul>
+</body>
+</html>

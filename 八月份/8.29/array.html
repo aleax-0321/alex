@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // //一段连续的有序的数据集合  变量的大盒子
+        // //可以通过下标/索引来访问
+        // let arr = ['张三', '李四', '小明']
+        // for (let i = 0; i < arr.length; i++) {
+        //     console.log(i);
+        //     console.log(arr[i]);
+        // }
+
+
+        let arr = [52, 525, 648, 3, 456, 334]
+
+        // //数组长度-1就是最后一个元素的下标
+        // console.log(arr[arr.length - 1]);    //获取最后一个元素
+
+        // //遍历
+        // for (let i = 0; i < arr.length; i++) {
+        //     if (arr[i] % 3 === 0) {
+        //         console.log(arr[i]);
+        //     }
+        // }
+
+        // let arr = new Array()     //构造函数方式创建数组对象
+        let arr1 = [5]             //字面量方式创建数组对象
+
+        arr1.push(10)     //在数组末尾添加元素
+        arr1.push(20, 456, 978, 45, 5467)
+
+
+        // // let z =arr1.pop()
+        // // console.log(z);
+        // // arr1.pop()         //删除并返回末尾元素
+
+        // arr1.unshift(80)    //在数组开头添加元素
+        // // arr1.shift(80)      //删除并返回第一个元素
+
+        // // //在指定位置删除并返回一段元素(index,length)  从下标index开始删除length
+        arr1.splice(2, 2)
+
+        // // // //返回一段元素，[start,end} 0,3  返回0,1,2三个下标的对应元素
+        // console.log(arr1.slice(0, 2));
+
+        // // // //返回指定元素在数组中的下标
+        // console.log(arr1.indexOf(10));
+
+        // // // //判断数组是否包含一个元素
+        // console.log(arr1.includes(555));
+
+        // // // //翻转数组，直接改变数组结构
+        // // // arr1.reverse()
+
+        // // // //数组排序    默认是按首字母顺序
+        // // arr1.sort()
+
+        // // // //将数通过某字符串拼接，默认是逗号
+        // // console.log(arr1.join('|'));
+
+        // // // //返回与另一个数组合并之后的新数组，不会改变原数组
+        // let arr2 = [222, 555]
+        // console.log(arr1.concat(arr2));
+
+
+
+
+        console.log(arr1);
+
+        // a()   //函数/方法
+        // let num1 = 030
+        // console.log(num1);
+
+
+
+    </script>
+</body>
+
+</html>

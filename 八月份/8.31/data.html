@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let now = new Date()
+        console.log(now);
+
+        // console.log(now.getFullYear());
+        // console.log(now.getMonth() + 1);
+        // console.log(now.getDate());
+        // console.log(now.getHours());
+        // console.log(now.getMinutes());
+        // console.log(now.getSeconds());
+
+        // let ymd = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('-')
+        // let hms = [now.getHours(), now.getMinutes(), now.getSeconds()].join(':')
+        // let all = [ymd, hms].join(' ')
+        // console.log(ymd);
+        // console.log(hms);
+        // console.log(all);
+
+        setInterval(function () {
+            let now = new Date()
+            let ymd = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('-')
+            let hms = [now.getHours(), now.getMinutes(), now.getSeconds()].join(':')
+            let all = [ymd, hms].join(' ')
+            console.log(ymd);
+            console.log(hms);
+            console.log(all);
+
+        }, 1000)
+
+
+        console.log(now.getDay());
+        let str = '星期' + '日一二三四五六'[now.getDay()]
+        console.log(str);
+
+
+        let d3 = new Date()
+        let d4 = new Date('2020-08-31 16:20:20')
+
+        let sec = (d3 - d4) / 1000
+        if (sec < 60) {
+            console.log('刚刚');
+        } else if (sec < 60 * 60) {
+            console.log(Math.floor(sec / 60) + '分钟前');
+        } else if (sec < 60 * 60 * 24) {
+            console.log(Math.floor(sec / 60 / 60) + '小时前');
+        } else {
+            console.log('显示正常时间');
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

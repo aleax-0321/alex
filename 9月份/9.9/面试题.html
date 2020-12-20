@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //第一题  var 变量提升  会先定义a  在打印 
+        // var a
+        // console.log(a)
+        // var a = 12
+        // function fn() {
+        //     var a
+        //     console.log(a)
+        //     var a = 13
+        // }
+        // fn()
+        // console.log(a)
+
+        //第二题
+        // console.log(a)
+        // var a = 12
+        // function fn() {
+        //     console.log(a)      //因为底下没有定义只是赋值，会去找上级中的a
+        //     a = 13
+        // }
+        // fn()
+        // console.log(a)
+
+
+        //第三题   let 不会变量提升  会报错 
+        // console.log(a)
+        // let a = 12
+        // function fn() {
+        //     console.log(a)    //形成一个暂时性死区  本作用域不会访问外面的a
+        //     let a = 13
+        // }
+        // fn()
+        // console.log(a)         //作用域的问题 去找全局的a
+
+
+        //第四题 
+        // console.log(a)
+        // window.a = 11
+        // function fn() {
+        //     // console.log(a)
+        //     let a = 13
+        // }
+        // fn()
+        // console.log(a)
+
+
+        //第五题
+        // var foo = 1
+        // function bar() {
+        //     var foo 
+        //     if (!foo) {         //if没有作用域  困不住var
+        //         var foo = 10
+        //     }
+        //     console.log(foo)
+        // }
+
+        // bar()
+
+
+        //第六题
+        // var foo = 1
+        // function bar() {
+        //     if (!foo) {
+        //         foo = 10
+        //     }
+        //     console.log(foo)
+        // }
+        // bar()
+
+
+        //第七题
+        // var n = 0
+        // function a() {
+        //     var n = 10
+        //     function b() {
+        //         n++
+        //         console.log(n)
+        //     }
+        //     b()
+        //     return b
+        // }
+        // var c = a()       //11 
+        // c()               //12
+        // console.log(n)
+
+
+
+        //第八题
+        // var a = 10
+        // var b = 11
+        // var c = 12
+
+        // function test(a) {
+        //     a = 1
+        //     var b = 2
+        //     c = 3
+        // }
+        // test(100)
+
+        // console.log(a)
+        // console.log(b)
+        // console.log(c)
+
+
+        //第九题
+        // var a
+        // if (!('a' in window)) {
+        //     var a = 10
+        // }
+        // console.log(a)
+
+
+        //第十一题
+        var a = 9
+        function fn() {
+            a = 0
+            return function (b) {
+                return b + a++
+            }
+        }
+        var f = fn()
+        console.log(f(5))
+        console.log(fn()(5))
+        console.log(f(5))
+        console.log(a)
+    </script>
+</body>
+
+</html>

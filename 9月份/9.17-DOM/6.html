@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .demo {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+    }
+</style>
+
+<body>
+    <script>
+        //e 代表  本次事件的信息对象，事件触发时会自动传入
+        window.onclick = function (e) {
+            let demo = document.createElement('div')
+            demo.classList.add('demo')
+            //设置位置为鼠标位置
+            let x = e.pageX
+            let y = e.pageY
+            demo.style.left = x + 'px'
+            demo.style.top = y + 'px'
+            document.body.appendChild(demo)
+
+            //让div往上走
+            let fangxiang = Math.round(Math.random())    //随机数0~1
+            setInterval(() => {
+                y -= 2
+                //左右方向
+                if (fangxiang === 0) x -= 2
+                else x += 2
+                demo.style.left = x + 'px'
+                demo.style.top = y + 'px'
+            }, 20);
+        }
+    </script>
+</body>
+
+</html>

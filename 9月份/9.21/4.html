@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #container {
+            width: 500px;
+            height: 500px;
+        }
+
+
+        .title {
+            display: flex;
+            align-items: center;
+        }
+
+        .title li {
+            flex: 1;
+            text-align: center;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+
+        .title li.active {
+            border-bottom: 3px solid red;
+            color: red;
+        }
+
+        .content li {
+            display: none;
+        }
+
+        .content li.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <ul class="title">
+            <li class="active">火车票</li>
+            <li>汽车票</li>
+            <li>飞机票</li>
+        </ul>
+        <ul class="content">
+            <li class="show">112123123123123</li>
+            <li>3123123123123123</li>
+            <li>134353453454354</li>
+        </ul>
+    </div>
+
+    <script>
+        let titles = document.querySelectorAll('.title li')
+        let contents = document.querySelectorAll('.content li')
+        for (let i = 0; i < titles.length; i++) {
+            titles[i].onclick = function () {
+                //先找到当前高亮的元素，把active去掉
+                document.querySelector('.title li.active').classList.remove('active')
+                //自身加高亮
+                titles[i].classList.add('active')
+
+                //切换content的显示隐藏
+                document.querySelector('.content li.show').classList.remove('show')
+                contents[i].classList.add('show')
+            }
+        }
+    </script>
+</body>
+
+</html>

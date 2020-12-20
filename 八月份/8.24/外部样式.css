@@ -1,0 +1,258 @@
+.big {
+    width: 100%;
+    height: 80px;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    font-family: 'PingFang SC', 'Heiti SC', '微软雅黑', Helvetica, Arial;
+    font-size: 14px;
+    color: #684029;
+    position: fixed;
+    background: #FFF;
+    box-shadow: 0 2px 2px 0 rgba(195, 195, 195, 0.50);
+    z-index: 5000;
+
+}
+
+.header-wrapper {
+    width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.header-logo {
+    width: 680px;
+    height: 44px;
+}
+
+.header-list {
+    width: 504px;
+    height: 100%;
+}
+
+.header-right {
+    width: 328px;
+    height: 100%;
+    position: relative;
+
+}
+
+.header-logo img {
+    width: 120px;
+    height: 44px;
+    cursor: pointer;
+}
+
+.header-list li:hover {
+    cursor: pointer;
+    color: #BB9772;
+}
+
+.header-right li .sanjiao {
+    width: 10px;
+    height: 7px;
+    display: inline-block;
+    background-image: url('./images/all.png');
+    background-repeat: no-repeat;
+    background-position: 0 -59px;
+    background-size: 310px 120px;
+}
+
+.header-right .car {
+    width: 18px;
+    height: 18px;
+    background-image: url('./images/all.png');
+    background-repeat: no-repeat;
+    background-position: -286px -76px;
+    background-size: 310px 120px;
+}
+
+.header-right li .erweima {
+    width: 120px;
+    height: 0px;
+    position: absolute;
+    left: -20px;
+    top: 60px;
+    text-align: center;
+    overflow: hidden;
+    background-color: #fff;
+    transition: height .5s;
+}
+
+.header-right li .erweima img {
+    width: 100px;
+    height: 100px;
+}
+
+.header-right li .erweima p {
+    font-size: 12px;
+}
+
+.header-right li:hover .erweima {
+    height: 120px;
+}
+
+.pic-container {
+    height: 480px;
+    background-image: url('./images/pic.jpg');
+    background-position: center center;
+}
+
+.main-container {
+    width: 1200px;
+    height: 4000px;
+    margin: 0 auto;
+}
+
+.main-one {
+    width: 1124px;
+    height: 112px;
+    margin: 26px auto 0;
+}
+
+.main-one img {
+    opacity: .8;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.06);
+}
+
+.main-one img:hover {
+    opacity: 1;
+}
+
+.main-two {
+    width: 100%;
+    height: 746px;
+}
+
+h2 {
+    width: 1100px;
+    height: 41px;
+    font-size: 26px;
+    color: #724228;
+    font-weight: normal;
+    margin: 0 auto 20px;
+}
+
+h2 span {
+    font-size: 14px;
+    color: #8E5D43;
+    margin-left: 6px;
+}
+
+.main-two .new {
+    margin-left: 40px;
+}
+
+.two-list {
+    width: 1116px;
+    height: 365px;
+    margin: 0 auto;
+}
+
+.two-list li {
+    width: 263px;
+    height: 100%;
+}
+
+.two-list h3 {
+    font-size: 16px;
+    color: #000;
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+.two-list p {
+    font-size: 14px;
+    color: #616161;
+}
+
+.two-list .xp {
+    width: 53px;
+    height: 18px;
+    border: 1px solid #D5BFA7;
+    border-radius: 100px;
+    line-height: 18px;
+    text-align: center;
+    color: #D5BFA7;
+    margin: 8px 3px;
+    font-size: 12px;
+}
+
+.two-list .price {
+    border-top: 1px dashed #D5BFA7;
+    margin-top: 6px;
+}
+
+.two-list .price p {
+    color: #BB9772;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.two-list .price span {
+    width: 80px;
+    height: 20px;
+    font-size: 12px;
+    background: #643E28;
+    color: #fff;
+    line-height: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.main-huodong {
+    width: 100%;
+    height: 385px;
+}
+
+.main-huodong span {
+    font-size: 14px;
+    color: #8E5D43;
+    margin-left: 6px;
+}
+
+.huodong-pic img {
+    margin-left: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.wenzhang {
+    width: 100%;
+    height: 478px;
+}
+
+.wenzhang .more {
+    font-size: 13px;
+    color: #8E5D43;
+}
+
+.wenzhang ul li {
+    width: 542px;
+    height: 345px;
+    background: #fff;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 8px;
+}
+
+.wenzhang ul li img {
+    width: 542px;
+    height: 252px;
+}
+
+.wenzhang ul li p {
+    font-size: 24px;
+    color: #000;
+    margin-top: 14px;
+    padding-left: 16px;
+}
+
+.wenzhang ul li div {
+    font-size: 14px;
+    color: #AD814B;
+    margin-top: 20px;
+    padding-left: 16px;
+}

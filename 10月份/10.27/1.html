@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 300px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td,
+        th {
+            border: 1px solid pink;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>婚姻状况</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script src="../js/jquery.js"></script>
+    <script>
+        $.get("https://www.fastmock.site/mock/3e42c666403b10404e78ecfab5176187/text/text",
+            function (result) {
+                console.log(result);
+                for (let i = 0; i < result.length; i++) {
+                    let mytr = $('<tr></tr>')
+                    let mytd1 = $('<td>' + result[i].name + '</td>')
+
+
+                    let mytd2 = $('<td>' + result[i].age + '</td>')
+
+                    let mytd3 = $('<td>' + result[i].married + '</td>')
+
+                    $(mytr).append(mytd1)
+                    $(mytr).append(mytd2)
+                    $(mytr).append(mytd3)
+
+                    $('tbody').append(mytr)
+                }
+            },
+            "json"
+        );
+    </script>
+</body>
+
+</html>

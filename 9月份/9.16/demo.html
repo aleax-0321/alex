@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = ['alex', 'luffy', 'nami', 'ace']
+        let obj = {
+            nickname: 'ace',
+            test() {
+                console.log(arr.some(r => {
+                    return r === this.nickname
+                }));
+                console.log(this.nickname);
+
+                // let that = this
+                // return function () {
+                //     console.log(that.nickname);
+                // }
+            },
+            say(a, b, c) {
+                console.log('hi, i am ' + this.nickname);
+            }
+        }
+        let fn = obj.test()
+        obj.say(10, 20, 30)
+        let zz = {
+            nickname: 'simba'
+        }
+        obj.say.call(zz, 10, 20, 30)
+        obj.say.apply(zz, [10, 20, 30])
+        obj.say.bind(zz, 10, 20, 30)()
+
+
+    </script>
+</body>
+
+</html>

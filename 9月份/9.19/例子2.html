@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #demo {
+            width: 300px;
+            height: 300px;
+            background: red;
+        }
+
+        #tip {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo"></div>
+    <div id="tip">天干物燥，小心火烛</div>
+    <script>
+        let demo = document.querySelector('#demo')
+        let tip = document.querySelector('#tip')
+
+        function getColor() {
+            let str = '0123456789ABCDEF'
+            let res = '#'
+            for (let i = 0; i < 6; i++) {
+                let index = Math.floor(Math.random() * str.length)
+                res += str[index]
+            }
+            return res
+        }
+
+        demo.onclick = function () {
+            demo.style.background = getColor()
+        }
+
+        demo.ondblclick = function () {
+            console.log('双击');
+        }
+        demo.oncontextmenu = function () {
+            console.log('右击');
+        }
+
+        let time = 0
+        demo.onmousedown = function () {
+            console.log('鼠标按下');
+            time = new Date()
+
+        }
+        demo.onmouseup = function () {
+            console.log('鼠标抬起');
+            if (new Date() - time < 2000) {
+                console.log('三连失败');
+            }
+            else
+                console.log('三连成功');
+
+        }
+        demo.onmouseenter = function () {
+            console.log('鼠标移入');
+            tip.style.display = 'block'
+        }
+        demo.onmouseleave = function () {
+            console.log('鼠标移开');
+            tip.style.display = 'none'
+        }
+        demo.onmousemove = function () {
+            console.log('鼠标移动');
+        }
+
+        demo.onmouseover = function () {
+            console.log('鼠标移入1');
+        }
+        demo.onmouseout = function () {
+            console.log('鼠标移开1');
+        }
+    </script>
+</body>
+
+</html>

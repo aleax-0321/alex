@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/layui.css">
+    <style>
+        .box {
+            width: 700px;
+            min-height: 400px;
+            border: 1px solid skyblue;
+            margin: 50px auto;
+            padding-left: 30px;
+        }
+
+        .box ul li {
+            height: 35px;
+        }
+
+        #fy {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h3>新闻中心</h3>
+        <div class="li">
+
+        </div>
+        <div id="fy"></div>
+    </div>
+</body>
+
+<script src="../template-web.js"></script>
+<script id="tpl-news" type="text/html">
+    <ul>
+     {{each data item}}
+     <li>{{item.id}}.{{item.news}}</li>
+     {{/each}}
+    </ul>
+ 
+  </script>
+
+<script src="./layui.all.js"></script>
+<script>
+    let $ = layui.jquery
+    let laypage = layui.laypage
+
+
+    laypage.render({
+        elem: 'fy'
+        , count: 50 
+        , jump: function (obj, first) {
+        
+            $.ajax({
+
+                type: "get",
+                url: "http://127.0.0.1:3000/getnews",
+                data: { curr: obj.curr, limit: obj.limit },
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                    let str = template('tpl-news', result)
+                    $('.li').html(str)
+                }
+            });
+        }
+    });
+
+</script>
+
+</html>

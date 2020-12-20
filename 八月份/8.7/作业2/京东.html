@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .head {
+            height: 100px;
+            margin-left: 150px;
+            padding-top: 10px;
+            box-sizing: border-box;
+        }
+
+        .head img {
+            /* float: left; */
+            vertical-align: middle;
+        }
+
+        .head h2 {
+            display: inline;
+            margin-left: 20px;
+            font-weight: lighter;
+        }
+
+        .body-check {
+            height: 580px;
+            width: 1200px;
+            background-image: url(./images/banner.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            border: 1px solid blue;
+
+        }
+
+        .body-check .check {
+            width: 400px;
+            height: 300px;
+            border: 1px rebeccapurple solid;
+            position: absolute;
+            top: 126px;
+            right: 82px;
+            background-color: white;
+            background-image: url(./images/icon5.jpg);
+            background-repeat: no-repeat;
+            background-position: 300px 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .check-head {
+            height: 30px;
+            margin-bottom: 30px;
+        }
+
+        .body-check .check .check-head p {
+            float: left;
+            font-size: 20px;
+        }
+
+        .body-check .check .check-head a {
+            float: right;
+            font-size: 15px;
+            color: red;
+        }
+
+        .body-check .check .check-yanz {
+            width: 358px;
+            height: 30px;
+            margin-bottom: 30px;
+
+        }
+
+        .body-check .check .touxiang {
+            width: 40px;
+            height: 40px;
+            background-image: url(./images/icon1.jpg);
+            float: left;
+            position: relative;
+            border: 1px solid black;
+            background-size: cover;
+
+        }
+
+        .body-check .check .yanz-input {
+            float: left;
+        }
+
+        .check .yanz-input input {
+            height: 42px;
+            width: 300px;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            border: 1px solid black;
+            border-left: none;
+            font-size: 15px;
+            padding-left: 10px;
+        }
+
+        .check .check-mima {
+            height: 40px;
+            width: 358px;
+            margin-bottom: 20px;
+        }
+
+        .check .check-mima .mima {
+            width: 40px;
+            height: 40px;
+            background-image: url(./images/icon2.jpg);
+            float: left;
+            border: 1px solid black;
+            border-right: none;
+
+        }
+
+        .check .check-mima .mima-input {
+            float: left;
+        }
+
+        .check .check-mima .mima-input input {
+            height: 38px;
+            width: 300px;
+        }
+
+        .check .xiafang {
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .check .xiafang .zidong {
+            float: left;
+        }
+
+        .check .xiafang .forget {
+            float: right;
+        }
+
+        .check .checkin {
+            width: 340px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background-color: red;
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            letter-spacing: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="head">
+            <img src="./images/logo.png" alt="">
+            <h2>欢迎登录</h2>
+        </div>
+        <div class="body-check">
+            <div class="check">
+                <div class="check-head">
+                    <p>京东会员</p>
+                    <a href="#">立即注册</a>
+                </div>
+                <div class="check-yanz">
+                    <div class="touxiang">
+
+                    </div>
+                    <div class="yanz-input">
+                        <input type="text" placeholder="邮箱/用户名/已验证手机">
+                    </div>
+                </div>
+                <div class="check-mima">
+                    <div class="mima"></div>
+                    <div class="mima-input">
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="xiafang">
+                    <div class="zidong">
+                        <input type="checkbox" id="check">
+                        <label for="check">自动登录</label>
+                    </div>
+                    <div class="forget">
+                        忘记密码？
+                    </div>
+                </div>
+                <div class="checkin">
+                    登录
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tb {
+            width: 800px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+        .tb th,
+        .tb td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .tb img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .counter input {
+            width: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function c(str) {
+            return document.createElement(str)
+        }
+        let list = [
+            {
+                name: '可比克',
+                img: 'https://img11.360buyimg.com/n7/jfs/t1/118467/5/12352/216105/5f0d0f6bE0920313d/ef4f72d06d795a48.jpg',
+                count: 1,
+                price: 5
+            },
+            {
+                name: '乐事',
+                img: 'https://img13.360buyimg.com/n7/jfs/t1/72425/29/8510/298436/5d64db0bE4499bb6c/7c6e1ceefa9c66fb.jpg',
+                count: 2,
+                price: 6
+            },
+            {
+                name: '奥利奥',
+                img: 'https://img11.360buyimg.com/n7/jfs/t1/110929/5/12940/191079/5f180875E9c042ca8/0a8d8cbf68d6e413.jpg',
+                count: 1,
+                price: 8
+            }
+        ]
+
+        let theader = ['名称', '图片', '数量', '价格', '小计', '操作']
+
+        //创建表格
+        let tb = c('table')
+        tb.classList.add('tb')
+        document.body.appendChild(tb)
+
+        //创建表头
+        let tr = c('tr')
+        theader.forEach(function (item) {
+            let th = c('th')
+            th.innerHTML = item
+            tr.appendChild(th)
+        })
+        tb.appendChild(tr)
+
+        //生成内容
+        list.forEach(function (item) {
+            let tr = c('tr')
+
+            let td = c('td')
+            td.innerHTML = item.name
+            tr.appendChild(td)
+
+            let td1 = c('td')
+            // td1.innerHTML = item.img
+            let img = c('img')
+            img.src = item.img
+            td1.appendChild(img)
+
+            tr.appendChild(td1)
+
+            let td2 = c('td')
+            td2.classList.add('counter')
+            let btn1 = c('button')
+            btn1.innerHTML = '-'
+            btn1.onclick = function () {
+                let val = parseInt(input.value)
+                val--
+                if (val < 1) val = 1
+                input.value = val
+                td4.innerHTML = val * item.price
+            }
+            td2.appendChild(btn1)
+
+            let input = c('input')
+            input.value = item.count
+
+            //当文本框输入时触发input事件
+            input.oninput = function (e) {
+                //e.target代表触发本次事件的对象
+                let val = e.target.value
+                //不能为空
+                if (!val) val = 1
+                //如果输入非数字，则还原为1
+                if (isNaN(val)) val = 1
+                else {
+                    val = parseInt(val)
+                    if (val < 1) val = 1
+                }
+                td4.innerHTML = val * item.price
+                input.value = val
+            }
+            td2.appendChild(input)
+
+            let btn2 = c('button')
+            btn2.innerHTML = '+'
+            btn2.onclick = function () {
+                let val = parseInt(input.value)
+                val++
+                input.value = val
+                td4.innerHTML = val * item.price
+            }
+            td2.appendChild(btn2)
+            // td2.innerHTML = item.count
+            tr.appendChild(td2)
+
+
+
+            let td3 = c('td')
+            td3.innerHTML = item.price
+            tr.appendChild(td3)
+
+            let td4 = c('td')
+            td4.innerHTML = item.count * item.price
+            tr.appendChild(td4)
+
+            tb.appendChild(tr)
+
+            let td5 = c('td')
+            td5.innerHTML = '删除'
+            td5.onclick = function () {
+                tr.remove()
+            }
+            tr.appendChild(td5)
+
+            tb.appendChild(tr)
+        })
+    </script>
+</body>
+
+</html>

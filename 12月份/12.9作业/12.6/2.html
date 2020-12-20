@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .container ul {
+            display: none;
+        }
+
+        .container ul.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button v-for="(item,index) in list" @click='fn(index)' :class="{red:index===num}">{{item.title}}</button>
+        <ul v-for="(item, j) in list" :class="{show:j===num}">
+            <li v-for="(i, k) in item.arr">
+                {{i}}
+            </li>
+        </ul>
+
+
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script>
+        new Vue({
+            el: '.container',
+            data: {
+                num: 0,
+                list: [
+                    {
+                        title: '新闻',
+                        arr: ['html', 'html', 'html'],
+                    },
+                    {
+                        title: '体育',
+                        arr: ['css', 'css', 'css'],
+                    },
+                    {
+                        title: '音乐',
+                        arr: ['js', 'js', 'js'],
+                    },
+                ]
+            },
+            methods: {
+                fn(index) {
+                    this.num = index
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

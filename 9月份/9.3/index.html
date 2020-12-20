@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let a= function (){
+
+        // }
+        let a = () => {
+            return 1
+        }
+        console.log(a());
+
+        let b = (aa, bb) => {
+            return aa + bb
+        }
+        // let a = (aa, bb) => aa + bb
+
+        console.log(b(10, 20));
+
+        console.log('-'.repeat(80));
+
+        // let c = (aa) => {
+        //     return aa * 20
+        // }
+        let c = aa => aa * 20
+
+        console.log(c(20));
+
+
+        let d = function () {
+            console.log(22222);
+        }
+        //callback   回调函数   讲一个函数作为参数传入到另一个函数中执行
+        //高阶函数：参数为函数或者返回值为函数的函数成为高阶函数
+        function test(f) {
+            f()
+        }
+        test(d)
+
+            //自执行函数
+            (function () {
+                console.log(1111);
+            })()
+
+
+    </script>
+</body>
+
+</html

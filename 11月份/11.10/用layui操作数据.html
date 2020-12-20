@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <style>
+        .mytable {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        #container {
+            width: 300px;
+            height: 200px;
+            background-color: #eee;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+            margin-left: -150px;
+            z-index: 1000;
+            display: none;
+        }
+
+        #container input {
+            width: 90%;
+            height: 30px;
+            margin-top: 20px;
+        }
+
+        #container button {
+            margin-top: 20px;
+            width: 90%;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="add-btn layui-btn layui-btn-normal">添加数据</button>
+    <button class="delete-btn layui-btn layui-btn-danger">删除数据</button>
+    <button class="update-btn layui-btn layui-btn">编辑数据</button>
+
+    <div id="container">
+        <input type="text" placeholder="网站名称" id="myname">
+        <input type="text" placeholder="网站地址" id="myurl">
+        <button class="layui-btn layui-btn-normal" id="tijiao">提交</button>
+    </div>
+
+    <table class="layui-table mytable" lay-even>
+        <colgroup>
+            <col width="150">
+            <col width="200">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>网站名称</th>
+                <th>网站地址</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="mytbody">
+
+        </tbody>
+    </table>
+</body>
+<script src="./layui/layui.all.js"></script>
+<script>
+    let $ = layui.jquery
+    let layer = layui.layer
+    //获取数据
+
+    function getcontact() {
+        $.ajax({
+            type: "get",
+            url: "http://47.114.95.159:3000/get-flink",
+            // data: "data",
+            dataType: "json",
+            success: function (result) {
+                result.forEach(item => {
+                    var newtr = $(`<tr>
+                        <td>${item.id}</td>
+                        <td>${item.sitename}</td>
+                        <td>${item.siteurl}</td>
+                        <td><button type="button" class="layui-btn layui-btn-sm" >编辑</button><button type="button" class="layui-btn layui-btn-danger layui-btn-sm">删除</button></td>
+                    </tr>`)
+                    $('#mytbody').append(newtr)
+                });
+            }
+        });
+    }
+    getcontact()
+
+
+
+    //添加数据
+    $('.add-btn').click(function (e) {
+        e.preventDefault();
+
+        $('#container').show()
+
+    });
+
+    $('#tijiao').click(function () {
+        let sitename = $('#myname').val()
+        let siteurl = $('#myurl').val()
+        if (sitename == null || siteurl == null) { return }
+
+        $.ajax({
+            type: "post",
+            url: "http://47.114.95.159:3000/add-flink",
+            contentType: 'application/json',
+            data: JSON.stringify({ sitename, siteurl }),
+            dataType: "json",
+            success: function (result) {
+                layer.msg('添加好咯~', { icon: 1 })
+                $('#container').hide()
+            }
+        });
+    })
+
+
+    //删除数据
+    $('.delete-btn').click(function (e) {
+        e.preventDefault();
+        let ids = prompt('输入您想删除的id')
+        if (ids == null) { return }
+        $.ajax({
+            type: "post",
+            url: "http://47.114.95.159:3000/delete-flink",
+            contentType: 'application/json',
+            data: JSON.stringify({ id: ids }),
+            dataType: "json",
+            success: function (result) {
+                layer.msg('删除咯~', { icon: 1 })
+            }
+        });
+    });
+
+
+    //编辑数据
+    $('.update-btn').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "http://47.114.95.159:3000/update-flink",
+            contentType: 'application/json',
+            data: JSON.stringify({ id: 279, sitename: 'dj', siteurl: 'dj.cn' }),
+            dataType: "json",
+            success: function (result) {
+                layer.msg('编辑好咯~', { icon: 1 })
+            }
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //常用于确定次数的循环操作
+        let month = 7
+        let day = 8
+        let total = 0
+        total += day
+
+        for (let i = 1; i < month; i++) {
+            switch (i) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    total += 31
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    total += 30
+                    break;
+                case 2:
+                    total += 29
+            }
+        }
+        console.log(`${month}月${day}天是2020年第${total}天`);
+    </script>
+</body>
+
+</html>

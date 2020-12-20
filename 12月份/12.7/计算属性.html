@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <p>{{cheng}}</p>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script>
+        new Vue({
+            el: '.box',
+            data: {
+                arr: [1, 2, 3, 4, 5]
+            },
+            computed: {
+                cheng() {
+                    for (const i of this.arr) {
+                        let a = i * 2
+                        console.log(a);
+                        if (a % 2 == 0) {
+                            return a
+                        }
+
+
+                    }
+
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue-router/3.4.8/vue-router.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/home">首页</router-link>
+        <router-link to="/news">新闻</router-link>
+        <router-link to="/hot">热搜</router-link>
+
+        <router-view></router-view>
+    </div>
+    <script>
+        let Home = { template: '<div><h1>我是首页</h1></div>' }
+        let News = { template: '<div><h1>新闻页面</h1></div>' }
+        let Hot = { template: '<div><h1>热搜事件</h1></div>' }
+
+        const router = new VueRouter({
+            // mode: 'history',
+            routes: [
+                {
+                    path: '/home', component: Home
+                },
+                {
+                    path: '/news', component: News
+                },
+                {
+                    path: '/hot', component: Hot
+                },
+            ]
+        })
+        let vm = new Vue({
+            el: '#app',
+            router
+        });
+    </script>
+</body>
+
+</html>

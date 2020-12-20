@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li v-for='(item,index) in swim'>
+                {{index}}-{{item}}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for='(item,index) in info'>
+               {{index}}--id: {{item.id}},姓名: {{item.name}},电话: {{item.tel}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for='(item,key) in dog'>
+                {{key}}=>{{item}}
+            </li>
+        </ul>
+
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script>
+        new Vue({
+            el: '.box',
+            data: {
+                swim: ['蛙泳', '蝶泳', '自由泳'],
+                info: [
+                    { id: 1, name: 'alex', tel: 12358586859 },
+                    { id: 2, name: 'karry', tel: 12358581313 },
+                    { id: 3, name: 'jackson', tel: 12358583141 },
+                ],
+                dog: {
+                    name: 'karry',
+                    age: 5,
+                    pz: '泰迪'
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

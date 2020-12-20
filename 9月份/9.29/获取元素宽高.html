@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            padding: 20px;
+            /* border: 10px solid red; */
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p>9月29日，是世界心脏日。据报道，国家心血管中心2019年的统计数据显示，我国每年心源性猝死者高达55万，另据数据推算，我国心血管病患者人数达到3.3亿。</p>
+        <p>9月29日，是世界心脏日。据报道，国家心血管中心2019年的统计数据显示，我国每年心源性猝死者高达55万，另据数据推算，我国心血管病患者人数达到3.3亿。</p>
+        <p>9月29日，是世界心脏日。据报道，国家心血管中心2019年的统计数据显示，我国每年心源性猝死者高达55万，另据数据推算，我国心血管病患者人数达到3.3亿。</p>
+        <p>9月29日，是世界心脏日。据报道，国家心血管中心2019年的统计数据显示，我国每年心源性猝死者高达55万，另据数据推算，我国心血管病患者人数达到3.3亿。</p>
+        <p>9月29日，是世界心脏日。据报道，国家心血管中心2019年的统计数据显示，我国每年心源性猝死者高达55万，另据数据推算，我国心血管病患者人数达到3.3亿。</p>
+
+    </div>
+    <script>
+        let box = document.querySelector('.box')
+
+        //只能获取style 行内式的宽高
+        console.log(box.style.width);
+
+        //getComputedStyle()可以获取行间样式和样式表里的css属性
+        console.log(getComputedStyle(box).width);
+        console.log(getComputedStyle(box).color);
+
+        console.log(box.clientWidth);     //340  => width + padding
+
+
+        console.log(box.offsetWidth);     //360  => width + padding+border
+
+
+
+        console.log(box.scrollHeight);     //656px  => width + padding+溢出部分
+
+
+    </script>
+</body>
+
+</html>

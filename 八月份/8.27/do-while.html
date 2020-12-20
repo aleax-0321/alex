@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //先执行，在判断  至少执行一次
+        // var i = 0
+        // do {
+        //     console.log(i);
+        //     i++
+        // } while (i < 10);
+
+        // var age = 15
+        // while (age < 18) {
+        //     console.log('年龄不够');
+        //     age++
+        // }
+        // console.log('欢迎报名！');
+
+        // var result = ''
+        // var i = 1
+        // do {
+        //     console.log('学习完毕，第' + i + '次考试');
+        //     console.log('科一');
+        //     i++
+        //     result = prompt('考试通过了吗？')
+        // } while (result !== '是');
+        // console.log('恭喜，可以拿证了！');
+
+        // var res = ''
+        // do {
+        //     res = prompt('请输入密码：')
+        //     if (res !== '123456') {
+        //         console.log('密码不正确');
+        //     }
+
+        // } while (res !== '123456');
+        // console.log('欢迎使用！');
+
+
+
+        // var passward = ''
+        // var isSuccess = false
+        // var errorCount = 0
+        // do {
+        //     passward = prompt('请输入密码：')
+        //     isSuccess = passward === '123456'     //对比密码
+        //     if (isSuccess === false) {
+        //         console.log('密码不正确，请重新输入！');
+        //         errorCount++
+        //         if (errorCount === 3) {
+        //             console.log('连续错误三次，已冻结');
+        //             break
+        //         }
+
+        //     }
+        // } while (isSuccess === false);
+        // if (isSuccess) {
+        //     errorCount = 0    //登录成功则把错误记录清除
+        //     consle.log('请选择您需要的业务');
+        // } else {
+        //     console.log('登录失败');
+        // }
+
+
+
+
+        //取款操作
+        //不停取款，直到输入退出两个字为止，每次打印出余额
+
+
+        var money = 0
+        var balance = 1000
+
+
+        do {
+            money = prompt('请输入要取的钞票')
+            if (money === '退出') {
+                break
+            }
+            if (isNaN(money)) {
+                console.log('请输入正确的数字');
+            }
+            else {
+                money = parseInt(money)
+                if (money <= 0 || money > balance) {
+                    console.log('金额有误，请重新输入！');
+                } else {
+                    balance -= money
+                    console.log('取款成功,余额为' + balance + '元');
+                }
+            }
+        } while (money !== '退出');
+
+        console.log('谢谢使用');
+
+
+
+    </script>
+</body>
+
+</html>

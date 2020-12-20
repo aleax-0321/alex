@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <test :msg='123'></test>
+        <test :msg1='12131223'></test>
+        <test msg1='alex'></test> -->
+        <!-- <test :msg2='56546756'></test>
+        <test msg2='karry'></test> -->
+        <test ></test>
+    </div>
+    <script>
+        Vue.component('test', {
+            props: {
+                // msg: Number,
+                // msg1: [String, Number],
+                // msg2: {
+                //     type: Number,
+                //     required: true
+                // },
+                msg3: {
+                    type: Number,
+                    default: 100
+                }
+            },
+            template: '<div><h1>{{msg3}} </h1></div>'
+        })
+        let vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

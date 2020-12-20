@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        //添加实践监听器   可以重复绑定事件
+        //第三个参数如果为true代表事件捕获 从外往内执行
+        //第三个参数如果为flase代表事件冒泡 从内往外执行
+        // app.addEventListener('click', function () {
+        //     this.style.width = '200px'     //this指的app
+        // })
+
+
+        // app.addEventListener('click', function () {
+        //     this.style.height = '200px'     //this指的app
+        // }) 
+
+        let fn = function () {
+            console.log(222);
+            app.style.width = '200px'
+        }
+
+        app.addEventListener('click', fn)
+
+        setInterval(() => {
+            app.removeEventListener('click', fn)
+        }, 2000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,567 @@
+header {
+    height: 80px;
+    background: rgba(0, 0, 0, .3);
+    overflow: hidden;
+}
+
+.header-wrapper {
+    width: 996px;
+    height: 46px;
+    margin: 17px auto;
+}
+
+.logo {
+    width: 500px;
+    height: 100%;
+}
+
+.jieshao {
+    width: 300px;
+    height: 100%;
+}
+
+.logo h2 {
+    width: 159px;
+    height: 100%;
+    background-image: url('./images/logo.png');
+}
+
+.logo ul {
+    width: 282px;
+    height: 40px;
+}
+
+.logo ul li {
+    margin-right: 80px;
+    font-size: 20px;
+    color: #fff;
+
+}
+
+.logo ul li:first-of-type {
+    color: #31c27c;
+
+}
+
+.jieshao li {
+    font-size: 20px;
+    color: #fff;
+}
+
+.mid-container {
+    height: 650px;
+    background-image: url('./images/banner_pc.jpg');
+    position: relative;
+    overflow: hidden;
+}
+
+.mid-banner {
+    /* width: 800px; */
+    height: 570px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.mid-banner .mid-top {
+    width: 587px;
+    height: 145px;
+    background-image: url('./images/img_index_6bc275f9.png');
+    background-position: 0 -312px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mid-banner .mid-middle {
+    width: 293px;
+    height: 69px;
+    background-image: url('./images/img_index_6bc275f9.png');
+    background-position: -416px -859px;
+    position: absolute;
+    top: 260px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mid-bottom {
+    height: 190px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: 1px solid rgba(255, 255, 255, .12);
+}
+
+.mid-bottom ul {
+    width: 1100px;
+    margin: 0 auto;
+    height: 190px;
+}
+
+.mid-bottom ul li {
+    width: 110px;
+    height: 170px;
+    background-image: url('./images/img_index_6bc275f9.png');
+    background-position: -366px -940px;
+    opacity: .4;
+    cursor: pointer;
+}
+
+.mid-bottom ul li:first-of-type {
+    border-top: 1px solid #fff;
+    opacity: 1;
+}
+
+.mid-bottom ul li:nth-of-type(2) {
+    background-image: url('./images/img_index_6bc275f9.png');
+    background-position: -244px -940px;
+}
+
+.mid-bottom ul li:nth-of-type(3) {
+    background-image: url('./images/img_index_6bc275f9.png');
+    background-position: -122px -940px;
+}
+
+.mid-bottom ul li:nth-of-type(4) {
+    background-image: url('./images/img_index_6bc275f9.png');
+    background-position: 0 -940px;
+}
+
+.mid-bottom ul li:hover {
+    opacity: 1;
+}
+
+
+@keyframes move {
+    0% {
+        bottom: 20px;
+        opacity: 0;
+    }
+
+    50% {
+        bottom: 15px;
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 5px;
+        opacity: 0;
+    }
+}
+
+.star {
+    width: 108px;
+    height: 152px;
+    position: absolute;
+    top: -300px;
+    right: -300px;
+    background-image: url('./images/star.png');
+    animation: yidong 3s linear infinite;
+}
+
+@keyframes yidong {
+    0% {
+        top: -300px;
+        right: -300px;
+    }
+
+    100% {
+        top: 300px;
+        right: 300px;
+    }
+}
+
+.star1 {
+    width: 108px;
+    height: 152px;
+    position: absolute;
+    top: -10%;
+    left: 30%;
+    background-image: url('./images/star.png');
+    animation: yidong1 2s linear infinite;
+}
+
+@keyframes yidong1 {
+    0% {
+        top: -10%;
+        left: 30%;
+    }
+
+    100% {
+        top: 30%;
+        left: 10%;
+    }
+}
+
+.pic-big {
+    width: 1524px;
+    height: 900px;
+    position: relative;
+    overflow: hidden;
+}
+
+.pic-small {
+    width: 1920px;
+    height: 1069px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+}
+
+.pic-small li {
+    width: 211px;
+    height: 211px;
+    background-image: url('./images/sprite1.jpg');
+    float: left;
+
+}
+
+.pic-small .cyx {
+    background-image: url('./images/singer12.jpg');
+    animation: donghua 1.5s .8s;
+
+}
+
+.pic-small .mww {
+    background-image: url('./images/莫文蔚.jpg');
+    animation: donghua 1.5s;
+
+}
+
+.pic-small .zly {
+    background-image: url('./images/张靓颖.jpg');
+    animation: donghua 1.2s 2s;
+}
+
+.pic-small .ljj {
+    background-image: url('./images/林俊杰.jpg');
+    animation: donghua 1.5s 1.2s;
+
+}
+
+.pic-small .rain {
+    background-image: url('./images/rain.jpg');
+    animation: donghua 1.5s .5s;
+
+}
+
+.pic-small .zjl {
+    background-image: url('./images/周杰伦.jpg');
+    animation: donghua 1.2s;
+}
+
+@keyframes donghua {
+    0% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.pic-big h2 {
+    width: 566px;
+    height: 74px;
+    background-image: url('./images/img_index_6bc275f9.png');
+    background-position: -556px -630px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pic-big h3 {
+    width: 404px;
+    height: 69px;
+    background-image: url('./images/img_index_6bc275f9.png');
+    background-position: 0 -859px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.jiantou {
+    width: 36px;
+    height: 20px;
+    position: absolute;
+    bottom: 20px;
+    left: 738px;
+    background-image: url('./images/img_index_6bc275f9.png');
+    background-position: -1091px -161px;
+    animation: move 1.5s linear infinite;
+}
+
+.section-one {
+    height: 920px;
+    background-image: url('./images/one.jpg');
+    background-repeat: no-repeat;
+    background-position: -100px 0;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-two {
+    height: 920px;
+    background-image: url('./images/two.jpg');
+    background-repeat: no-repeat;
+    background-position: -100px 0;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.section-three {
+    height: 920px;
+    background-image: url('./images/three.jpg');
+    background-repeat: no-repeat;
+    background-position: -100px 0;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.section-one h2 {
+    width: 554px;
+    height: 149px;
+    background-image: url('./images/img_index_6bc275f9.png');
+    background-position: 0 -469px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-85%, -50%);
+}
+
+.section-one h3 {
+    width: 468px;
+    height: 69px;
+    background-image: url('./images/img_index_6bc275f9.png');
+    background-position: -636px -493px;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-100%, -50%);
+}
+
+.section-one .tel {
+    width: 580px;
+    height: 892px;
+    background-image: url('./images/手机.png');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(20%, -50%);
+}
+
+.section-one .tel .photo1 {
+    width: 426px;
+    height: 645px;
+    background-image: url("./images/photo1.jpg");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-45%, -50%) rotate(7.5deg);
+    animation: photo1 2s;
+}
+
+.section-one .tel .photo2 {
+    width: 426px;
+    height: 645px;
+    background-image: url("./images/photo2.jpg");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-45%, -50%) rotate(7.5deg);
+    animation: photo2 3s 1.5s forwards;
+    opacity: 0;
+
+
+}
+
+@keyframes photo1 {
+    0% {
+        opacity: 0;
+        left: 100%;
+    }
+
+    100% {
+        opacity: 1;
+        left: 50%;
+    }
+}
+
+@keyframes photo2 {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.section-two h2 {
+    width: 615px;
+    height: 143px;
+    background-image: url('./images/img_index_6bc275f9.png');
+    background-position: 0 -157px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-15%, -50%);
+}
+
+.section-two h3 {
+    width: 550px;
+    height: 69px;
+    background-image: url('./images/img_index_6bc275f9.png');
+    background-position: 0 -778px;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-16%, -50%);
+}
+
+.section-two .tel2 {
+    width: 520px;
+    height: 807px;
+    background-image: url('./images/手机2.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-110%, -50%);
+    animation: tel2 2s;
+
+}
+.section-two .tel2 .photo3 {
+    width: 378px;
+    height: 427px;
+    background-image: url("./images/photo3.jpg");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-54%, -50%) rotate(-5.5deg);
+    animation: photo3 1.5s 2s forwards;
+}
+@keyframes tel2 {
+    0%{
+        left: 40%;
+        opacity: 0;
+    }
+    100%{
+        left: 50%;
+        opacity: 1;
+    }
+}
+@keyframes photo3{
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 0 -210px;
+    }
+}
+.section-three h2{
+    width: 545px;
+    height: 136px;
+    background-image: url('./images/img_index_6bc275f9.png');
+    background-position: 0 -630px;
+    position: absolute;
+    top: 27%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+.section-three h3{
+    width: 454px;
+    height: 63px;
+    background-image: url('./images/img_index_6bc275f9.png');
+    background-position: -562px -778px;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    transform: translate(-60%, -50%);
+}
+.section-three .tel3{
+    width: 255px;
+    height: 329px;
+    background-image: url('./images/手机3.png');
+    position: absolute;
+    top: 66%;
+    left: 30%;
+    transform: translate(-30%, -50%);
+    animation: tel3 3s .5s forwards;
+    opacity: 0;
+}
+@keyframes tel3{
+    0%{
+        left: 20%;
+        opacity: 0;
+    }
+    100%{
+        left:30%;
+        opacity: 1;
+    }
+}
+.section-three .mac{
+    width: 620px;
+    height: 784px;
+    position: absolute;
+    top: 6%;
+    right: 8%;
+    background-image: url('./images/mac1.png');
+    background-repeat: no-repeat;
+    animation: mac 2s ;
+
+
+}
+.section-three .mac .mac1{
+    width: 100%;
+    height: 376px;
+    background-image: url('./images/mac.png');
+    position: absolute;
+    top: 52%;
+    right: 0%;
+}
+@keyframes mac{
+    0%{
+        opacity: 0;
+        right: -20%;
+    }
+    100%{
+        opacity: 1;
+        right: 8%;
+    }
+}
+footer{
+    width: 100%;
+    height: 72px;
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,.3);
+    color: #fff;
+    font-size: 12px;
+}
+footer p{
+    width: 200px;
+    height: 22px;
+margin:0 auto;
+}
+footer ul{
+    height: 22px;
+    width: 250px;
+    margin: 0 auto;
+}

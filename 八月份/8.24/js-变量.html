@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //定义一个变量    变量名为age   变量值为20
+        var age = 18  //数值类型   数字在js中是
+        var nickname = '李四'  //字符串
+        var isvip = true    //布尔值 true/false  isXXX  hasXXX  canXXX (前缀)
+        var obj = null        //空值
+        var obj1 = undefined    //未定义   也代表空
+
+
+        // alert('我叫' + nickname + ',今年' + age + '岁')
+        console.log('我叫' + nickname + ',今年' + age + '岁')
+
+
+        // var age = 20
+        // //算术运算符  + - * /  += -= *= /=  ++ -- 
+        // //= 为赋值运算符
+        // age = age + 10       //age为30
+        // // age = age - 5     //age为25
+        // age -= 5             //跟上面一样  自身减5
+        // age++                //相当于age+=1
+        // ++age
+
+        // var b = age++          //++放后面，等整个表达式运行完在++，
+        // console.log(b);
+
+        // var c = ++age           //放前面则先++
+        // console.log(c);
+
+        // console.log(age++);    //29
+        // console.log(++age);    //31
+
+        // //告诉浏览器，在控制台打印age变量
+        // console.log(5 + (age++));   //36 
+        // console.log(--age);         //31
+
+
+        // //逻辑运算符  > < ===   >= <=  !== !  || &&   !为非
+        // // var isSuccess = false
+        // var is_success = 2 === 10
+        // var is_fail = !is_success   //取相反值
+        // console.log(is_success);
+        // console.log(is_fail);
+
+
+
+
+        // var a = '10'
+        // var b = 10
+        // var c = a === b      //不再隐式转换
+
+        // console.log(c);
+
+
+        // //选择结构
+        // var score = prompt('请输入成绩')
+        // //如果isNaN()的结果为true 则代表score不是数字
+        // if (isNaN(score)) {
+        //     console.log('请输入数字！');
+        // }
+        // else {
+        //     console.log(score);
+        //     score=parseInt(score)
+        //     console.log(score);
+        //     //if（布尔表达式或结果   必须是true才能进）{显示}
+        //     if (score > 90) {
+        //         console.log('优秀');
+        //     }
+        //     else if (score >= 80) {
+        //         console.log('良好');
+        //     }
+        //     else if (score >= 60) {
+        //         console.log('及格');
+
+        //     }
+        //     else {
+        //         console.log('不及格');
+        //     }
+        // }
+
+        // var score = prompt('请输入一个数字')  //prompt()返回的值是字符串类型
+        // score = parseInt(score)
+        // //console.log(score%2);  取余数
+        // if (score % 2 === 0) {
+        //     console.log(score + '是偶数');
+        // } else {
+        //     console.log(score + '是奇数');
+
+        // }
+
+
+
+
+        // var year = prompt('请输入年份：')
+        // year=parseInt(year)
+
+        // if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+        //     console.log(year + '是闰年');
+        // } else {
+        //     console.log(year + '是平年');
+        // }
+
+
+        // var month = prompt('请输入月份：')
+        // if (isNaN(month)) {
+        //     console.log('请输入正确月份!');
+        // }
+        // else {
+        //     month = parseInt(month)
+        //     if (month === 1 || month === 3 || month === 5 || month == 7 || month === 8
+        //         || month === 10 || month === 12) {
+        //         console.log(month + '月31天');
+        //     } else if (month === 2) {
+        //         console.log(month + '月28天');
+        //     } else if (month === 4 || month === 6 || month === 9 || month === 11) {
+        //         console.log(month + '月30天');
+        //     } else {
+        //         console.log('请输入正确月份');
+        //     }
+        // }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

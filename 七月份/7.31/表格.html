@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse:collapse;
+            width: 200px;
+            height: 300px;
+            text-align: center;
+        }
+        thead tr{
+            height: 100px;
+        }
+        tbody tr:hover{
+            background-color: lawngreen;    
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <thead>
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>年龄</td>
+        </tr>
+         </thead>
+        <tbody>
+        <tr>
+            <td rowspan="2">1</td>
+            <td colspan="2">ls</td>
+            <!-- <td>17</td> -->
+        </tr>
+        <tr>
+            <!-- <td>2</td> -->
+            <td>zs</td> 
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>xm</td>
+            <td>19</td>
+        </tr>
+        </tbody>
+      
+       
+
+    </table>
+</body>
+</html>

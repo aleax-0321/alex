@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>友情链接</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <style>
+        .yq-table {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .yq-box {
+            margin: 20px auto;
+            width: 1000px;
+        }
+
+        #box {
+            display: none;
+            padding: 20px 20px 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="yq-box">
+        <button type="button" class="layui-btn" id="yq-btn"> <i class="layui-icon layui-icon-app"></i> 友情链接</button>
+    </div>
+    <table class="layui-table yq-table" lay-even>
+        <colgroup>
+            <col width="150">
+            <col width="200">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>网站名称</th>
+                <th>网站地址</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+
+    </table>
+
+    <div id="box">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <div class="layui-input-block" style="margin-left: 0;">
+                    <input type="text" name="title" placeholder="请输入网站名称" autocomplete="off" class="layui-input"
+                        id="sitename">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block" style="margin-left: 0;">
+                    <input type="text" name="text" placeholder="请输入网站地址" autocomplete="off" class="layui-input"
+                        id="siteurl">
+                </div>
+            </div>
+
+
+
+        </form>
+
+    </div>
+
+
+
+    <script id="tplList" type="text/html">
+        <tbody>
+            {{each result item}}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.sitename}}</td>
+                <td>{{item.siteurl}}</td>
+                <td>
+                    <button type="button" class="layui-btn layui-btn-sm"  onclick="bj( {{item.id}},'{{item.sitename}}','{{item.siteurl}}' )">编辑</button>
+                    <button type="button" class="layui-btn layui-btn-danger layui-btn-sm" onclick='del({{item.id}})'>删除</button>
+                </td>
+              </tr>
+            {{/each}}
+             
+        </tbody>
+    </script>
+
+    
+
+
+    <script src="./layui/layui.all.js"></script>
+    <script src="./js/template-web.js"></script>
+
+
+
+    <script>
+        let $ = layui.jquery
+        let layer = layui.layer
+
+        //获取数据
+        function getData() {
+            $.ajax({
+                type: "get",
+                url: "http://47.114.95.159:3000/get-flink",
+                // data: "data",
+                dataType: "json",
+                success: function (result) {
+                    let str = template('tplList', { result })
+                    $('.yq-table').append(str)
+                }
+            });
+        }
+        getData()
+
+        //添加数据
+        $('#yq-btn').click(function (e) {
+            e.preventDefault();
+            layer.open({
+                type: 1,
+                title: '添加友情链接',
+                content: $('#box'),
+                area: '300px',
+                btn: ['确定', '取消'],
+                yes: function () {
+                    let sitename = $('#sitename').val()
+                    let siteurl = $('#siteurl').val()
+
+                    if (sitename.trim() == '') {
+                        layer.msg('名称不能为空哦~')
+                        return
+                    }
+                    if (siteurl.trim() == '') {
+                        layer.msg('网址不能为空哦~')
+                        return
+                    }
+                    $.ajax({
+                        type: "post",
+                        url: "http://47.114.95.159:3000/add-flink",
+                        contentType: 'application/json',
+                        data: JSON.stringify({ sitename, siteurl }),
+                        dataType: "json",
+                        success: function (result) {
+                            layer.msg('添加好咯~', { icon: 1 }, function () {
+                                location.reload()
+                            })
+
+                        }
+                    });
+                }
+            })
+        });
+
+        //删除数据
+        function del(id) {
+
+            layer.confirm('确定要删除吗？', { icon: 3, title: '提示' }, function () {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://47.114.95.159:3000/delete-flink',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ id: id }),
+                    dataType: 'json',
+                    success: function (res) {
+                        layer.msg('删除成功了', { icon: 1 }, function () {
+                            window.location.reload()
+                        })
+
+                    }
+                })
+            })
+        }
+
+
+        function bj(id, sitename, siteurl) {
+            $('#sitename').val(sitename)
+            $('#siteurl').val(siteurl)
+            layer.open({
+                type: 1,
+                title: '编辑友情链接',
+                content: $('#box'),
+                area: '300px',
+                btn: ['确定', '取消'],
+                yes: function () {
+                    let sitename = $('#sitename').val()
+                    let siteurl = $('#siteurl').val()
+                    console.log(sitename);
+
+                    if (sitename.trim() == '') {
+                        layer.msg('名称不能为空哦~')
+                        return
+                    }
+                    if (siteurl.trim() == '') {
+                        layer.msg('网址不能为空哦~')
+                        return
+                    }
+                    $.ajax({
+                        type: "post",
+                        url: "http://47.114.95.159:3000/update-flink",
+                        contentType: 'application/json',
+                        data: JSON.stringify({ id, sitename, siteurl }),
+                        dataType: "json",
+                        success: function (result) {
+                            layer.msg('编辑好咯~', { icon: 1, time: 1000 }, function () {
+                                $('#sitename').val('')
+                                $('#siteurl').val('')
+                                location.reload()
+                            })
+                        }
+                    });
+                }
+            })
+        }
+
+    </script>
+</body>
+
+</html>

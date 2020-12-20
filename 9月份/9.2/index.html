@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //函数的定义   使用function关键字定义的函数，会被预编译到当前作用域顶部，函数提升
+        //定义和调用的顺序无所谓
+        function sayHi() {
+            console.log('hi');
+        }
+
+        //一定要先定义在调用
+        let sayHello = function () {
+            console.log('hello');
+        }
+        sayHello()
+
+
+        //不加号代表访问函数的定义
+        console.log(sayHi);
+        //函数的调用
+        sayHi()
+
+
+        function a() {
+            console.log('a');
+        }
+        function a() {
+            console.log('b');
+        }
+        //重复定义，后面的函数覆盖前面的函数
+        a()
+
+
+
+        let arr = [55, 8, 77, 66]
+        let arr1 = [777, 987455, 665441, 22521]
+        // //封装
+        // function loop() {
+        //     console.log('-'.repeat(80));
+        //     for (let i = 0; i < arr.length; i++) {
+        //         console.log(arr[i]);
+        //     }
+        // }
+        // loop()
+
+        //带参函数   data  形参  参数值为函数调用时传的对应值
+        function loop1(data) {
+            console.log('-'.repeat(80));
+            for (let i = 0; i < data.length; i++) {
+                console.log(data[i]);
+            }
+        }
+
+        // 实参
+        loop1(arr)
+        loop1(arr1)
+
+
+        console.log('-'.repeat(80));
+
+        function solo(name) {
+            console.log('doinb在暴揍' + name);
+        }
+        solo('泡芙')
+        solo('GALA')
+        solo('MING')
+        solo('sofm')
+
+
+        console.log('-'.repeat(80));
+
+
+        function pay(fee, card) {
+            if (card === '工商银行') fee -= 100
+            console.log(`使用${card}卡付款，共计${fee}元`);
+        }
+
+        pay(200, '中国银行')
+        pay(500, '浦发银行')
+        pay(200, '工商银行')
+
+        console.log('-'.repeat(80));
+
+
+        function sum(a, b) {
+            let all = a * b;
+            console.log(all);
+            return all
+        }
+        let res1 = sum(20, 30)
+        res1 -= 100
+        console.log(res1);
+
+
+        function repairZero(num) {
+            //一个函数智能return一次，遇到return就到此为止
+            return num < 10 ? ('0' + num) : num
+            console.log(2); //不会执行
+        }
+
+        console.log(repairZero(9));
+        console.log(repairZero(3));
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../通用样式.css">
+    <style>
+        li[title]{
+            color:chartreuse;
+
+        }
+        li a[target=_blank]{
+            color: chocolate;
+        }
+        li[class^=box]{
+            color: crimson;
+        }
+        li[class$=box]{
+            color: cyan;
+        }
+        li[class*=box]{
+          color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li title="122">121</li>
+        <li title="">1231</li>
+        <li> <a href="" target="_blank">212</a> </li>
+        <li class="box1">1212</li>
+        <li class="box2">3123</li>
+        <li class="3box">4324</li>
+        <li class="4box">564</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        
+    </ul>
+</body>
+</html>

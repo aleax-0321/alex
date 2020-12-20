@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script>
+        //$.type()
+        console.log($.type('alex'));            //string
+        console.log($.type(123));               //number
+        console.log($.type(true));              //boolean
+        console.log($.type(undefined));         //undefined
+        console.log($.type(null));              //null
+        console.log($.type([12, 32, 33]));      //array
+        console.log($.type({}));                //object
+        console.log($.type(/xo/));              //regexp
+        console.log($.type(function () { }));       //function
+    </script>
+</body>
+
+</html>

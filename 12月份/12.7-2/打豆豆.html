@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 700px;
+            min-height: 150px;
+            background-color: #eee;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        .top input {
+            width: 80%;
+            height: 40px;
+            outline: none;
+            text-indent: 10px;
+        }
+
+        .res {
+            padding: 20px 0;
+        }
+
+        .del {
+            color: rgb(53, 152, 233);
+        }
+
+        .list li {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px dotted #333;
+        }
+
+        .list li .dx {
+            width: 20px;
+            height: 20px;
+        }
+
+        .list li p {
+            padding-left: 10px;
+            flex-grow: 1;
+        }
+
+        .list li span {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            background-color: pink;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .list li .revise {
+            height: 20px;
+            flex-grow: 1;
+            text-indent: 10px;
+            margin: 0px 20px
+        }
+
+        .on {
+            text-decoration: line-through;
+            color: rgb(197, 180, 180);
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" v-cloak>
+        <p class="top">
+            <input type="text" placeholder="回车即可添加内容" @keydown.enter='add' v-model.trim="newList">
+        </p>
+        <p class="res">
+            任务总数: <span>{{num}}</span>个,还有<span>{{unFinishNum}}</span>个未完成; 【 <a href="" class="del"
+                @click.prevent='delFinished()'>删除已完成</a>
+            】
+        </p>
+        <h3>任务列表</h3>
+        <ul class="list">
+            <li v-for="(item, index) in list" :key="index">
+                <input type="checkbox" class="dx" v-model="item.check">
+                <p :class="{on:item.check}" @dblclick='revise(item)' v-show="!item.show">{{item.title}}</p>
+                <input type="text" class="revise" v-show="item.show" v-model="item.title" @blur='item.show=false'
+                    @keydown.esc='cancel(item)'>
+                <span @click='del(index)'>X</span>
+            </li>
+        </ul>
+
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: ".container",
+            data: {
+                list: [
+                    { title: '吃饭', check: false, show: false },
+                    { title: '睡觉', check: false, show: false },
+                    { title: '打豆豆', check: false, show: false },
+                ],
+                newList: '',
+                oldtitle: ''
+            },
+            methods: {
+                //删除一行
+                del(index) {
+                    this.list.splice(index, 1)
+                },
+                //删除已经勾选
+                delFinished() {
+                    this.list = this.list.filter(item => !item.check)
+                },
+                //添加
+                add() {
+                    if (this.newList === '') {
+                        alert('内容不能为空')
+                        return
+                    }
+                    this.list.unshift({ title: this.newList, check: false, show: false },)
+                    this.newList = ''
+                },
+                //双击
+                revise(item) {
+                    item.show = true
+                    item.oldtitle = item.title
+                },
+
+                //双击后的取消
+                cancel(item) {
+                    item.show = false;
+                    item.title = item.oldtitle;
+                }
+            },
+            computed: {
+                num() {
+                    return this.list.length
+                },
+                unFinishNum() {
+                    return this.list.filter(item => !item.check).length
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

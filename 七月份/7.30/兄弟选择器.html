@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .p2{
+        color: cornflowerblue;
+    }
+    /* 选择紧挨着后面的兄弟元素  前一个元素+   后一个元素 就能现在后面的选择器 */
+    .p2+p{
+        color:crimson;
+    }
+    /* shift+~+后一个元素 可以选择后面全部的元素 */
+    .p2~p{
+        color: cyan;
+    }
+    </style>
+</head>
+<body>
+    <div>
+    <p>123456</p>
+    <p class="p2">123456</p>
+    <p>123456</p>
+    <p>123456</p>
+    <p>123456</p>
+</div>
+</body>
+</html>

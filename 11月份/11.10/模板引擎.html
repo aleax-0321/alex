@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+</head>
+
+<style>
+    #newform {
+        width: 300px;
+        height: 100px;
+        display: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+    }
+</style>
+
+<body>
+    <button type="button" class="layui-btn" id="add-btn">友情链接</button>
+    <table class="layui-table">
+        <colgroup>
+            <col width="150">
+            <col width="200">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>昵称</th>
+                <th>加入时间</th>
+                <th>签名</th>
+            </tr>
+        </thead>
+
+    </table>
+
+    <div id="newform">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <div class="layui-input-block" style="margin-left: 0;">
+                    <input type="text" placeholder="网站名称" autocomplete="off" class="layui-input" id="wangzhan">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block" style="margin-left: 0;">
+                    <input type="text" placeholder="网址" autocomplete="off" class="layui-input" id="wangzhi">
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <script type="text/html" id="aoligei">
+        <tbody>
+            {{each result item}}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.sitename}}</td>
+                <td>{{item.siteurl}}</td>
+                <td><button type="button" class="layui-btn" id='edit'
+                        onclick="edit({{item.id}},'{{item.sitename}}','{{item.siteurl}}')">编辑</button>
+                    <button type="button" class="layui-btn layui-btn-danger " id='del'
+                        onclick='del({{item.id}})'>删除</button></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </script>
+
+
+    <script src="./layui/layui.all.js"></script>
+    <script src="./js/template-web.js"></script>
+    <script>
+        // 获取
+        let $ = layui.jquery
+        $.ajax({
+            type: "get",
+            url: "http://47.114.95.159:3000/get-flink",
+            // data: "data",
+            dataType: "json",
+            success: function (result) {
+
+                let str = template('aoligei', {
+                    result
+                })
+                $('table').append(str)
+            }
+        });
+
+
+
+        // 添加
+        $('#add-btn').click(function () {
+            layer.open({
+                type: 1,
+                content: $('#newform'),
+                area: ['400px', '300px'],
+                btn: ['添加', '取消'],
+                yes: function () {
+                    let sitename = $('#wangzhan').val()
+                    let siteurl = $('#wangzhi').val()
+                    if (sitename == '' || siteurl == '') {
+                        layer.msg('不能为空')
+                        return
+                    }
+                    let reg = /^http/
+                    if (!reg.test(siteurl)) {
+                        layer.msg('http开头')
+                        return
+                    }
+                    $.ajax({
+                        type: "post",
+                        url: "http://47.114.95.159:3000/add-flink",
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            sitename,
+                            siteurl
+                        }),
+                        dataType: "json",
+                        success: function (response) {
+                            layer.msg('添加成功')
+                            location.reload()
+                        }
+                    });
+                }
+            });
+        })
+
+
+
+        // 删除
+        function del(id) {
+            $.ajax({
+                type: "post",
+                url: "http://47.114.95.159:3000/delete-flink",
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    id
+                }),
+                dataType: "json",
+                success: function (response) {
+                    layer.msg('删除成功')
+                    location.reload()
+                }
+            });
+        }
+
+
+        //编辑 
+        function edit(id, sitename, siteurl) {
+
+            $('#wangzhan').val(sitename)
+            $('#wangzhi').val(siteurl)
+            layer.open({
+                type: 1,
+                content: $('#newform'),
+                area: ['400px', '300px'],
+                btn: ['添加', '取消'],
+                yes: function () {
+                    let sitename = $('#wangzhan').val()
+                    let siteurl = $('#wangzhi').val()
+                    if (sitename == '' || siteurl == '') {
+                        layer.msg('不能为空')
+                        return
+                    }
+                    let reg = /^http/
+                    if (!reg.test(siteurl)) {
+                        layer.msg('http开头')
+                        return
+                    }
+                    $.ajax({
+                        type: "post",
+                        url: "http://47.114.95.159:3000/update-flink",
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            id,
+                            sitename,
+                            siteurl
+                        }),
+                        dataType: "json",
+                        success: function (response) {
+                            layer.msg('编辑成功')
+                            location.reload()
+                        }
+                    });
+                },
+                end: function () {
+                    $('#wangzhan').val('')
+                    $('#wangzhi').val('')
+                }
+            })
+
+        }
+    </script>
+</body>
+
+</html>

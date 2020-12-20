@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //8.递归方式获取10以内数字的和
+        function fn(num) {
+            if (num <= 1) {
+                return 1;
+            } else {
+                return num + fn(num - 1)
+            }
+        }
+        console.log(fn(10));
+    </script>
+</body>
+
+</html>

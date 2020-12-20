@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <p><button @click='change'>改变1</button></p>
+        <p><button @click='change2'>改变2</button></p>
+        <p>{{ipone.name}}</p>
+        <p>{{ipone.xh}}</p>
+        <p>{{arr}}</p>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script>
+        new Vue({
+            el: ".container",
+            data: {
+                ipone: {},
+                arr: [2, 4, 6, 8]
+            },
+            methods: {
+                change() {
+                    // Vue.set(this.ipone, 'name', '苹果')
+                    // Vue.set(this.ipone, 'xh', '11proMax')
+
+                    this.$set(this.ipone, 'name', '华为')
+                    this.$set(this.ipone, 'xh', '荣耀10')
+                },
+                change2() {
+                    this.arr = this.arr.map(item => item * 2)
+                    this.arr = this.arr.map(item => item * 2)
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+
+        <h1 v-if='show'>艾欧尼亚~</h1>
+        <h1 v-else='show'>永恒不变~</h1>
+
+        <h1 v-if='scores >= 90'>A</h1>
+        <h1 v-else-if='scores >= 80'>B</h1>
+        <h1 v-else-if='scores >= 70'>C</h1>
+        <h1 v-else='scores >= 60'>D</h1>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '.box',
+            data: {
+                show: false,
+                scores: 60
+            }
+        })
+    </script>
+</body>
+
+</html>

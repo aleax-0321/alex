@@ -1,0 +1,14 @@
+{
+  "name": "dj-sum",
+  "version": "1.0.1",
+  "description": "\"这是测试包哦~\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "\"这是测试文件哦~\""
+  ],
+  "author": "\"alex\"",
+  "license": "ISC"
+}

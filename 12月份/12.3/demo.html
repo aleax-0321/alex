@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <button @click='fn'>点下试试呢</button>
+        <div class="red" v-show='show'></div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: ".box",
+            data: {
+                show: false
+            },
+            methods: {
+                fn() {
+                    this.show = !this.show
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

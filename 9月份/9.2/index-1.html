@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/通用.js"></script>
+    <script>
+       
+        function nowTime(time, type) {
+            let now = new Date()    //默认为当前时间
+            if (time) now = new Date(time)  //如果传参了，则创建对应对象
+            let yy = repairZero(now.getFullYear())
+            let mm = repairZero(now.getMonth() + 1)
+            let dd = repairZero(now.getDate())
+            let hh = repairZero(now.getHours())
+            let mi = repairZero(now.getMinutes())
+            let ss = repairZero(now.getSeconds())
+
+            let ymd = [yy, mm, dd].join('-')
+            let hms = [hh, mi, ss].join(':')
+            let all = [ymd, hms].join(' ')
+            // console.log(ymd);
+            // console.log(hms);
+            // console.log(all);
+            if (type === 0) return ymd
+            else if (type === 1) return hms
+            else return all
+        }
+        // nowTime('2020-09-01 08:00:00')
+
+        function wbTime(time) {
+            let d3 = new Date()
+            let d4 = new Date(time)
+
+            let sec = (d3 - d4) / 1000
+            if (sec < 60) {
+                console.log('刚刚');
+            } else if (sec < 60 * 60) {
+                console.log(Math.floor(sec / 60) + '分钟前');
+            } else if (sec < 60 * 60 * 24) {
+                console.log(Math.floor(sec / 60 / 60) + '小时前');
+            } else {
+                console.log(nowTime(time, 0));
+            }
+        }
+        wbTime('2020-09-02 08:00:00')
+        wbTime('2020-09-01 08:00:00')
+
+    </script>
+</body>
+
+</html>

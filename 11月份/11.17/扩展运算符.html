@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr1 = [1, 2, 3]
+        let arr2 = [4, 5, 6, 7]
+
+        let arr3 = [...arr1, ...arr2]
+        console.log(arr3);
+
+
+        // ------------------------------------------
+
+
+        let str = 'hello'
+        let arr4 = str.split('')
+        console.log(arr4);
+
+        let arr5 = [...str]
+        console.log(arr5);
+
+
+        // ------------------------------------------
+        let obj = {
+            a: 1,
+            b: 2
+        }
+        obj.c = 3
+        console.log(obj);
+
+        console.log({ ...obj, c: 3 });
+
+
+        //求一组数字中的最大值
+        let arr6 = [3,57, 8, 9, 34, -3, 75]
+
+        console.log(Math.max(...arr6));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .header {
+            height: 40px;
+            background-color: rgb(126, 253, 7);
+            padding: 0 10px;
+            line-height: 40px;
+            position: relative;
+        }
+
+        .header input {
+            height: 20px;
+            width: 200px;
+            outline: none;
+            border: none;
+            line-height: 20px;
+            margin: 0 20px;
+            padding-left: 10px;
+        }
+
+        #search {
+            height: 20px;
+            background-color: #fff;
+            line-height: 20px;
+            position: absolute;
+            top: 12px;
+            left: 10px;
+        }
+
+        #scan {
+            height: 20px;
+            background-color: #fff;
+            line-height: 20px;
+            position: absolute;
+            top: 12px;
+            right: 78px;
+        }
+
+        #chat {
+            height: 20px;
+            line-height: 20px;
+            position: absolute;
+            top: 12px;
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <test></test>
+    </div>
+    <div id="box">
+        <test></test>
+    </div>
+
+
+    <template id="temp1">
+        <div class="box">
+            <div class="header">
+                <img src="./ic_search_gray.png" alt="" id="search">
+                <input type="text" :placeholder=msg>
+                <img src="./ic_scan_gray.png" alt="" id="scan">
+
+                <img src="./ic_chat_white.png" alt="" id="chat">
+            </div>
+        </div>
+    </template>
+
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script>
+        // 局部
+        // new Vue({
+        //     el: "#container",
+        //     data: {},
+        //     components: {
+        //         test: {
+        //             template: '#temp1'
+
+        //         }
+        //     }
+        // })
+
+
+        // 全局
+        Vue.component('test', {
+            template: '#temp1',
+            data() {
+                return {
+                    msg: '请输入你要输入的内容'
+                }
+            },
+        })
+
+        new Vue({
+            el: "#container",
+            data: {}
+        })
+        new Vue({
+            el: "#box",
+            data: {}
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+</head>
+
+<body>
+    <button type="button" class="layui-btn layui-btn-danger" id="deleteBtn">删除</button>
+    <button type="button" class="layui-btn" id="addBtn">添加</button>
+    <script src="./layui/layui.all.js"></script>
+    <script>
+        var $ = layui.jquery;
+        var layer = layui.layer;
+
+
+        // 删除操作
+        $('#deleteBtn').click(function (e) {
+            e.preventDefault();
+
+            layer.confirm('你真的要删除吗？', {
+                btn: ['确定', '再想想吧！']
+            }, function () {
+                // 执行删除操作; 后端接收的是json数据类型
+                $.ajax({
+                    type: "POST",
+                    url: "http://47.114.95.159:3000/delete-flink",
+                    contentType: 'application/json',
+                    data: JSON.stringify({ id: 659 }), // 传给后端的参数
+                    dataType: 'json',
+                    success: function (response) {
+                        console.log(response);
+                        layer.msg('删除成功了', { icon: 1 })
+                    }
+                });
+            }, function () {
+                layer.msg('你取消了删除')
+            })
+
+        });
+
+        // 添加操作
+        $('#addBtn').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "http://47.114.95.159:3000/add-flink",
+                contentType: 'application/json',
+                data: JSON.stringify({ sitename: '百度', siteurl: 'baidu.com' }),
+                dataType: "json",
+                success: function (response) {
+                    layer.msg('添加成功')
+                    console.log(response);
+                }
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

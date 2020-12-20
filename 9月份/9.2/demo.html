@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/通用.js"></script>
+    <script>
+
+        l(leapYear(2020));
+
+        l(reverseStr('Thy Shy'))
+        l(reverseStr('Jackeylove'))
+
+
+
+
+        let arr = [77, 88, 99, 55, 66]
+        function join(code) {
+            let res = ''
+            for (let i = 0; i < arr.length; i++) {
+                res += arr[i]
+                //如果不是最后一个元素，则拼接Code
+                if (i < arr.length - 1) res += code
+            }
+            return res
+        }
+        console.log(join('-'));           //77-88-99-55
+
+        function slice(start, end) {
+            let res1 = []
+            for (let i = start; i < end; i++) {
+                res1.push(arr[i])
+                // res1 += arr[i]
+            }
+            return res1
+        }
+
+        console.log(slice(1, 3));
+
+        // function push() { }
+        // function pop() { }
+        // function unshift() { }
+        // function shift() { }
+        // function reverse() { }
+        // function splice() { }
+
+        // function push(num) {
+        //     let res2 = []
+        //     for (let i = 0; i < arr.length; i++) {
+        //         res2 += arr[i]
+        //         res2 += ','
+        //         if (i >= arr.length - 1) res2 += num
+        //     }
+        //     return res2
+        // }
+        // console.log(push(50).split(','));
+
+
+
+        function push(num) {
+            arr[arr.length] = num
+        }
+        push(30)
+
+
+        // function pop() {
+        //     let res3 = []
+        //     for (let i = 0; i < arr.length - 1; i++) {
+        //         res3 += arr[i]
+        //         if (i < arr.length - 2)
+        //             res3 += ','
+        //     }
+        //     return res3
+        // }
+        // let a = pop().split(',')
+        // console.log(a);
+        // console.log([arr[arr.length - 1]]);
+
+        function pop() {
+            //先将最后一个元素获取到并备份
+            let res = arr[arr.length - 1]
+            //数组长度-1，会自动删除最后一个元素
+            arr.length -= 1
+            //返回备份
+            return res
+        }
+        console.log(pop());
+
+
+
+        // function unshift(num) {
+        //     let res4 = []
+        //     for (let i = 0; i < arr.length; i++) {
+        //         res4 += arr[i]
+        //         // res4 += ','
+        //         if (i < arr.length - 1) res4 += ','
+        //         if (i >= arr.length - 1)
+        //             res4 = num + ',' + res4
+        //     }
+        //     return res4
+        // }
+
+        // console.log(unshift(50).split(','));
+
+
+        function unshift(num) {
+            //因为数组长度会扩容，所以先记录长度
+            let len = arr.length
+            //从后往前，每个元素向后挪动一个位置
+            for (let i = len - 1; i >= 0; i--) {
+                arr[i + 1] = arr[i]
+            }
+            //将第一个元素改成参数值
+            arr[0] = num
+        }
+        // unshift(22)
+
+
+        // function shift() {
+        //     let res5 = []
+        //     for (let i = 1; i < arr.length; i++) {
+        //         res5 += arr[i]
+        //         if (i < arr.length - 1)
+        //             res5 += ','
+        //     }
+        //     return res5
+        // }
+        // console.log(shift().split(','));
+        // console.log([arr[0]]);
+
+
+        // function shift() {
+        //     //备份第一个
+        //     let res1 = arr[0]
+        //     //后面的往前挪
+        //     for (let i = 0; i < arr.length; i++) {
+        //         arr[i] = arr[i + 1]
+        //     }
+        //     //长度减1，删除最后一个元素
+        //     arr.length--
+        //     return res1
+        // }
+        // console.log(shift());
+
+
+        // function reverse() {
+        //     let res6 = []
+        //     for (let i = arr.length - 1; i >= 0; i--) {
+        //         res6[res6.length] = arr[i]
+        //     }
+        //     return res6
+        // }
+        // console.log(reverse());
+
+        function reverse() {
+            let len = arr.length
+            //循环数组到一半，将前面每一个元素跟后面相对应的元素比较，如果值不相等则互换位置
+            for (let i = 0; i < len / 2; i++) {
+                //如果相等则不必替换，节约内存开销
+                if (arr[i] !== arr[len - 1 - i]) {
+                    //定义第三个变量来完成变量值互换
+                    let temp = arr[i]
+                    arr[i] = arr[len - 1 - i]
+                    arr[len - 1 - i] = temp
+                }
+            }
+        }
+        console.log(arr.reverse());
+
+
+        // function splice(one, two) {
+        //     let res7 = []
+        //     for (let i = one; i <= two; i++) {
+        //         res7.push(arr[i])
+        //     }
+        //     return res7
+        // }
+        // console.log(splice(1, 2));
+
+
+        function splice(one, two) {
+            if (two < 0) throw '请输入合法参数'
+            //算出len最大值，防止溢出
+            let maxLen = arr.length - one
+            //如果len没传或者超过最大值，则先知为最大值
+            if (!two || two > maxLen) two = maxLen
+            let res = []
+            for (let i = one; i < arr.length; i++) {
+                //在删除的范围内的元素，返回出去
+                if (i < one + two) res.push(arr[i])
+                //用后面对应的元素替换旧元素
+                arr[i] = arr[i + two]
+            }
+            arr.length -= two
+        }
+        console.log(arr.splice(1, 2));
+
+        console.log(arr);
+
+    </script>
+</body>
+
+</html>

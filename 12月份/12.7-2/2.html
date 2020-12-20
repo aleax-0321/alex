@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .container {
+            width: 400px;
+            background-color: #eee;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .container p input {
+            width: 300px;
+            height: 30px;
+            text-indent: 10px;
+        }
+
+        .one {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .one span:last-of-type {
+            color: rgb(62, 166, 235);
+        }
+
+        .container ul {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted #000;
+            padding: 10px 0;
+        }
+
+        .on {
+            text-decoration: line-through;
+            color: rgb(197, 180, 180);
+        }
+
+        .container ul span {
+            text-align: center;
+            width: 15px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p><input type="text" placeholder="回车即可添加内容"></p>
+        <p class="one">任务总数: <span>3</span>个;还有<span>{{num}}</span>个任务没完成;【<span>完成</span>】</p>
+        <h3>任务列表</h3>
+        <ul v-for="(item, index) in list" :key="index">
+            <li :class="{on:item.check}"><input type="checkbox" @click='change(index)'> {{item.title}}</li>
+            <span @click='del(index)'>X</span>
+        </ul>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script>
+        new Vue({
+            el: '.container',
+            data: {
+                list: [
+                    { title: '吃饭', check: false, num:1 },
+                    { title: '打豆豆', check: false, num:1 },
+                    { title: '睡觉', check: false, num:1 },
+                ]
+            },
+            methods: {
+                change(index) {
+                    this.list[index].check = !this.list[index].check
+                },
+                del(index) {
+                    this.list.splice(index, 1)
+
+                }
+            },
+            computed: {
+                num() {
+                    let sum = 3
+                    this.list.forEach(item => {
+                        if (item.check) {
+                            sum -= item.num
+                        }
+                    });
+                    return sum
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

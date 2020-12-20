@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = []
+        for (let i = 1; i <= 50; i++) {
+            arr.push(i)
+        }
+        function paging(index, val) {
+            let start = (index - 1) * val
+            let end = start + val
+            console.log(start, end);
+            console.log(`共有${Math.ceil(arr.length/ val)}页`);
+            return arr.slice(start, end)
+        }
+        console.log(paging(1, 5));
+
+
+        // function calc(n) {
+        //     // debugger
+        //     if (n === 1) return 1
+        //     let res = n + calc(n - 1)
+        //     return res
+        // }
+        function calc(n) {
+            // debugger
+            if (n === 1) return 1
+            let res = n + arguments.callee(n - 1)
+            return res
+        }
+
+        console.log(calc(10));
+
+        function zz() {
+            console.log(arguments.callee);   //代表本函数
+        }
+
+        zz(11, 22, 33)
+
+
+
+        // console.log(arr);
+    </script>
+</body>
+
+</html>

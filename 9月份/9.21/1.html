@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #demo {
+            width: 300px;
+            height: 300px;
+            background: #fff;
+            position: absolute;
+            box-shadow: 0 0 5px #666;
+        }
+
+        #title {
+            background: #ccc;
+            padding: 10px;
+            color: #222;
+            cursor: move;
+            /* user-select: none; */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #close {
+            width: 20px;
+            height: 20px;
+            cursor: default;
+            text-align: center;
+            line-height: 20px;
+            color: #eee;
+            font-size: 13px;
+            border-radius: 50%;
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="http://baidu.com" id="btn">百度</a>
+    <div id="demo">
+        <div id="title">
+            <div>标题</div>
+            <div id="close">X</div>
+        </div>
+    </div>
+    <script>
+        let btn = document.querySelector("#btn")
+        btn.onclick = function (e) {
+            e.preventDefault()   //阻止默认行为
+            console.log(1);
+        }
+
+
+        let demo = document.querySelector("#demo")
+        let title = document.querySelector("#title")
+        let close = document.querySelector("#close")
+
+        close.onclick = function () {
+            demo.remove()
+        }
+
+        let canMove = false
+
+        let x = 0
+        let y = 0
+        title.onmousedown = function (e) {
+            //获取鼠标按下时的初始位置
+            //offsetLeft 与定位父级的x轴距离
+            x = e.pageX - demo.offsetLeft
+            y = e.pageY - demo.offsetTop
+            canMove = true
+        }
+        //失去焦点
+        window.onblur = function () {
+            console.log(2121);
+            canMove = false
+        }
+
+
+        window.onmouseup = function () {
+            canMove = false
+        }
+
+        window.onmousemove = function (e) {
+            e.preventDefault()    //阻止默认行为
+            if (canMove) {
+
+                //window.innerWidth 屏幕宽度    x.offsetWidth  自身宽度
+                let maxLeft = window.innerWidth - demo.offsetWidth
+                let maxTop = window.innerHeight - demo.offsetHeight
+
+                let left = e.pageX - x
+                let top = e.pageY - y
+
+                //限制活动区域
+                if (left < 0) left = 0
+                if (top < 0) top = 0
+                if (left > maxLeft) left = maxLeft
+                if (top > maxTop) top = maxTop
+
+                demo.style.left = left + "px"
+                demo.style.top = top + 'px'
+            }
+        }
+
+    </script>
+</body>
+
+</html>

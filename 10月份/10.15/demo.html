@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <button class="red">red</button>
+    <button class="pink">pink</button>
+    <button class="skyblue">skyblue</button>
+</body>
+<script src="./js/cookie.js"></script>
+<script>
+    let red = document.querySelector('.red')
+    let pink = document.querySelector('.pink')
+    let skyblue = document.querySelector('.skyblue')
+
+
+
+    window.onload = function () {
+        getCookie('key')
+        console.log(getCookie('key'));
+        document.body.style.backgroundColor = getCookie('key')
+    }
+
+    red.onclick = function () {
+        document.body.style.backgroundColor = 'red'
+        CreateCookie('key', 'red', 7)
+    }
+    pink.onclick = function () {
+        document.body.style.backgroundColor = 'pink'
+        CreateCookie('key', 'pink', 7)
+    }
+    skyblue.onclick = function () {
+        document.body.style.backgroundColor = 'skyblue'
+        CreateCookie('key', 'skyblue', 7)
+    }
+</script>
+
+</html>

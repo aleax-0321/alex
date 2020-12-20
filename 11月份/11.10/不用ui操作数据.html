@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="get-btn">获取数据</button>
+    <button class="add-btn">添加数据</button>
+    <button class="delete-btn">删除数据</button>
+    <button class="update-btn">编辑数据</button>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    //获取数据
+    $('.get-btn').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "get",
+            url: "http://47.114.95.159:3000/get-flink",
+            // data: "data",
+            dataType: "json",
+            success: function (result) {
+                console.log(result);
+            }
+        });
+    });
+
+
+    //添加数据
+    $('.add-btn').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "http://47.114.95.159:3000/add-flink",
+            contentType: 'application/json',
+            data: JSON.stringify({ sitename: 'dj', siteurl: 'dj.com' }),
+            dataType: "json",
+            success: function (result) {
+                console.log(result);
+                console.log('添加好了');
+            }
+        });
+    });
+
+
+    //删除数据
+    $('.delete-btn').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "http://47.114.95.159:3000/delete-flink",
+            contentType: 'application/json',
+            data: JSON.stringify({ id: 278 }),
+            dataType: "json",
+            success: function (result) {
+                console.log(result);
+                console.log('删除咯~');
+            }
+        });
+    });
+
+
+    //编辑数据
+    $('.update-btn').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "http://47.114.95.159:3000/update-flink",
+            contentType: 'application/json',
+            data: JSON.stringify({ id: 279, sitename: 'dj', siteurl: 'dj.cn' }),
+            dataType: "json",
+            success: function (result) {
+                console.log(result);
+            }
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //使用vae定义变量或者方法，都会默认为window的属性之一
+        // var age = 20
+
+
+        // let obj = {
+        //     name: 'Alex',
+        //     sayHi: function () {
+        //         console.log('hi');
+        //     }
+        // }
+        let obj = {
+            myname: 'Alex',
+            age: 20,
+            sayHi() {
+                // console.log(this);
+                //this指向方法的调用者，如a.b()  则b中的this指向a
+                console.log(`我叫${this.myname},今年${this.age}岁了`);
+            }
+        }
+        // let obj1 = {
+        //     name: 'Alex',
+        //     sayHi: () => {
+        //         console.log('hi');
+        //     }
+        // }
+        let obj2 = {
+            myname: 'hfjsfh',
+            age: 10,
+            sayHi: obj.sayHi
+        }
+
+
+        obj.sayHi()
+        obj2.sayHi()
+
+
+        let zz = obj.sayHi
+        zz()
+
+
+        // obj.sayHi()
+        // obj1.sayHi()
+    </script>
+</body>
+
+</html>

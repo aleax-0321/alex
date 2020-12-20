@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/layui.css">
+    <style>
+        .box {
+            width: 1000px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <table id="demo" lay-filter="test"></table>
+    </div>
+
+    <script src="./layui.all.js"></script>
+    <script>
+        let table = layui.table
+
+        table.render({
+            elem: '#demo',
+            width: 1000,
+            url: 'http://127.0.0.1:3000/ggg',
+            page: true,
+            limit: 10,
+            text: {
+                none: '暂无相关数据' //默认：无数据。注：该属性为 layui 2.2.5 开始新增
+            },
+            cols: [[
+                { field: 'id', title: 'ID', width: 80, sort: true },
+                { field: 'username', title: '姓名', width: 80 },
+                { field: 'gender', title: '性别', width: 80 },
+                { field: 'age', title: '年龄', width: 80 },
+                { field: 'address', title: '地址' },
+                { field: 'score', title: '分数', width: 80, sort: true },
+                { field: 'points', title: '积分', width: 80, sort: true },
+                { field: 'money', title: '存款', width: 150, sort: true }
+            ]]
+        })
+    </script>
+</body>
+
+</html>

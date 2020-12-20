@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 1000px;
+            height: 500px;
+            background-color: #ccc;
+            margin: 100px auto;
+            padding-top: 100px;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 800px;
+            height: 300px;
+            background-color: #fff;
+            margin: 0 auto;
+        }
+
+        .box-top {
+            height: 60px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+        }
+
+        .box-sel {
+            height: 26px;
+            line-height: 26px;
+            margin: 0px 10px;
+            padding: 0 10px;
+            color: rgb(76, 221, 240);
+            border: 1px solid rgb(57, 149, 235);
+        }
+
+        .box-sel span {
+            color: #fff;
+            background-color: rgb(48, 168, 238);
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        .list {
+            padding-left: 20px;
+        }
+
+        .list li {
+            margin-top: 30px;
+        }
+
+        .list li span {
+            color: gray;
+        }
+
+        .list li a {
+            color: rgb(36, 34, 34);
+            margin: 0 10px;
+            padding: 0 4px;
+        }
+
+        .list li a.on {
+            background-color: rgb(5, 140, 252);
+            color: #fff;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" v-cloak>
+        <div class="box">
+            <div class="box-top">
+                <p>你的选择:</p>
+                <div class="box-sel" v-for="(value, key) in choose" :key="key">
+                    {{value}} <span @click='del(key)'>X</span>
+                </div>
+
+            </div>
+
+            <ul class="list">
+                <li v-for="(item, index) in list" :key="index">
+                    <span>{{item.title}}:</span>
+                    <a href="#" v-for="(item1, j) in item.nr" :key="j" :class="{on:item.num===j}"
+                        @click.prevent='change(item,j,index,item1)'>{{item1}}</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script>
+        let list = [
+            {
+                title: '品牌',
+                nr: ["苹果", "小米", "锤子", "魅族", "华为", "三星", "OPPO", "vivo", "乐视", "360", "中兴", "索尼"]
+            },
+            {
+                title: '尺寸',
+                nr: ["3.0英寸以下", "3.0-3.9英寸", "4.0-4.5英寸", "4.6-4.9英寸", "5.0-5.5英寸", "6.0英寸以上"]
+            },
+            {
+                title: '系统',
+                nr: ["安卓", "Android", "苹果", "IOS", "微软", "WindowsPhone", "无", "其他"]
+            },
+            {
+                title: '网络',
+                nr: ["联通3G", "双卡单4G", "双卡双4G", "联通4G", "电信4G", "移动4G"],
+            }
+        ]
+        list.forEach(item => {
+            item.num = -1
+        });
+        new Vue({
+            el: ".container",
+            data: {
+                list,
+                choose: {}
+            },
+            methods: {
+                change(item, j, index, item1) {
+                    item.num = j
+                    this.$set(this.choose, index, item1)
+                },
+                del(key) {
+                    // vue 通过对象的key删除相应的值 vm.$delete(obj, key) 
+                    this.$delete(this.choose, key)
+                    this.list[key].num = -1
+                    console.log(key);
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

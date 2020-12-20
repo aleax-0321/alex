@@ -1,0 +1,16 @@
+{
+  "id": "2009919",
+  "name": "8.17",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "16553103",
+      "name": "圣诞气球",
+      "font_class": "shengdanqiqiu",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    }
+  ]
+}

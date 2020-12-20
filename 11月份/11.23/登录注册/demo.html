@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录注册</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <style>
+        body {
+            background-color: #eeeeee;
+        }
+
+        .container {
+            width: 400px;
+            min-height: 300px;
+            margin: 100px auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 3px 3px 2px #ddd;
+        }
+
+        .top {
+            width: 100px;
+            height: 50px;
+            margin: 0 auto;
+            padding-top: 30px;
+        }
+
+        input {
+            width: 300px;
+            height: 30px;
+            margin: 10px 40px;
+        }
+
+        #ljdl,
+        #ljzc {
+            width: 306px;
+            margin: 10px 40px;
+        }
+
+        span {
+            cursor: pointer;
+        }
+
+        .active {
+            color: orange;
+        }
+
+        .zc {
+            display: none;
+            padding-bottom: 50px;
+        }
+
+        .zc p {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <span id="login" class="active">登录</span>
+            <i class="layui-icon layui-icon-key"></i>
+            <span id="enroll">注册</span>
+        </div>
+
+        <div class="dl">
+            <input type="text" placeholder="&#xe66f;用户名" class="layui-icon layui-icon-username" id="user">
+            <input type="password" placeholder="&#xe673;密码" class="layui-icon layui-icon-password" id="word">
+            <button type="button" class="layui-btn layui-btn-normal layui-btn-sm" id="ljdl">立即登录</button>
+        </div>
+
+        <div class="zc">
+            <input type="text" placeholder="&#xe66f;用户名" class="layui-icon layui-icon-username" id="zc-user">
+            <input type="password" placeholder="&#xe673;密码" class="layui-icon layui-icon-password" id="zc-word">
+            <input type="password" placeholder="&#xe673;确认密码" class="layui-icon layui-icon-password" id="zc-wordagain">
+            <button type="button" class="layui-btn layui-btn-sm" id="ljzc">立即注册</button>
+            <p>点击“注册”即表示您同意并愿意遵守协议</p>
+        </div>
+
+    </div>
+    <script src="./layui/layui.all.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.min.js"></script>
+    <script>
+        let $ = layui.jquery
+        let layer = layui.layer
+
+
+        //上方登录
+        $('#login').click(function (e) {
+            e.preventDefault();
+            $(this).addClass('active').siblings('span').removeClass('active');
+            $('.dl').show()
+            $('.zc').hide()
+            $('#zc-user').css('border', '')
+            $('#zc-word').css('border', '')
+            $('#zc-wordagain').css('border', '')
+        });
+        //上方注册
+        $('#enroll').click(function (e) {
+            e.preventDefault();
+            $(this).addClass('active').siblings('span').removeClass('active');
+            $('.dl').hide()
+            $('.zc').show()
+            $('#user').css('border', '')
+            $('#word').css('border', '')
+        });
+
+        //下方登录
+        $('#ljdl').click(function (e) {
+            e.preventDefault();
+            let tips1 = ''
+            let tips2 = ''
+            let value = $('#user').val()
+            let value1 = $('#word').val()
+
+            if (value == '') {
+                tips1 = layer.tips("<span style='color:#000;'>请输入用户名</span>", $('#user'), { tips: [4, '#fff'], time: 2000, area: ['120px', '30px'], tipsMore: true });
+                $('#user').css('border', '1px solid red')
+            } if (value1 == '') {
+                tips2 = layer.tips("<span style='color:#000;'>请输入密码</span>", $('#word'), { tips: [4, '#fff'], time: 2000, area: ['120px', '30px'], tipsMore: true });
+                $('#word').css('border', '1px solid red')
+
+            }
+        });
+
+        //下方注册
+        $('#ljzc').click(function (e) {
+            e.preventDefault();
+            let tipsUser = ''
+            let tipsWord = ''
+            let tipsWordAgain = ''
+
+            let valueUser = $('#zc-user').val()
+            let valueWord = $('#zc-word').val()
+            let valueWordAgain = $('#zc-wordagain').val()
+
+            if (valueUser == '') {
+                tipsUser = layer.tips("<span style='color:#000;'>请输入用户名</span>", $('#zc-user'), { tips: [4, '#fff'], time: 2000, area: ['120px', '30px'], tipsMore: true });
+                $('#zc-user').css('border', '1px solid red')
+
+
+            } if (valueWord == '') {
+                tipsWord = layer.tips("<span style='color:#000;'>请输入密码</span>", $('#zc-word'), { tips: [4, '#fff'], time: 2000, area: ['120px', '30px'], tipsMore: true });
+                $('#zc-word').css('border', '1px solid red')
+
+            }
+            if (valueWordAgain == '') {
+                tipsWordAgain = layer.tips("<span style='color:#000;'>请再次输入密码</span>", $('#zc-wordagain'), { tips: [4, '#fff'], time: 2000, area: ['120px', '30px'], tipsMore: true });
+                $('#zc-wordagain').css('border', '1px solid red')
+            }
+
+            //post请求数据
+            axios.post('http://127.0.0.1:3000/ttt', {
+                name: valueUser,
+                password: valueWord,
+                passworda: valueWordAgain
+            })
+                .then(res => {
+                    console.log(res.data)
+                })
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            display: none;
+        }
+        .box3{
+            width: 200px;
+            height: 200px;
+            background-color: magenta;
+            display: none;
+        }
+        .box1:hover+.box2{
+            display: block;
+        }
+        .box1:hover~.box3{
+            display:block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+</html>

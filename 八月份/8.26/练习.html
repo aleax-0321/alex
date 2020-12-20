@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 请输入第一个年份，再输入月份，再输入一个日期  
+        // 如 2017年2月5日到 今天的总天数
+
+
+
+        var yearone = parseInt(prompt('请输入年份：'))
+        var monthone = parseInt(prompt('请输入月份：'))
+        var dayone = parseInt(prompt('请输入天数：'))
+        var total = 0
+        total += dayone
+        var i = 1
+        while (i <= monthone - 1) {
+            switch (i) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    total += 31
+                    break
+                case 2:
+                    total += 29
+                    break
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    total += 30
+                    break
+            }
+            i++
+        }
+
+        console.log(total);                     //零散日期总和   列如：2017.2.5  从2017.1.1-2017.2.5
+
+
+        var yeartwo = parseInt(prompt('请输入年份：'))
+        var monthtwo = parseInt(prompt('请输入月份：'))
+        var daytwo = parseInt(prompt('请输入天数：'))
+
+        var allyear = 0
+        var remain = 0
+
+        if (yearone < yeartwo) {
+            if ((yearone % 4 === 0 && yearone % 100 !== 0) || yearone % 400 === 0) {
+                console.log('闰年');
+                remain = 366
+                allyear += (yeartwo - yearone - 1) * 366
+
+            } else {
+                console.log('平年');
+                remain = 365
+                allyear += (yeartwo - yearone - 1) * 365
+            }
+        }
+
+        console.log(allyear);                   //中间的整年数    列如 2017.2.5-2020.6.1   2018 2019两年
+
+        var last = remain - total
+        console.log(last);                          //一年中剩余零散日期总和   列如：2017.2.5  从2017.2.5-2017.12.31
+
+
+        var all = 0
+        all += last
+        console.log(all);
+
+
+        var i = 1
+        while (i <= (monthtwo - 1)) {
+            switch (i) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    all += 31
+                    break
+                case 4:
+                case 6:
+                case 11:
+                case 9:
+                    all += 30
+                    break
+                case 2:
+                    all += 29
+                    break
+            }
+            i++
+        }
+        console.log(all);                               //   2017.2.5-2017.12.31的和+2020.1.1-2020.6的和
+
+        all += (allyear + daytwo)                   //   最后加上输入的天数
+
+        console.log("相差" + all + "天");
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

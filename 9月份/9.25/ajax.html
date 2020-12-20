@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //客户端 Client => 服务器 Server 请求 Request
+        //服务器 Server => 客户端 Client 响应 Response
+
+        //建对象
+        let ajax = new XMLHttpRequest()
+
+        //打开通道，进行请求设置
+        ajax.open('GET', './data.json', true)
+        //发送请求
+        ajax.send()
+        //监听状态，获取响应
+        ajax.onreadystatechange = function () {
+            if (ajax.readyState === 4 && ajax.status === 200) {
+                console.log(JSON.parse(ajax.response));    //json => js
+
+            }
+        }
+
+
+        let arr = { age: 10, name: 'zz' }
+        console.log(arr);
+        console.log(JSON.stringify(arr));      //js=>json
+
+        console.log('-'.repeat(30));
+
+        let str = '{"age":10,"name":"zz"}'
+        console.log(str);
+        console.log(JSON.parse(str));         //json => js
+
+    </script>
+
+</body>
+
+</html>

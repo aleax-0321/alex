@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue-router/3.4.8/vue-router.js"></script>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Vue</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <router-link to="/home" class="nav-link">首页</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/ours" class="nav-link">关于我们</router-link>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <router-link to="/center" class="nav-link dropdown-toggle" id="navbarDropdown"
+                            data-toggle="dropdown">账户中心
+                        </router-link>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <router-link to="/center/pwd" class="dropdown-item">密码管理</router-link>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/login" class="nav-link">登录</router-link>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="jumbotron jumbotron-fluid mt-3">
+            <router-view></router-view>
+        </div>
+    </div>
+    <script>
+        let Home = { template: '<div><h1>首页</h1></div>' }
+        let Ours = { template: '<div><h1>关于我们</h1></div>' }
+        let Center = { template: '<div><h1>账户中心</h1> <router-view></router-view></div>' }
+        let Pwd = { template: '<div><h1>密码管理</h1></div>' }
+        let Login = { template: '<div><button>登录</button></div>' }
+
+        const router = new VueRouter({
+            routes: [
+                {
+                    path: '/home', component: Home
+                },
+                {
+                    path: '/ours', component: Ours
+                },
+                {
+                    path: '/center', component: Center,
+                    children: [
+                        {
+                            path: 'pwd', component: Pwd
+                        }
+                    ]
+                },
+                {
+                    path: '/login', component: Login
+                },
+             
+
+            ]
+        })
+        let vm = new Vue({
+            el: '#app',
+            router
+        });
+    </script>
+</body>
+
+</html>

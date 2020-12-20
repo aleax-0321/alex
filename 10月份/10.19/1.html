@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let xhr = new XMLHttpRequest()
+
+        xhr.open('get', 'https://www.fastmock.site/mock/3e42c666403b10404e78ecfab5176187/text/text', true)
+
+        xhr.send()
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    console.log(JSON.parse(xhr.responseText));
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #progress-bar {
+            width: 500px;
+            height: 10px;
+            /* background: red; */
+            border: 1px solid #ccc;
+        }
+
+        #progress {
+            height: 100%;
+            width: 0;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <span id="currentTime">00:00</span> /
+        <span id="totaltime">00:00</span>
+    </h1>
+    <div id="progress-bar">
+        <div id="progress"></div>
+    </div>
+    <audio src="./audio/大鱼.m4a" id="player"></audio>
+    <button id="play">播放</button>
+    <script src="../js/通用.js"></script>
+    <script>
+        let player = document.querySelector('#player')
+        let play = document.querySelector('#play')
+
+        let totaltime = document.querySelector('#totaltime')
+        let currentTime = document.querySelector('#currentTime')
+        let progress = document.querySelector('#progress    ')
+
+        setInterval(() => {
+            let { m: m1, s: s1 } = _.getHMSFromMS(player.currentTime * 1000)
+            currentTime.innerHTML = `${m1}:${s1}`
+            progress.style.width = (player.currentTime / player.duration) * 100 + '%'
+        }, 1000);
+
+        play.onclick = function () {
+            let { m, s } = _.getHMSFromMS(player.duration * 1000)
+            totaltime.innerHTML = `${m}:${s}`
+            player.play()
+        }
+    </script>
+</body>
+
+</html>

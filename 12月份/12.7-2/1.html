@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 14px;
+        }
+
+        .container {
+            width: 800px;
+            height: 600px;
+            background-color: #eee;
+            margin: 0 auto;
+            padding: 30px;
+            padding-top: 100px;
+        }
+
+        .box {
+            width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 3px 5px 5px rgb(107, 105, 105);
+        }
+
+        .buttom {
+            height: 40px;
+            display: flex;
+            justify-content: space-around;
+            width: 400px;
+            margin: 0 auto;
+            background-color: rgb(211, 6, 6);
+            color: #fff;
+            line-height: 40px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        #table-list tbody tr:nth-of-type(odd) {
+            background-color: rgb(16, 158, 240);
+        }
+
+        #table-list tbody tr:nth-of-type(even) {
+            background-color: rgb(225, 240, 16);
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" v-cloak>
+        <div class="box">
+            <table class="table table-striped mx-auto " id="table-list">
+                <thead class="title bg-danger">
+                    <tr>
+                        <th scope="col"><input type="checkbox" v-model="checkon">全选</th>
+                        <th scope="col">歌单</th>
+                        <th scope="col">歌手</th>
+                        <th scope="col">专辑</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item, index) in list" :key="index">
+                        <th scope="row"><input type="checkbox" v-model="item.check"></th>
+                        <td>{{item.sing}}</td>
+                        <td>{{item.song}}</td>
+                        <td>{{item.zj}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="buttom">
+                <p>统计: <span></span> </p>
+                <p>歌手有：<span>{{num}}</span>位</p>
+                <p>专辑有：<span>{{album}}</span>张</p>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script>
+        new Vue({
+            el: ".container",
+            data: {
+                list: [
+                    {
+                        song: '匆匆那年',
+                        sing: '王菲',
+                        zj: 5,
+                        check: true,
+                    },
+                    {
+                        song: '一次就好',
+                        sing: '杨宗纬',
+                        zj: 10,
+                        check: false,
+                    },
+                    {
+                        song: '人间',
+                        sing: '王菲',
+                        zj: 15,
+                        check: false,
+                    },
+
+                ]
+            },
+            computed: {
+                num() {
+                    //控制歌手数量
+                    let arr = this.list.filter(item => item.check)
+                    let newarr = []
+                    arr.forEach(item => {
+                        if (!newarr.includes(item.sing)) {
+                            newarr.push(item.sing)
+                        }
+                    });
+                    return newarr.length
+                },
+                album() {
+                    let sum = 0
+                    this.list.forEach(item => {
+                        if (item.check) {
+                            sum += item.zj
+                        }
+                    });
+                    return sum
+
+                },
+                checkon: {
+                    get() {
+                        return this.list.every(item => item.check)
+                    },
+                    set(val) {
+                        this.list.forEach(item => {
+                            item.check = val
+                        });
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
